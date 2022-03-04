@@ -1,13 +1,12 @@
-<section class="container flex w-screen">
-  <div class="container sidebar w-1/5">
+<section class="container flex w-full">
+  <div class="container sidebar w-1/5 mx-11">
     <app-sidebar></app-sidebar>
   </div>
   
-  <div class="container content w-full">
+  <div class="container content w-4/5">
     <app-navbar></app-navbar>
    <div class="main-content w-full">
     <router-outlet></router-outlet>
    </div>
   </div>
-
 </section>

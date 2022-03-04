@@ -1,6 +1,6 @@
 export const ApiRoutes = {
     api: {
-        baseUrl: "http://localhost:3000/kings/coreapis/school/api/v1/",
+        baseUrl: "http://localhost:8000/kings/coreapis/school/api/v1/",
         user: {
             login: "appLogin",
             logout: "appLogout",
@@ -25,7 +25,13 @@ export const ApiRoutes = {
             retrieveSingle: "getSingleTeacher",
             delete: "deleteTeacher",
         },
-        
+        classroom: {
+            add: "addClassroom",
+            edit: "editClassroom",
+            retrieve: "getClassrooms",
+            retrieveSingle: "getSingleClassroom",
+            delete: "deleteClassroom",
+        },
         role: {
             add: "addRole",
             edit: "editRole",
@@ -74,6 +80,9 @@ export const ApiRoutes = {
     dashboard: {
         login: "",
         home: "dashboard",
-        classrooms: "classrooms"
+        classrooms: "classrooms",
+        teachers: "teachers",
+        learners: "learners",
+        // learners: "learners"
     }
 }

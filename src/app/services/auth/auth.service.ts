@@ -12,6 +12,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(payload:IUser) {
-    return this.http.post(this.baseUrl, payload)
+    return this.http.post<any>(`${this.baseUrl}${ApiRoutes.api.user.login}`, payload)
   }
 }

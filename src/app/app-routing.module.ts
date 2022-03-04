@@ -4,6 +4,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/shared/home/home.component';
 import { AuthComponent } from './components/views/auth/auth.component';
 import { AllRoomsComponent } from './components/views/classroom/all-rooms/all-rooms.component';
+import { AllTeachersComponent } from './components/views/teachers/all-teachers/all-teachers.component';
+import { AuthGuard } from './guards/auth.guard';
 import { ApiRoutes } from './utils/routes/app.routes';
 
 const routes: Routes = [
@@ -14,6 +16,7 @@ const routes: Routes = [
   {
     path: ApiRoutes.dashboard.home,
     component: DashboardComponent,
+    canActivate:[AuthGuard],
     children: [
       {
         path: "",
@@ -22,6 +25,10 @@ const routes: Routes = [
       {
         path: ApiRoutes.dashboard.classrooms,
         component: AllRoomsComponent
+      },
+      {
+        path: ApiRoutes.dashboard.teachers,
+        component: AllTeachersComponent
       }
     ]
   }

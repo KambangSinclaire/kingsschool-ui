@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClassroomService } from 'src/app/services/classroom/classroom.service';
 
 @Component({
   selector: 'app-all-rooms',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllRoomsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private classService: ClassroomService) { }
 
   ngOnInit(): void {
+    this.allClassrooms()
   }
 
+  allClassrooms() {
+    this.classService.allClassrooms().subscribe(response => {
+      console.log('response data', response.data);
+    })
+  }
 }
