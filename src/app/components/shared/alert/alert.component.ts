@@ -22,7 +22,27 @@ export class AlertComponent implements OnInit, DoCheck {
     this.checkAlert();
   }
 
-  ngOnInit(): void { }
+  public closeModal() {
+    let Notification = document.getElementById("notification");
+    Notification!.style.transform = "translateX(150%)";
+  }
+
+  alertp:boolean=false
+ 
+  closeAlert2() {
+    this.alertp=!this.alert
+}
+
+  ngOnInit(): void {
+    if (this.alert.status && this.showAlert) {
+      let Notification = document.getElementById("notification");
+      Notification!.style.transform = "translateX(150%)";
+      Notification!.classList.remove("hidden");
+      setTimeout(function () {
+        Notification!.style.transform = "translateX(0%)";
+      }, 1000);
+    }
+  }
 
   closeAlert() {
     this.sharedService.closeAlert().subscribe(response => {
@@ -37,7 +57,8 @@ export class AlertComponent implements OnInit, DoCheck {
         this.showAlert = true;
         this.alert.message = data?.message;
         this.alert.details = data?.details
-        this.alert.status = data?.status
+        this.alert.status = data?.status,
+        this.alert.color = data?.color
       } else {
         this.showAlert = false;
       }

@@ -4,4 +4,5 @@ export interface IAlert {
     message?: string;
     details?: string;
     status?: AlertStatus;
+    color?:string;
 }

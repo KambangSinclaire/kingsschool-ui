@@ -8,6 +8,8 @@ import { DashboardModule } from './modules/dashboard.module';
 import { SharedModule } from './modules/shared.module';
 import { ResponseInterceptor } from './interceptors/response/response.interceptor';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
+import { LearnersModule } from './modules/learners.module';
+import { ResourceModule } from './modules/resource.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
     BrowserModule,
     DashboardModule,
     SharedModule,
+    ResourceModule,
     AuthModule,
+    LearnersModule,
     AppRoutingModule,
     HttpClientModule
   ],

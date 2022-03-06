@@ -7,19 +7,19 @@ export const ReponseHandler = (response: any, status: AlertStatus) => {
 
     if (status === AlertStatus.SUCCESS) {
         shared.setAlert({
-            message: response.body?.message,
+            message: "Wow",
             status,
-            details: ""
+            details: response.body?.message,
+            color: "green"
         })
     }
 
     if (status === AlertStatus.ERROR) {
-        console.log("error response here ", response);
-
         shared.setAlert({
-            message: response.error?.message,
+            message: "Ooops",
             status,
-            details: ""
+            details: response.error?.message,
+            color: "red"
         })
     }
 }

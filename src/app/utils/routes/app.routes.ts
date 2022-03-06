@@ -4,12 +4,12 @@ export const ApiRoutes = {
         user: {
             login: "appLogin",
             logout: "appLogout",
+            add: "appRegister",
             edit: "editUser",
             retrieveSingle: "getSingleUser",
             retrieve: "getUsers",
             delete: "deleteUser",
         },
-    
         learner: {
             add: "addLearner",
             edit: "editLearner",
@@ -17,13 +17,47 @@ export const ApiRoutes = {
             retrieveSingle: "getSingleLearner",
             delete: "deleteLearner",
         },
-     
         teacher: {
             add: "addTeacher",
             edit: "editTeacher",
             retrieve: "getTeachers",
             retrieveSingle: "getSingleTeacher",
             delete: "deleteTeacher",
+        },
+        academicYear: {
+            add: "addAcademicYear",
+            edit: "editAcademicYear",
+            retrieve: "getAcademicYears",
+            retrieveSingle: "getSingleAcademicYear",
+            delete: "deleteAcademicYear",
+        },
+        academicLevel: {
+            add: "addAcademicLevel",
+            edit: "editAcademicLevel",
+            retrieve: "getAcademicLevels",
+            retrieveSingle: "getSingleAcademicLevel",
+            delete: "deleteAcademicLevel",
+        },
+        assignment: {
+            add: "addAssignment",
+            edit: "editAssignment",
+            retrieve: "getAssignments",
+            retrieveSingle: "getSingleAssignment",
+            delete: "deleteAssignment",
+        },
+        exam: {
+            add: "addExam",
+            edit: "editExam",
+            retrieve: "getExams",
+            retrieveSingle: "getSingleExam",
+            delete: "deleteExam",
+        },
+        course: {
+            add: "addCourse",
+            edit: "editCourse",
+            retrieve: "getCourses",
+            retrieveSingle: "getSingleCourse",
+            delete: "deleteCourse",
         },
         classroom: {
             add: "addClassroom",
@@ -32,6 +66,34 @@ export const ApiRoutes = {
             retrieveSingle: "getSingleClassroom",
             delete: "deleteClassroom",
         },
+        activity: {
+            add: "addActivity",
+            edit: "editActivity",
+            retrieve: "getActivities",
+            retrieveSingle: "getSingleActivity",
+            delete: "deleteActivity",
+        },
+        task: {
+            add: "addTask",
+            edit: "editTask",
+            retrieve: "getTasks",
+            retrieveSingle: "getSingleTask",
+            delete: "deleteTask",
+        },
+        timeTable: {
+            add: "addTimeTable",
+            edit: "editTimeTable",
+            retrieve: "getTimeTables",
+            retrieveSingle: "getSingleTimeTable",
+            delete: "deleteTimeTable",
+        },
+        project: {
+            add: "addProject",
+            edit: "editProject",
+            retrieve: "getProjects",
+            retrieveSingle: "getSingleProject",
+            delete: "deleteProject",
+        },
         role: {
             add: "addRole",
             edit: "editRole",
@@ -39,19 +101,18 @@ export const ApiRoutes = {
             retrieveSingle: "getSingleRole",
             delete: "deleteRole",
         },
-        group: {
-            add: "addGroup",
-            edit: "editGroup",
-            retrieve: "getGroups",
-            retrieveSingle: "getSingleGroup",
-            delete: "deleteGroup",
+        department: {
+            add: "addDepartment",
+            edit: "editDepartment",
+            retrieve: "getDepartments",
+            retrieveSingle: "getSingleDepartment",
+            delete: "deleteDepartment",
         },
         notification: {
             sendSMS: "sendSmsNotification",
             sendEmail: "sendEmailNotification",
             sendPush: "sendPushNotification"
         },
-       
         preference: {
             add: "addPreference",
             edit: "editPreference",
@@ -73,16 +134,33 @@ export const ApiRoutes = {
             retrieveSingle: "getSinglePermission",
             delete: "deletePermission",
             all: "permissions",
-            assign:"assignPermission",
-            remove:"removePermission",
+            assign: "assignPermission",
+            remove: "removePermission",
         }
     },
     dashboard: {
         login: "",
         home: "dashboard",
         classrooms: "classrooms",
+        classroom: "classroom",
         teachers: "teachers",
+        teacher: "teacher",
         learners: "learners",
-        // learners: "learners"
+        learner: "learner",
+        resources: "resources",
+        resource: "resource",
+        profile: "profile",
+        explore: "explore",
+        "academic-years": "academic-years",
+        "academic-year": "academic-year",
+        "academic-levels": "academic-levels",
+        "academic-level": "academic-level",
+        projects: "projects",
+        project: "project",
+        tasks: "tasks",
+        task: "task",
+        activities: "activities",
+        activity: "activity",
+        admins: "admins"
     }
 }
