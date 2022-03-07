@@ -15,17 +15,17 @@ export class SidebarComponent implements OnInit {
   }
 
   gotoTeachers() {
-    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.teachers}`])
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.teacher.all}`])
   }
   gotoClassrooms() {
-    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.classrooms}`])
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.classroom.all}`])
   }
   logout() {
     localStorage.clear();
     this.router.navigate([ApiRoutes.dashboard.login]);
   }
   gotoAddDocument() {
-    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.resources}`])
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.resource.all}`])
   }
   gotoHome() {
     this.router.navigate([`${ApiRoutes.dashboard.home}`])
@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit {
   gotoHelpCenter() { }
 
   gotoLearners() {
-    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.learners}`]);
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.learner.all}`]);
   }
 
 

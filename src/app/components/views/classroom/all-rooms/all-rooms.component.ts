@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IClassroom } from 'src/app/interfaces/classroom.interface';
 import { ClassroomService } from 'src/app/services/classroom/classroom.service';
+import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Component({
   selector: 'app-all-rooms',
@@ -10,7 +12,13 @@ export class AllRoomsComponent implements OnInit {
 
   constructor(private classService: ClassroomService) { }
 
-  dropDownList:any;
+  classrooms: IClassroom[] = [];
+  routes = {
+    details: '/' + ApiRoutes.dashboard.home + '/' + ApiRoutes.dashboard.classroom.all + '/' + ApiRoutes.dashboard.classroom.crud.details,
+    add: ApiRoutes.dashboard.classroom.crud.add
+  };
+
+  dropDownList: any;
 
   ngOnInit(): void {
     this.allClassrooms()
@@ -19,6 +27,7 @@ export class AllRoomsComponent implements OnInit {
   allClassrooms() {
     this.classService.allClassrooms().subscribe(response => {
       console.log('response data', response.data);
+      this.classrooms = response.data;
     })
   }
 }

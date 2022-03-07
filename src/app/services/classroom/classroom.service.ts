@@ -10,6 +10,10 @@ export class ClassroomService {
   private baseUrl: string = ApiRoutes.api.baseUrl;
   constructor(private http: HttpClient) { }
 
+  addClassroom(payload:any){
+    return this.http.post<any>(`${this.baseUrl}${ApiRoutes.api.classroom.add}`,payload)
+  }
+
   allClassrooms() {
     return this.http.get<any>(`${this.baseUrl}${ApiRoutes.api.classroom.retrieve}`);
   }

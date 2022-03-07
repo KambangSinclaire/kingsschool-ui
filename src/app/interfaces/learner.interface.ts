@@ -12,5 +12,9 @@ export interface ILearner extends IBase, IUser {
     payments: any[];
     performanceStats: any;
     attendance: any[];
-    timetable: any
+    timetable: any;
+    fathersName:string,
+    mothersName:string,
+    guardian:string,
+    contact_phone:string;
 }

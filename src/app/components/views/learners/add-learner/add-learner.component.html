@@ -1,18 +1,18 @@
 
-        <div aria-label="form" tabindex="0" class="focus:outline-none xl:w-10/12 w-full px-8">
-            <div class="bg-gray-100 py-12 flex flex-wrap items-center justify-center">
+        <div aria-label="form" tabindex="0" class="focus:outline-none xl:w-12/12 w-full px-8 bg-gray-200">
+            <div class="bg-gray-200 py-12 flex flex-wrap items-center justify-center">
                 <div class="w-52 h-16 relative md:mt-0 mt-4">
                     <img src="https://i.ibb.co/DwNs7zG/Steps.png" alt="step1" class="w-full h-full" />
                     <div class="absolute w-full flex flex-col px-6 items-center justify-center inset-0 m-0">
-                        <p tabindex="0" class="focus:outline-none w-full text-sm font-medium leading-4 text-white">Sign Up</p>
-                        <p tabindex="0" class="focus:outline-none w-full text-xs mt-1 leading-none text-white">description of step 1</p>
+                        <p tabindex="0" class="focus:outline-none w-full text-sm font-medium leading-4 text-white">Personal information</p>
+                        <p tabindex="0" class="focus:outline-none w-full text-xs mt-1 leading-none text-white">Personal pupil info</p>
                     </div>
                 </div>
                 <div class="w-52 h-16 relative md:mt-0 mt-4">
                     <img src="https://i.ibb.co/wNZ4nzy/Steps2.png" alt="step2" class="w-full h-full" />
                     <div class="absolute w-full flex flex-col px-6 items-center justify-center inset-0 m-0">
-                        <p tabindex="0" class="focus:outline-none w-full text-sm font-medium leading-4 text-indigo-800">About you</p>
-                        <p tabindex="0" class="focus:outline-none w-full text-xs mt-1 leading-none text-indigo-800">Some info about you</p>
+                        <p tabindex="0" class="focus:outline-none w-full text-sm font-medium leading-4 text-indigo-800">Address</p>
+                        <p tabindex="0" class="focus:outline-none w-full text-xs mt-1 leading-none text-indigo-800">Learner address</p>
                     </div>
                 </div>
                 <div class="w-52 h-16 relative md:mt-0 mt-4">
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="xl:px-24">
-                <div class="px-5 py-4 bg-gray-100 rounded-lg flex items-center justify-between mt-7">
+                <div class="px-5 py-4 bg-gray-200 rounded-lg flex items-center justify-between mt-7">
                     <div class="flex items-center">
                         <div tabindex="0" class="focus:outline-none flex-shrink-0">
                            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/form_layout_wizard2-svg1.svg" alt="lock">
@@ -43,7 +43,12 @@
                        <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/form_layout_wizard2-svg2.svg" alt="cross">
                     </button>
                 </div>
-                <div class="mt-16 lg:flex justify-between border-b border-gray-200 pb-16">
+
+
+                <!-- Learner Form -->
+                <form [formGroup]="learnerForm">
+                      <!-- STEP 1 Learner Personal info -->
+                <div class="mt-16 lg:flex justify-between border-b border-gray-200 p-16 bg-white">
                     <div class="w-80">
                         <div class="flex items-center">
                             <h1 tabindex="0" class="focus:outline-none text-xl font-medium pr-2 leading-5 text-gray-800">Personal Information</h1>
@@ -54,55 +59,222 @@
                         <div class="md:flex items-center lg:ml-24 lg:mt-0 mt-4">
                             <div class="md:w-64">
                                 <label class="text-sm leading-none text-gray-800" id="firstName" >First name</label>
-                                <input type="name" tabindex="0" class="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="firstName" placeholder="John" />
+                                <input type="text" formControlName="first_name" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="firstName" placeholder="John" />
                             </div>
                             <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
                                 <label class="text-sm leading-none text-gray-800" id="lastName">Last name</label>
-                                <input type="name" tabindex="0" class="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="lastName" placeholder="Doe" />
+                                <input type="text" formControlName="last_name" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="lastName" placeholder="Doe" />
                             </div>
                         </div>
                         <div class="md:flex items-center lg:ml-24 mt-8">
                             <div class="md:w-64">
-                                <label class="text-sm leading-none text-gray-800" id="emailAddress">Email address</label>
-                                <input type="email" tabindex="0" class="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="emailAddress" placeholder="youremail@example.com" />
+                                <label class="text-sm leading-none text-gray-800" id="gender">Gender</label>
+                                <input type="text" formControlName="gender" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="gender" placeholder="Male or Female" />
                             </div>
                             <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
-                                <label class="text-sm leading-none text-gray-800" id="phone" >Phone number</label>
-                                <input type="name" tabindex="0" class="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="phone" placeholder="123-1234567" />
+                                <label class="text-sm leading-none text-gray-800" id="date-of-birth" >Date of birth</label>
+                                <input type="date" formControlName="date_of_birth" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="date-of-birth" placeholder="23-03-2020" />
+                            </div>
+                        </div>
+                        <div class="md:flex items-center lg:ml-24 mt-8">
+                            <div class="md:w-64">
+                                <label class="text-sm leading-none text-gray-800" id="place-of-birth">Place Of Birth</label>
+                                <input type="text" formControlName="place_of_birth" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="place-of-birth" placeholder="Place of birth" />
+                            </div>
+                            <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
+                                <label class="text-sm leading-none text-gray-800" id="academic-level" >Academic Level</label>
+                                <input type="text" formControlName="academic_level" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="academic-level" placeholder="Class 7" />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-16 lg:flex justify-between border-b border-gray-200 pb-16 mb-4">
+
+                <!-- STEP2 Parent's info  -->
+                <div class="mt-16 lg:flex justify-between border-b border-gray-200 p-16 mb-4 bg-white">
                     <div class="w-80">
                         <div class="flex items-center">
-                            <h1 tabindex="0" class="focus:outline-none text-xl font-medium pr-2 leading-5 text-gray-800">Security</h1>
+                            <h1 tabindex="0" class="focus:outline-none text-xl font-medium pr-2 leading-5 text-gray-800">Parents</h1>
                         </div>
                         <p tabindex="0" class="focus:outline-none mt-4 text-sm leading-5 text-gray-600">Information about the section could go here and a brief description of how this might be used.</p>
                     </div>
                     <div>
                         <div class="md:flex items-center lg:ml-24 lg:mt-0 mt-4">
                             <div class="md:w-64">
-                                <label class="text-sm leading-none text-gray-800" id="password">Password</label>
-                                <input type="name" tabindex="0" class="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="password" placeholder="Enter your password" />
+                                <label class="text-sm leading-none text-gray-800" id="fathers-name">Father's Name</label>
+                                <input type="text" formControlName="fathers_name" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="fathers-name" placeholder="Enter your Father's name" />
                             </div>
                             <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
-                                <label class="text-sm leading-none text-gray-800" id="securityCode">Security Code</label>
-                                <input type="name" tabindex="0" class="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="securityCode" placeholder="Enter your security code" />
+                                <label class="text-sm leading-none text-gray-800" id="securityCode">Mother's Name</label>
+                                <input type="text" formControlName="mothers_name" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="securityCode" placeholder="Enter your Mother's name" />
                             </div>
                         </div>
                         <div class="md:flex items-center lg:ml-24 mt-8">
                             <div class="md:w-64">
-                                <label class="text-sm leading-none text-gray-800" id="recoverEmail">Recovery Email address</label>
-                                <input type="name" tabindex="0" class="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"  placeholder="Your recovery email" />
+                                <label class="text-sm leading-none text-gray-800" id="fathers-phone">Father's Phone</label>
+                                <input type="tel" formControlName="fathers_phone" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"  aria-labelledby="fathers-phone" placeholder="237-675455861" />
                             </div>
                             <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
-                                <label class="text-sm leading-none text-gray-800" id="altPhone">Alternate phone number</label>
-                                <input type="name" tabindex="0" class="w-full p-3 mt-3 bg-gray-100 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="altPhone" placeholder="Your alternate phone number" />
+                                <label class="text-sm leading-none text-gray-800" id="mothers-phone">Mother's Phone</label>
+                                <input type="tel" formControlName="mothers_phone" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="mothers-phone" placeholder="237-675455860" />
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Step3 Guardian info  -->
+                <div class="mt-16 lg:flex justify-between border-b border-gray-200 p-16 mb-4 bg-white">
+                    <div class="w-80">
+                        <div class="flex items-center">
+                            <h1 tabindex="0" class="focus:outline-none text-xl font-medium pr-2 leading-5 text-gray-800">Guardian</h1>
+                        </div>
+                        <p tabindex="0" class="focus:outline-none mt-4 text-sm leading-5 text-gray-600">Information about the section could go here and a brief description of how this might be used.</p>
+                    </div>
+                    <div>
+                        <div class="md:flex items-center lg:ml-24 lg:mt-0 mt-4">
+                            <div class="md:w-64">
+                                <label class="text-sm leading-none text-gray-800" id="guardian-name">Guardian's Name</label>
+                                <input type="text" formControlName="guardians_name" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="guardian-name" placeholder="Enter your Guardian's name" />
+                            </div>
+                            <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
+                                <label class="text-sm leading-none text-gray-800" id="guardians-phone">Phone</label>
+                                <input type="tel" formControlName="guardians_phone" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="guardians-phone" placeholder="237-675455861"/>
+                            </div>
+                        </div>
+                        <div class="md:flex items-center lg:ml-24 mt-8">
+                            <div class="md:w-64">
+                                <label class="text-sm leading-none text-gray-800" id="guardian-address">Guardian's Address</label>
+                                <input type="text" formControlName="guardians_address" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800"  aria-labelledby="guardian-address"  placeholder="Enter your Guardian's Phone"/>
+                            </div>
+                            <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
+                                <label class="text-sm leading-none text-gray-800" id="guardian-email">Guardian's Email</label>
+                                <input type="email" formControlName="guardians_email" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="guardian-email" placeholder="email@person.com" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+
+                <!-- PREVIEW Learner info-->
+                <div class="mt-16 lg:flex justify-between border-b border-gray-200 p-16 mb-4 bg-white">
+                    <div class="w-80">
+                        <div class="flex items-center">
+                            <h1 tabindex="0" class="focus:outline-none text-xl font-medium pr-2 leading-5 text-gray-800">Preview</h1>
+                        </div>
+                        <p tabindex="0" class="focus:outline-none mt-4 text-sm leading-5 text-gray-600">Please carefully check the informations below and ensure everything is perfectly entered</p>
+                    </div>
+                    <div>
+                        <div class="md:flex items-center lg:ml-24 lg:mt-0 mt-4">
+                            <div class="md:w-64">
+                                <label class="text-sm leading-none text-gray-800" id="fathers-name">Father's Name</label>
+                                <input type="text" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="fathers-name" placeholder="Enter your Father's name" />
+                            </div>
+                            <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
+                                <label class="text-sm leading-none text-gray-800" id="securityCode">Mother's Name</label>
+                                <input type="text" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="securityCode" placeholder="Enter your Mother's name" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 text-right py-8">
+                    <div class="inline-flex items-end">
+                      <button (click)="createLearner()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                    </div>
+                  </div>
             </div>
         </div>
     
+
+        <!-- component -->
+<!-- <div class="min-h-screen px-6 bg-gray-200 flex items-center justify-center">
+    <div class="container max-w-screen-lg mx-auto">
+      <div>
+        <h2 class="font-semibold text-xl text-gray-600">New Classroom</h2>
+        <p class="text-gray-500 mb-6">Enter the following info to create a new classroom</p>
+  
+        <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+          <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+            <div class="text-gray-600">
+              <p class="font-medium text-lg">Class Details</p>
+              <p>Please fill out all the fields</p>
+            </div>
+  
+            <div class="lg:col-span-2">
+              <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                <div class="md:col-span-5">
+                  <label for="full_name">Class Name</label>
+                  <input type="text" name="full_name" id="full_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-200" value="" />
+                </div>
+  
+                <div class="md:col-span-5">
+                  <label for="email">Email Address</label>
+                  <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-200" value="" placeholder="email@domain.com" />
+                </div>
+  
+                <div class="md:col-span-3">
+                  <label for="address">Address / Street</label>
+                  <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-200" value="" placeholder="" />
+                </div>
+  
+                <div class="md:col-span-2">
+                  <label for="city">City</label>
+                  <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-200" value="" placeholder="" />
+                </div>
+  
+                <div class="md:col-span-2">
+                  <label for="country">Country / region</label>
+                  <div class="h-10 bg-gray-200 flex border border-gray-200 rounded items-center mt-1">
+                    <input name="country" id="country" placeholder="Country" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                    <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
+                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
+                    </button>
+                    <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
+                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    </button>
+                  </div>
+                </div>
+  
+                <div class="md:col-span-2">
+                  <label for="state">State / province</label>
+                  <div class="h-10 bg-gray-200 flex border border-gray-200 rounded items-center mt-1">
+                    <input name="state" id="state" placeholder="State" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                    <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
+                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
+                    </button>
+                    <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
+                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    </button>
+                  </div>
+                </div>
+  
+                <div class="md:col-span-1">
+                  <label for="zipcode">Zipcode</label>
+                  <input type="text" name="zipcode" id="zipcode" class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-200" placeholder="" value="" />
+                </div>
+  
+                <div class="md:col-span-5">
+                  <div class="inline-flex items-center">
+                    <input type="checkbox" name="billing_same" id="billing_same" class="form-checkbox" />
+                    <label for="billing_same" class="ml-2">My billing address is different than above.</label>
+                  </div>
+                </div>
+  
+                <div class="md:col-span-5 text-right">
+                  <div class="inline-flex items-end">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->

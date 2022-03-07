@@ -4,6 +4,9 @@ import { AllRoomsComponent } from '../components/views/classroom/all-rooms/all-r
 import { ClassDetailsComponent } from '../components/views/classroom/class-details/class-details.component';
 import { AddClassroomComponent } from '../components/views/classroom/add-classroom/add-classroom.component';
 import { UpdateClassroomComponent } from '../components/views/classroom/update-classroom/update-classroom.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { BaseComponent } from '../components/views/classroom/base/base.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,10 +15,13 @@ import { UpdateClassroomComponent } from '../components/views/classroom/update-c
     AllRoomsComponent,
     ClassDetailsComponent,
     AddClassroomComponent,
-    UpdateClassroomComponent
+    UpdateClassroomComponent,
+    BaseComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ClassroomModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Component({
   selector: 'app-all-learners',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-learners.component.scss']
 })
 export class AllLearnersComponent implements OnInit {
+
+
 
   isList!: number;
   table_interact1: boolean = false;
@@ -26,6 +29,14 @@ export class AllLearnersComponent implements OnInit {
     this.table_interact6 = value;
     this.table_interact7 = value;
   }
+
+
+  // class properties
+  routes = {
+    details: '/' + ApiRoutes.dashboard.home + '/' + ApiRoutes.dashboard.learner.all + '/' + ApiRoutes.dashboard.learner.crud.details,
+    add: ApiRoutes.dashboard.learner.crud.add
+  };
+
   constructor() { }
 
   ngOnInit(): void {

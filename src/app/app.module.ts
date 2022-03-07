@@ -10,6 +10,7 @@ import { ResponseInterceptor } from './interceptors/response/response.intercepto
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { LearnersModule } from './modules/learners.module';
 import { ResourceModule } from './modules/resource.module';
+import { ClassroomModule } from './modules/classroom.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ResourceModule } from './modules/resource.module';
     ResourceModule,
     AuthModule,
     LearnersModule,
+    ClassroomModule,
     AppRoutingModule,
     HttpClientModule
   ],

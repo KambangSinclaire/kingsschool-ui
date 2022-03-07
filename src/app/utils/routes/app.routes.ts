@@ -1,3 +1,8 @@
+const crud = {
+    add: "add",
+    edit: "edit",
+    details: "details",
+}
 export const ApiRoutes = {
     api: {
         baseUrl: "http://localhost:8000/kings/coreapis/school/api/v1/",
@@ -141,26 +146,52 @@ export const ApiRoutes = {
     dashboard: {
         login: "",
         home: "dashboard",
-        classrooms: "classrooms",
-        classroom: "classroom",
-        teachers: "teachers",
-        teacher: "teacher",
-        learners: "learners",
-        learner: "learner",
-        resources: "resources",
-        resource: "resource",
+        classroom: {
+            all: "classrooms",
+            crud
+        },
+        teacher: {
+            all: "teachers",
+            crud
+        },
+        learner: {
+            all: "learners",
+            crud
+        },
+        resource: {
+            all: "resources",
+            crud
+        },
         profile: "profile",
         explore: "explore",
-        "academic-years": "academic-years",
-        "academic-year": "academic-year",
-        "academic-levels": "academic-levels",
-        "academic-level": "academic-level",
-        projects: "projects",
-        project: "project",
-        tasks: "tasks",
-        task: "task",
-        activities: "activities",
-        activity: "activity",
+        "academic-year": {
+            all: "academic-years",
+            crud
+        },
+        "academic-level": {
+            all: "academic-levels",
+            crud
+        },
+        exam: {
+            all: "exams",
+            crud
+        },
+        transaction: {
+            all: "transactions",
+            crud
+        },
+        project: {
+            all: "projects",
+            crud
+        },
+        task: {
+            all: "tasks",
+            crud
+        },
+        activity: {
+            all: "activities",
+            crud
+        },
         admins: "admins"
     }
 }
