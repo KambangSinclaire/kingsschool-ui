@@ -11,6 +11,8 @@ import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { LearnersModule } from './modules/learners.module';
 import { ResourceModule } from './modules/resource.module';
 import { ClassroomModule } from './modules/classroom.module';
+import { TeachersModule } from './modules/teachers.module';
+import { FileUploadInterceptor } from './interceptors/file-upload/file-upload.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { ClassroomModule } from './modules/classroom.module';
     AuthModule,
     LearnersModule,
     ClassroomModule,
+    TeachersModule,
     AppRoutingModule,
     HttpClientModule
   ],
@@ -32,7 +35,7 @@ import { ClassroomModule } from './modules/classroom.module';
   },
   {
     provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true
-  },],
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,9 @@ import { AllTeachersComponent } from '../components/views/teachers/all-teachers/
 import { TeacherDetailsComponent } from '../components/views/teachers/teacher-details/teacher-details.component';
 import { UpdateTeacherComponent } from '../components/views/teachers/update-teacher/update-teacher.component';
 import { AddTeacherComponent } from '../components/views/teachers/add-teacher/add-teacher.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TeacherBaseComponent } from '../components/views/teachers/teacher-base/teacher-base.component';
 
 
 
@@ -12,10 +15,13 @@ import { AddTeacherComponent } from '../components/views/teachers/add-teacher/ad
     AllTeachersComponent,
     TeacherDetailsComponent,
     UpdateTeacherComponent,
-    AddTeacherComponent
+    AddTeacherComponent,
+    TeacherBaseComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class TeachersModule { }

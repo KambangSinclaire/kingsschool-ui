@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ILearner } from 'src/app/interfaces/learner.interface';
+import { LearnersService } from 'src/app/services/learners/learners.service';
 import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Component({
@@ -37,8 +39,16 @@ export class AllLearnersComponent implements OnInit {
     add: ApiRoutes.dashboard.learner.crud.add
   };
 
-  constructor() { }
+  constructor(private learnersService: LearnersService) { }
+  learners: ILearner[] = [];
 
   ngOnInit(): void {
+    this.allLearners();
+  }
+
+  allLearners() {
+    this.learnersService.allLearners("").subscribe(response => {
+      this.learners = response.data;
+    });
   }
 }

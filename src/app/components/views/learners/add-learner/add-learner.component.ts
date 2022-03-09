@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LearnersService } from 'src/app/services/learners/learners.service';
+import { FileHandler } from 'src/app/utils/file-handler.utils';
 
 @Component({
   selector: 'app-add-learner',
@@ -9,10 +10,13 @@ import { LearnersService } from 'src/app/services/learners/learners.service';
 })
 export class AddLearnerComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private learnerService: LearnersService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private learnerService: LearnersService,
+    private fileUpload: FileHandler) { }
 
   learnerForm = this.formBuilder.group({
-    first__name: ["", Validators.required],
+    first_name: ["", Validators.required],
     last_name: ["", Validators.required],
     gender: ["", Validators.required],
     academic_level: ["", Validators.required],
@@ -26,20 +30,43 @@ export class AddLearnerComponent implements OnInit {
     guardians_email: ["", Validators.required],
     guardians_phone: ["", Validators.required],
     guardians_address: ["", Validators.required],
-  })
+    profile_photo: [""]
+  });
+
+  selectedFile: string = "";
 
   ngOnInit(): void {
   }
 
   createLearner() {
     if (this.learnerForm.valid) {
-      this.learnerForm.setControl('user_name',this.formBuilder.control('test2'));
-      this.learnerForm.setControl('email',this.formBuilder.control('test2@gmail.com'))
-      this.learnerForm.setControl('password',this.formBuilder.control('password2'))
+
+      // dynamically added forms
+      this.learnerForm.setControl('username', this.formBuilder.control(this.learnerForm.get('first_name')?.value));
+      this.learnerForm.setControl('email', this.formBuilder.control(this.learnerForm.get('guardians_email')?.value))
+      this.learnerForm.setControl('password', this.formBuilder.control('password2'))
+      
+      // for file upload
+      const formData = new FormData();
+      formData.append('file', this.learnerForm.get('profile_photo')?.value);
+      this.fileUpload.fileUpload(formData).subscribe(file => {
+        console.log("uploaded file is ", file);
+      });
+
+      // for normal text data
       this.learnerService.addLearner(this.learnerForm.value).subscribe(response => {
         console.log("Response data", response);
-
       })
     }
+  }
+
+  fileHandler(event: any) {
+    const files = Array.from(event.target.files);
+    this.learnerForm.get('profile_photo')?.setValue(files[0] as any);
+    this.selectedFile = this.fileUpload.single(files)
+  }
+
+  ngOnDestroy() {
+    URL.revokeObjectURL(this.selectedFile)
   }
 }

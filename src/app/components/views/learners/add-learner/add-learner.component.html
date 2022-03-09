@@ -86,6 +86,13 @@
                                 <input type="text" formControlName="academic_level" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="academic-level" placeholder="Class 7" />
                             </div>
                         </div>
+
+                        <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
+                          <label class="text-sm leading-none text-gray-800" id="academic-level" >Passport size Photo</label>
+                          <input type="file" id="profile_photo" (change)="fileHandler($event)" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="academic-level" placeholder="Class 7" />
+                         <img [src]="selectedFile | safeImageUrl" alt="" srcset="">
+                      </div>
+
                     </div>
                 </div>
 
@@ -152,8 +159,7 @@
                         </div>
                     </div>
                 </div>
-                </form>
-
+               
                 <!-- PREVIEW Learner info-->
                 <div class="mt-16 lg:flex justify-between border-b border-gray-200 p-16 mb-4 bg-white">
                     <div class="w-80">
@@ -181,6 +187,8 @@
                       <button (click)="createLearner()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                     </div>
                   </div>
+                </form>
+
             </div>
         </div>
     

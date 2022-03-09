@@ -141,7 +141,8 @@ export const ApiRoutes = {
             all: "permissions",
             assign: "assignPermission",
             remove: "removePermission",
-        }
+        },
+        fileUpload:"file-upload",
     },
     dashboard: {
         login: "",

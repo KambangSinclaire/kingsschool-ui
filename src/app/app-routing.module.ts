@@ -16,7 +16,10 @@ import { LearnerBaseComponent } from './components/views/learners/learner-base/l
 import { LearnerDetailsComponent } from './components/views/learners/learner-details/learner-details.component';
 import { AllResourcesComponent } from './components/views/resources/all-resources/all-resources.component';
 import { StatisticsComponent } from './components/views/statistics/statistics.component';
+import { AddTeacherComponent } from './components/views/teachers/add-teacher/add-teacher.component';
 import { AllTeachersComponent } from './components/views/teachers/all-teachers/all-teachers.component';
+import { TeacherBaseComponent } from './components/views/teachers/teacher-base/teacher-base.component';
+import { TeacherDetailsComponent } from './components/views/teachers/teacher-details/teacher-details.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ApiRoutes } from './utils/routes/app.routes';
 
@@ -43,7 +46,7 @@ const routes: Routes = [
             component: AllRoomsComponent
           },
           {
-            path: ApiRoutes.dashboard.classroom.crud.details+"/:id",
+            path: ApiRoutes.dashboard.classroom.crud.details + "/:id",
             component: ClassDetailsComponent
           },
           {
@@ -61,7 +64,7 @@ const routes: Routes = [
             component: AllLearnersComponent
           },
           {
-            path: ApiRoutes.dashboard.learner.crud.details+"/:id",
+            path: ApiRoutes.dashboard.learner.crud.details + "/:id",
             component: LearnerDetailsComponent
           },
           {
@@ -81,7 +84,21 @@ const routes: Routes = [
       },
       {
         path: ApiRoutes.dashboard.teacher.all,
-        component: AllTeachersComponent
+        component: TeacherBaseComponent,
+        children: [
+          {
+            path: "",
+            component: AllTeachersComponent
+          },
+          {
+            path: ApiRoutes.dashboard.teacher.crud.details + "/:id",
+            component: TeacherDetailsComponent
+          },
+          {
+            path: ApiRoutes.dashboard.teacher.crud.add,
+            component: AddTeacherComponent
+          }
+        ]
       },
       {
         path: ApiRoutes.dashboard.learner.all,
