@@ -4,7 +4,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/services/shared.service';
-import { LocalStore } from 'src/app/utils/localstore.utils';
+import { Cipher, LocalStore } from 'src/app/utils/localstore.utils';
+import { IUser } from 'src/app/interfaces/user.interface';
 
 @Component({
   selector: 'app-auth',
@@ -24,9 +25,14 @@ export class AuthComponent implements OnInit {
   }
   login() {
     this.auth.login(this.user.value).subscribe((response) => {
-      LocalStore.setItem('token', response.data.refresh_token);
-      LocalStore.setItem('x_api_key', response.data.x_api_key)
-      this.router.navigate([ApiRoutes.dashboard.home]);
+      const responseData: IUser = response.data;
+      LocalStore.setItem('token', responseData.refresh_token);
+      LocalStore.setItem('x_api_key', responseData.x_api_key)
+      this.router.navigate([ApiRoutes.dashboard.home], {
+        queryParams: {
+          [responseData?.userType ?? "admin"]: Cipher.encrypt(responseData?.id)
+        }
+      });
     }
     )
   }

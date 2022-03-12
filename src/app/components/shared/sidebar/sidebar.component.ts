@@ -48,7 +48,9 @@ export class SidebarComponent implements OnInit {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.learner.all}`]);
   }
 
-
+  gotoCourses(){
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.course.all}`]);
+  }
 
 
 

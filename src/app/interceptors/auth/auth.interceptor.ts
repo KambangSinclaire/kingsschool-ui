@@ -25,7 +25,7 @@ export class AuthInterceptor implements HttpInterceptor {
         "x-api-key": x_api_key ?? ""
       });
 
-      if (!request.url.includes(ApiRoutes.api.fileUpload)) {
+      if (!request.url.includes(ApiRoutes.api.fileUpload.single)) {
         headers.append('Content-Type', 'application/json')
       }
 

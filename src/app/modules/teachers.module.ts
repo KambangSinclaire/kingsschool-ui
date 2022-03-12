@@ -7,6 +7,7 @@ import { AddTeacherComponent } from '../components/views/teachers/add-teacher/ad
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TeacherBaseComponent } from '../components/views/teachers/teacher-base/teacher-base.component';
+import { SharedModule } from './shared.module';
 
 
 
@@ -21,7 +22,8 @@ import { TeacherBaseComponent } from '../components/views/teachers/teacher-base/
   imports: [
     CommonModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class TeachersModule { }

@@ -19,3 +19,12 @@ export class LocalStore {
         }
     }
 }
+
+export class Cipher {
+    static encrypt(payload: any) {
+        return btoa(payload)
+    }
+    static decrypt(payload: any) {
+        return atob(payload)
+    }
+}

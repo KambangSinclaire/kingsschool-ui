@@ -12,4 +12,7 @@ export class AddTeacherComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectedValues(event: any) {
+    console.log("These are the selected values ", event);
+  }
 }

@@ -142,7 +142,12 @@ export const ApiRoutes = {
             assign: "assignPermission",
             remove: "removePermission",
         },
-        fileUpload:"file-upload",
+        fileUpload:{
+            multiple:"files/multiple",
+            single:"file",
+            files:"files/many-files",
+            anyFiles:"files/any-files"
+        },
     },
     dashboard: {
         login: "",
@@ -157,6 +162,10 @@ export const ApiRoutes = {
         },
         learner: {
             all: "learners",
+            crud
+        },
+        course: {
+            all: "courses",
             crud
         },
         resource: {

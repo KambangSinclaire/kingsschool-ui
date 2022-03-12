@@ -13,7 +13,7 @@ export class FileUploadInterceptor implements HttpInterceptor {
   constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (!request.url.includes(ApiRoutes.api.fileUpload)) {
+    if (!request.url.includes(ApiRoutes.api.fileUpload.single)) {
       const clonedRequest = request.clone();
       clonedRequest.headers.append("content-type", "application/json");
       request = clonedRequest;

@@ -13,6 +13,7 @@ import { ResourceModule } from './modules/resource.module';
 import { ClassroomModule } from './modules/classroom.module';
 import { TeachersModule } from './modules/teachers.module';
 import { FileUploadInterceptor } from './interceptors/file-upload/file-upload.interceptor';
+import { CourseModule } from './modules/course.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FileUploadInterceptor } from './interceptors/file-upload/file-upload.in
     LearnersModule,
     ClassroomModule,
     TeachersModule,
+    CourseModule,
     AppRoutingModule,
     HttpClientModule
   ],

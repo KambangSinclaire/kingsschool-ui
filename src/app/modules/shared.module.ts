@@ -7,23 +7,25 @@ import { SidebarComponent } from '../components/shared/sidebar/sidebar.component
 import { CalendarComponent } from '../components/shared/calendar/calendar.component';
 import { MessageInboxComponent } from '../components/shared/message-inbox/message-inbox.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { SelectDropdownComponent } from '../components/shared/select-dropdown/select-dropdown.component';
 
-
-
+const components = [
+  AlertComponent,
+  NavbarComponent,
+  HomeComponent,
+  SidebarComponent,
+  CalendarComponent,
+  MessageInboxComponent,
+  SelectDropdownComponent
+]
 @NgModule({
   declarations: [
-    AlertComponent,
-    NavbarComponent,
-    HomeComponent,
-    SidebarComponent,
-    CalendarComponent,
-    MessageInboxComponent
+    components
   ],
   imports: [
     CommonModule,
     AppRoutingModule
   ],
-  exports: [HomeComponent, AlertComponent,
-    NavbarComponent,SidebarComponent]
+  exports: [components]
 })
 export class SharedModule { }

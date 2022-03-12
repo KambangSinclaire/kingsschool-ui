@@ -45,18 +45,23 @@ export class AddLearnerComponent implements OnInit {
       this.learnerForm.setControl('username', this.formBuilder.control(this.learnerForm.get('first_name')?.value));
       this.learnerForm.setControl('email', this.formBuilder.control(this.learnerForm.get('guardians_email')?.value))
       this.learnerForm.setControl('password', this.formBuilder.control('password2'))
-      
+
       // for file upload
       const formData = new FormData();
       formData.append('file', this.learnerForm.get('profile_photo')?.value);
       this.fileUpload.fileUpload(formData).subscribe(file => {
-        console.log("uploaded file is ", file);
-      });
 
-      // for normal text data
-      this.learnerService.addLearner(this.learnerForm.value).subscribe(response => {
-        console.log("Response data", response);
-      })
+        this.learnerForm.patchValue({ 'profile_photo': file?.image });
+
+        //upload learner data
+        this.learnerService.addLearner(this.learnerForm.value).subscribe(response => {
+          console.log("Response data", response);
+        });
+
+      }, (error) => {
+        console.log('Error occured');
+
+      });
     }
   }
 
