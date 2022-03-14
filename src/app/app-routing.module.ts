@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/shared/home/home.component';
+import { AcademicLevelBaseComponent } from './components/views/academicLevel/academic-level-base/academic-level-base.component';
+import { AddLevelComponent } from './components/views/academicLevel/add-level/add-level.component';
 import { AllLevelsComponent } from './components/views/academicLevel/all-levels/all-levels.component';
+import { LevelDetailsComponent } from './components/views/academicLevel/level-details/level-details.component';
 import { AllAcademicYearsComponent } from './components/views/academicYear/all-academic-years/all-academic-years.component';
 import { AuthComponent } from './components/views/auth/auth.component';
 import { ProfileComponent } from './components/views/auth/profile/profile.component';
@@ -115,15 +118,25 @@ const routes: Routes = [
       },
       {
         path: ApiRoutes.dashboard['academic-level'].all,
-        component: AllLevelsComponent
+        component: AcademicLevelBaseComponent,
+        children: [
+          {
+            path: "",
+            component: AllLevelsComponent
+          },
+          {
+            path: ApiRoutes.dashboard['academic-level'].crud.details + "/:id",
+            component: LevelDetailsComponent
+          },
+          {
+            path: ApiRoutes.dashboard['academic-level'].crud.add,
+            component: AddLevelComponent
+          }
+        ]
       },
       {
         path: ApiRoutes.dashboard['academic-year'].all,
         component: AllAcademicYearsComponent
-      },
-      {
-        path: ApiRoutes.dashboard.learner.all,
-        component: AllLearnersComponent
       },
       {
         path: ApiRoutes.dashboard.resource.all,

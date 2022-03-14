@@ -16,7 +16,7 @@ export class AddCourseComponent implements OnInit {
     private fileUpload: FileHandler) { }
 
   courseForm = this.formBuilder.group({
-    name: ["", Validators.required],
+    title: ["", Validators.required],
     short_form:["", Validators.required],
     pass_mark:["", Validators.required],
     credit_value:["", Validators.required],

@@ -14,6 +14,7 @@ import { ClassroomModule } from './modules/classroom.module';
 import { TeachersModule } from './modules/teachers.module';
 import { FileUploadInterceptor } from './interceptors/file-upload/file-upload.interceptor';
 import { CourseModule } from './modules/course.module';
+import { AcademicLevelModule } from './modules/academic-level.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CourseModule } from './modules/course.module';
     ClassroomModule,
     TeachersModule,
     CourseModule,
+    AcademicLevelModule,
     AppRoutingModule,
     HttpClientModule
   ],

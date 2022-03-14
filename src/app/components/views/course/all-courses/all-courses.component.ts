@@ -22,6 +22,8 @@ export class AllCoursesComponent implements OnInit {
   allCourses() {
     this.courseService.allcourses().subscribe(response => {
       this.courses = response.data;
+      console.log('here are courses ', this.courses);
+      
     });
   }
   gotoAddCourses(){

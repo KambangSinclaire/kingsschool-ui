@@ -4,6 +4,10 @@ import { AllLevelsComponent } from '../components/views/academicLevel/all-levels
 import { AddLevelComponent } from '../components/views/academicLevel/add-level/add-level.component';
 import { UpdateLevelComponent } from '../components/views/academicLevel/update-level/update-level.component';
 import { LevelDetailsComponent } from '../components/views/academicLevel/level-details/level-details.component';
+import { AcademicLevelBaseComponent } from '../components/views/academicLevel/academic-level-base/academic-level-base.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared.module';
 
 
 
@@ -12,10 +16,14 @@ import { LevelDetailsComponent } from '../components/views/academicLevel/level-d
     AllLevelsComponent,
     AddLevelComponent,
     UpdateLevelComponent,
-    LevelDetailsComponent
+    LevelDetailsComponent,
+    AcademicLevelBaseComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule,
+    ReactiveFormsModule,
+    AppRoutingModule
   ]
 })
 export class AcademicLevelModule { }

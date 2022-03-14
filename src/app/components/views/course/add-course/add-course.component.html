@@ -59,7 +59,7 @@
                         <div class="md:flex items-center lg:ml-24 lg:mt-0 mt-4">
                             <div class="md:w-64">
                                 <label class="text-sm leading-none text-gray-800" id="title" >Subject Title</label>
-                                <input type="text" formControlName="name" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="title" placeholder="Mathematics" />
+                                <input type="text" formControlName="title" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="title" placeholder="Mathematics" />
                             </div>
                             <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
                                 <label class="text-sm leading-none text-gray-800" id="short_form">Short Form</label>
@@ -108,8 +108,8 @@
                     <div>
                         <div class="md:flex items-center lg:ml-24 lg:mt-0 mt-4">
                             <div  class="md:w-64 md:ml-12 md:mt-0 mt-4">
-                                <label class="text-sm leading-none text-gray-800" id="name">Title</label>
-                                <input type="text" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="name" [value]="courseForm.controls['name'].value" readonly />
+                                <label class="text-sm leading-none text-gray-800" id="title">Title</label>
+                                <input type="text" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="title" [value]="courseForm.controls['title'].value" readonly />
                             </div>
                             <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
                                 <label class="text-sm leading-none text-gray-800" id="short_form">Short Form</label>
