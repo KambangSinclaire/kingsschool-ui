@@ -81,14 +81,24 @@
                                 <input type="text" formControlName="place_of_birth" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="place-of-birth" placeholder="Place of birth" />
                             </div>
                             <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
-                                <label class="text-sm leading-none text-gray-800" id="academic-level" >Academic Level</label>
-                                <input type="text" formControlName="academic_level" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="academic-level" placeholder="Class 7" />
+                                <!-- <label class="text-sm leading-none text-gray-800" id="academic-level" >Academic Level</label> -->
+                                <!-- <input type="text" formControlName="academic_level" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="academic-level" placeholder="Class 7" /> -->
+                                <app-select-dropdown [selectConfig]="levelSelectConfig" [selectData]="academicLevels" [selectOnce]="isLevelSelected" (change)="selectedLevels($event)"></app-select-dropdown>
                             </div>
                         </div>
 
-                        <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
-                          <label class="text-sm leading-none text-gray-800" id="academic-level" >Passport size Photo</label>
-                          <input type="file" id="profile_photo" (change)="fileHandler($event)" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="academic-level" placeholder="Class 7" />
+                        <div class="md:flex items-center lg:ml-24 mt-8">
+                            <div class="md:w-64">
+                                <label class="text-sm leading-none text-gray-800" id="academic-level" >Passport size Photo</label>
+                                <input type="file" id="profile_photo" (change)="fileHandler($event)" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="academic-level" placeholder="Class 7" />
+                            </div>
+                            <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
+                                <label class="text-sm leading-none text-gray-800" id="address" >Address</label>
+                                <input type="text" formControlName="address" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="address" placeholder="Meganga" />
+                            </div>
+                        </div>
+
+                        <div class="md:w-64 md:ml-24 md:mt-0 mt-4">
                          <img [src]="selectedFile | safeImageUrl" alt="" srcset="">
                       </div>
 
@@ -159,8 +169,8 @@
                     </div>
                 </div>
                
-                <!-- PREVIEW Learner info-->
-                <div class="mt-16 lg:flex justify-between border-b border-gray-200 p-16 mb-4 bg-white">
+                <!-- PREVIEW Learner info here -->
+                <!-- <div class="mt-16 lg:flex justify-between border-b border-gray-200 p-16 mb-4 bg-white">
                     <div class="w-80">
                         <div class="flex items-center">
                             <h1 tabindex="0" class="focus:outline-none text-xl font-medium pr-2 leading-5 text-gray-800">Preview</h1>
@@ -179,7 +189,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="md:col-span-5 text-right py-8">
                     <div class="inline-flex items-end">

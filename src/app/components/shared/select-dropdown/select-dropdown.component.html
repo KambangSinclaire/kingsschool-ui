@@ -1,6 +1,6 @@
 <div>
     <!-- DROP BTN -->
-    <div (click)="isList = !isList" class="w-64 p-4 shadow rounded bg-white text-sm font-medium leading-none text-gray-800 flex items-center justify-between cursor-pointer">
+    <div (click)="toggleDropdown()" class="w-64 p-4 shadow rounded bg-white text-sm font-medium leading-none text-gray-800 flex items-center justify-between cursor-pointer">
        {{selectConfig.name}}
         <div>
             <div class="hidden" id="close">
@@ -17,7 +17,7 @@
     </div>
 
     <!-- DROP ITEMS -->
-    <div *ngIf="isList" class="w-64 mt-2 p-4 bg-white shadow rounded fixed" id="dropdown">
+    <div *ngIf="isList" class="w-64 mt-2 p-4 bg-white shadow rounded " id="dropdown">
         <div *ngFor="let item of selectData">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
@@ -27,7 +27,7 @@
     
                     <div class="pl-4 flex items-center">
                         <div class="bg-gray-100 dark:bg-gray-800 border rounded-sm border-gray-200 dark:border-gray-700 w-3 h-3 flex flex-shrink-0 justify-center items-center relative">
-                            <input type="checkbox" class="checkbox opacity-0 absolute cursor-pointer w-full h-full" [value]="item?.id" />
+                            <input type="checkbox" class="checkbox opacity-0 absolute cursor-pointer w-full h-full" [value]="item?.id" [disabled]="selectOnce"/>
                             <div class="check-icon hidden bg-indigo-700 text-white rounded-sm">
                                 <svg class="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" />

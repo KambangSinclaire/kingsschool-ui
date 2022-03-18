@@ -9,6 +9,7 @@ export class SelectDropdownComponent implements OnInit {
 
   @Input("selectConfig") selectConfig: SelectConfig = { name: '', hasSubMenu: false };
   @Input("selectData") selectData: any[] = [];
+  @Input("selectOnce") selectOnce: boolean = false;
   @Output('change') selectedValues: EventEmitter<any> = new EventEmitter();
 
   isList: any;
@@ -19,13 +20,18 @@ export class SelectDropdownComponent implements OnInit {
 
   sendSelectedValues() {
     this.selectedValues.emit("selected Inputs");
-    this.isList= false;
+    this.isList = false;
   }
-
+  toggleDropdown(){
+  this.isList = !this.isList
+ this.selectOnce
+  this.ngOnInit();
+}
 }
 
 
 export type SelectConfig = {
   name: string,
-  hasSubMenu?: boolean
+  hasSubMenu?: boolean,
+  selectOnce?: boolean
 }

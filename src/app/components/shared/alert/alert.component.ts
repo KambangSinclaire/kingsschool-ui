@@ -19,7 +19,7 @@ export class AlertComponent implements OnInit, DoCheck {
   constructor(private sharedService: SharedService) { }
 
   ngDoCheck(): void {
-    this.checkAlert();
+    this.checkAlert()
   }
 
   public closeModal() {
@@ -27,21 +27,14 @@ export class AlertComponent implements OnInit, DoCheck {
     Notification!.style.transform = "translateX(150%)";
   }
 
-  alertp:boolean=false
- 
+  alertp: boolean = false
+
   closeAlert2() {
-    this.alertp=!this.alert
-}
+    this.alertp = !this.alert
+  }
 
   ngOnInit(): void {
-    if (this.alert.status && this.showAlert) {
-      let Notification = document.getElementById("notification");
-      Notification!.style.transform = "translateX(150%)";
-      Notification!.classList.remove("hidden");
-      setTimeout(function () {
-        Notification!.style.transform = "translateX(0%)";
-      }, 1000);
-    }
+
   }
 
   closeAlert() {
@@ -51,19 +44,15 @@ export class AlertComponent implements OnInit, DoCheck {
   }
 
   checkAlert() {
-    // if (this.showAlert) {
     this.sharedService.showAlert().subscribe((data) => {
       if (data.status) {
         this.showAlert = true;
         this.alert.message = data?.message;
         this.alert.details = data?.details
         this.alert.status = data?.status,
-        this.alert.color = data?.color
-      } else {
-        this.showAlert = false;
+          this.alert.color = data?.color
       }
     });
-    // }
   }
 
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { SelectConfig } from 'src/app/components/shared/select-dropdown/select-dropdown.component';
+import { IAcademicLevel } from 'src/app/interfaces/academic-level.interface';
+import { AcademicLevelsService } from 'src/app/services/AcademicLevels/academic-levels.service';
 import { LearnersService } from 'src/app/services/learners/learners.service';
 import { FileHandler } from 'src/app/utils/file-handler.utils';
 
@@ -10,16 +13,20 @@ import { FileHandler } from 'src/app/utils/file-handler.utils';
 })
 export class AddLearnerComponent implements OnInit {
 
+  selectedAcademicLevelIds: any[] = [];
+
   constructor(
     private formBuilder: FormBuilder,
     private learnerService: LearnersService,
+    private academicLevelService: AcademicLevelsService,
     private fileUpload: FileHandler) { }
 
   learnerForm = this.formBuilder.group({
     first_name: ["", Validators.required],
     last_name: ["", Validators.required],
     gender: ["", Validators.required],
-    academic_level: ["", Validators.required],
+    address: ["", Validators.required],
+    academic_level: [[], Validators.required],
     place_of_birth: ["", Validators.required],
     date_of_birth: ["", Validators.required],
     fathers_name: ["", Validators.required],
@@ -34,8 +41,14 @@ export class AddLearnerComponent implements OnInit {
   });
 
   selectedFile: string = "";
+  isLevelSelected: boolean = false;
+  levelSelectConfig: SelectConfig = {
+    name: "Academic Level"
+  }
+  academicLevels: IAcademicLevel[] = []
 
   ngOnInit(): void {
+    this.getAcademicLevels();
   }
 
   createLearner() {
@@ -65,6 +78,16 @@ export class AddLearnerComponent implements OnInit {
     }
   }
 
+
+  selectedLevels(event: any) {
+    const value = event?.target?.value;
+    const checked = event?.target?.checked
+    if (value && checked ) {
+      this.learnerForm.patchValue({ academic_level: value});
+      this.isLevelSelected=true
+    }
+  }
+
   fileHandler(event: any) {
     const files = Array.from(event.target.files);
     this.learnerForm.get('profile_photo')?.setValue(files[0] as any);
@@ -73,5 +96,11 @@ export class AddLearnerComponent implements OnInit {
 
   ngOnDestroy() {
     URL.revokeObjectURL(this.selectedFile)
+  }
+
+  getAcademicLevels() {
+    this.academicLevelService.allAcademicLevels("").subscribe(response => {
+      this.academicLevels = response.data;
+    });
   }
 }
