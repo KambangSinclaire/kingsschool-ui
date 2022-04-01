@@ -7,7 +7,6 @@ import { AddLearnerComponent } from '../components/views/learners/add-learner/ad
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LearnerBaseComponent } from '../components/views/learners/learner-base/learner-base.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { SafeImageUrlPipe } from '../utils/pipes/safe-image-url.pipe';
 import { SharedModule } from './shared.module';
 
 
@@ -18,8 +17,7 @@ import { SharedModule } from './shared.module';
     LearnerDetailsComponent,
     UpdateLearnerComponent,
     AddLearnerComponent,
-    LearnerBaseComponent,
-    SafeImageUrlPipe
+    LearnerBaseComponent
   ],
   imports: [
     FormsModule,

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
 
+  month = new Date(Date.now()).toISOString();
+
   constructor() { }
 
   ngOnInit(): void {

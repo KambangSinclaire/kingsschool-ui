@@ -8,6 +8,7 @@ import { CalendarComponent } from '../components/shared/calendar/calendar.compon
 import { MessageInboxComponent } from '../components/shared/message-inbox/message-inbox.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SelectDropdownComponent } from '../components/shared/select-dropdown/select-dropdown.component';
+import { SafeImageUrlPipe } from '../utils/pipes/safe-image-url.pipe';
 
 const components = [
   AlertComponent,
@@ -16,7 +17,8 @@ const components = [
   SidebarComponent,
   CalendarComponent,
   MessageInboxComponent,
-  SelectDropdownComponent
+  SelectDropdownComponent,
+  SafeImageUrlPipe
 ]
 @NgModule({
   declarations: [

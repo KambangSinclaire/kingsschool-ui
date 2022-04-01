@@ -13,9 +13,7 @@ import { FileHandler } from 'src/app/utils/file-handler.utils';
 })
 export class AddLearnerComponent implements OnInit {
 
-  selectedAcademicLevelIds: any[] = [];
-
-  constructor(
+   constructor(
     private formBuilder: FormBuilder,
     private learnerService: LearnersService,
     private academicLevelService: AcademicLevelsService,
@@ -45,7 +43,9 @@ export class AddLearnerComponent implements OnInit {
   levelSelectConfig: SelectConfig = {
     name: "Academic Level"
   }
-  academicLevels: IAcademicLevel[] = []
+
+  academicLevels: IAcademicLevel[] = [];
+  // selectedAcademicLevelIds: any[] = [];
 
   ngOnInit(): void {
     this.getAcademicLevels();

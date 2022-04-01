@@ -21,11 +21,18 @@
     *ngFor="let teacher of teachers"
     class="shadow-lg rounded-2xl w-80 m-2 bg-white dark:bg-gray-800"
   >
+    <!-- <img
+      alt="{{teacher?.first_name}}'s' background photo"
+      src="assets/img/teacherbg{{teacher?.id }}.png"
+      class="rounded-t-lg h-40 w-full mb-4"
+    /> -->
+   
     <img
-      alt="profil"
-      src="{{ teacher?.profile_photo }}"
-      class="rounded-t-lg h-28 w-full mb-4"
-    />
+    alt="{{teacher?.first_name}}'s' background photo"
+    src="assets/img/teacherbg4.png"
+    class="rounded-t-lg h-40 w-full mb-4"
+  />
+
     <div class="flex flex-col items-center justify-center p-4 -mt-16">
       <a class="block relative">
         <img
@@ -50,7 +57,7 @@
           <p class="flex flex-col">
             Courses
             <span class="text-black dark:text-white font-bold">
-              {{ teacher?.courses?.length }}
+              {{ teacher?.courses }}
             </span>
           </p>
           <p class="flex flex-col">

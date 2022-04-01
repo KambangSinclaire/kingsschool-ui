@@ -1,6 +1,4 @@
 import { IBase } from "./base.interface";
-
-
 export interface IAcademicLevel extends IBase {
     name: string;
     description: string;

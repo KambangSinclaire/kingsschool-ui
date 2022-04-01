@@ -18,7 +18,7 @@ import { AcademicLevelModule } from './modules/academic-level.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

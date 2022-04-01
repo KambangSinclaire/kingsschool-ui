@@ -5,7 +5,7 @@ const crud = {
 }
 export const ApiRoutes = {
     api: {
-        baseUrl: "http://localhost:8000/kings/coreapis/school/api/v1/",
+        baseUrl: "http://localhost:8080/kings/coreapis/school/api/v1/",
         user: {
             login: "appLogin",
             logout: "appLogout",
@@ -14,6 +14,9 @@ export const ApiRoutes = {
             retrieveSingle: "getSingleUser",
             retrieve: "getUsers",
             delete: "deleteUser",
+        },
+        statistics: {
+            all: "all-statistics"
         },
         learner: {
             add: "addLearner",
@@ -70,6 +73,13 @@ export const ApiRoutes = {
             retrieve: "getClassrooms",
             retrieveSingle: "getSingleClassroom",
             delete: "deleteClassroom",
+        },
+        semester: {
+            add: "addSemester",
+            edit: "editSemester",
+            retrieve: "getSemesters",
+            retrieveSingle: "getSingleSemester",
+            delete: "deleteSemester",
         },
         activity: {
             add: "addActivity",
@@ -142,12 +152,12 @@ export const ApiRoutes = {
             assign: "assignPermission",
             remove: "removePermission",
         },
-        fileUpload:{
-            multiple:"files/multiple",
-            single:"file",
-            files:"files/many-files",
-            anyFiles:"files/any-files"
-        },
+        fileUpload: {
+            multiple: "multiple-files",
+            single: "file",
+            files: "many-files",
+            anyFiles: "any-files"
+        }
     },
     dashboard: {
         login: "",

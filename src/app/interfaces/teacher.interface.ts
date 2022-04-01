@@ -7,6 +7,8 @@ export interface ITeacher extends IBase, IUser {
     courses: any[];
     exams: any[];
     messages: any[];
+    salary: number;
+    salaryForThisMonth: number;
     notifications: any[];
     active_class: string;
     payments: any[];

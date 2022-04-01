@@ -9,11 +9,13 @@ import {
 import { finalize, Observable, tap } from 'rxjs';
 import { ReponseHandler } from 'src/app/utils/response-handler.utils';
 import { AlertStatus } from 'src/app/utils/response-status.utils';
+import { Router } from '@angular/router';
+import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Injectable()
 export class ResponseInterceptor implements HttpInterceptor {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
@@ -26,6 +28,7 @@ export class ResponseInterceptor implements HttpInterceptor {
           }
         },
         error: (error) => {
+          if(error?.status == 401 && error?.error?.message.includes('is not authorized')) this.router.navigate([ApiRoutes.dashboard.login]);
           ReponseHandler(error, AlertStatus.ERROR)
         }
       }),
