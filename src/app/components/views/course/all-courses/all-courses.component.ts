@@ -14,6 +14,7 @@ export class AllCoursesComponent implements OnInit {
   constructor(private router:Router, private courseService:CourseService) { }
   dropDownList: any;
   courses:ICourse[] = [];
+  routes = ApiRoutes;
 
   ngOnInit(): void {
     this.allCourses();

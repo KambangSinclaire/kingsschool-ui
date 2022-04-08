@@ -31,4 +31,8 @@ export class FileHandler {
     fileUpload(form: FormData) {
         return this.http.post<any>(`${this.baseUrl}${this.routes.fileUpload.single}`, form);
     }
+
+    manyFilesUpload(form: FormData) {
+        return this.http.post<any>(`${this.baseUrl}${this.routes.fileUpload.files}`, form);
+    }
 }

@@ -7,6 +7,7 @@ import { UpdateClassroomComponent } from '../components/views/classroom/update-c
 import { AppRoutingModule } from '../app-routing.module';
 import { BaseComponent } from '../components/views/classroom/base/base.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared.module';
 
 
 
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     AppRoutingModule,
     ReactiveFormsModule
   ]

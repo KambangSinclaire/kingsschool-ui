@@ -1,7 +1,7 @@
 <section class="flex justify-around flex-wrap">
   <!-- Add btn -->
   <!-- Code block for button with icon starts -->
-  <div class="btn-container w-40">
+  <div *CanPerformAction="routes.add" class="btn-container w-40">
     <a
       [routerLink]="[routes.add]"
       class="m-2 flex items-center bg-purple-500 transition duration-150 ease-in-out hover:border-gray-700 hover:text-gray-900 rounded border border-gray-600 text-white pl-3 pr-6 py-2 text-sm text-center"

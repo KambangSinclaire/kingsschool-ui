@@ -16,9 +16,12 @@ export interface IUser {
     status: string;
     role: any;
     refresh_token: string;
-    permissions?: string[]
+    permissions: string[]
     userType: string;
     app_user_Id: any;
     x_api_key: string;
-    remember?: boolean
+    academic_year:string;
+    remember?: boolean,
+    profile_photo:string,
+    school_id:string;
 }

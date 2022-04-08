@@ -15,6 +15,8 @@ export class AllLevelsComponent implements OnInit {
   constructor(private router:Router, private academicLevelService:AcademicLevelsService) { }
   dropDownList: any;
   academicLevels:IAcademicLevel[] = [];
+  routes = ApiRoutes;
+
 
   ngOnInit(): void {
     this.allacademicLevels();

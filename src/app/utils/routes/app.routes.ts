@@ -16,7 +16,13 @@ export const ApiRoutes = {
             delete: "deleteUser",
         },
         statistics: {
-            all: "all-statistics"
+            all: "all-statistics",
+            admin:"admin-statistics",
+            staff:"staff-statistics",
+            subAdmin:"subAdmin-statistics",
+            owner:"owner-statistics",
+            teacher:"teacher-statistics",
+            learner:"learner-statistics"
         },
         learner: {
             add: "addLearner",
@@ -32,12 +38,20 @@ export const ApiRoutes = {
             retrieveSingle: "getSingleTeacher",
             delete: "deleteTeacher",
         },
+        school: {
+            add: "addSchool",
+            edit: "editSchool",
+            retrieve: "getSchools",
+            retrieveSingle: "getSingleSchool",
+            delete: "deleteSchool",
+        },
         academicYear: {
             add: "addAcademicYear",
             edit: "editAcademicYear",
             retrieve: "getAcademicYears",
             retrieveSingle: "getSingleAcademicYear",
             delete: "deleteAcademicYear",
+            setActiveYear:"setActiveYear"
         },
         academicLevel: {
             add: "addAcademicLevel",
@@ -66,6 +80,13 @@ export const ApiRoutes = {
             retrieve: "getCourses",
             retrieveSingle: "getSingleCourse",
             delete: "deleteCourse",
+        },
+        lecture: {
+            add: "addLecture",
+            edit: "editLecture",
+            retrieve: "getLectures",
+            retrieveSingle: "getSingleLecture",
+            delete: "deleteLecture",
         },
         classroom: {
             add: "addClassroom",
@@ -124,9 +145,9 @@ export const ApiRoutes = {
             delete: "deleteDepartment",
         },
         notification: {
-            sendSMS: "sendSmsNotification",
-            sendEmail: "sendEmailNotification",
-            sendPush: "sendPushNotification"
+            sendSMS: "sendSMS",
+            sendEmail: "sendEmail",
+            pull: "pullPushNotification"
         },
         preference: {
             add: "addPreference",
@@ -180,6 +201,10 @@ export const ApiRoutes = {
         },
         resource: {
             all: "resources",
+            crud
+        },
+        lecture: {
+            all: "lectures",
             crud
         },
         profile: "profile",

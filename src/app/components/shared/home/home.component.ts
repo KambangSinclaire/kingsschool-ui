@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IAcademicYear } from 'src/app/interfaces/academic-year.interface';
 import { IStatistics } from 'src/app/interfaces/statistics.interface';
 import { StatisticsService } from 'src/app/services/statistics/statistics.service';
+import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,8 @@ import { StatisticsService } from 'src/app/services/statistics/statistics.servic
 export class HomeComponent implements OnInit {
 
   constructor(private statisticsService: StatisticsService) { }
+
+  routes = ApiRoutes.api;
 
   month = new Date(Date.now()).toISOString();
   expenses = [{
@@ -34,8 +37,8 @@ export class HomeComponent implements OnInit {
 
   projects = {
     percentage: 10,
-    name:"Admin Block",
-    description: "Building of a new admin block for top academic staff " ,
+    name: "Admin Block",
+    description: "Building of a new admin block for top academic staff ",
     startDate: new Date(Date.now()).toISOString().split('T')[0],
     endDate: new Date(Date.now()).toISOString().split('T')[0],
     priority: "high" || "medium" || "low",
@@ -54,14 +57,15 @@ export class HomeComponent implements OnInit {
     endDate: new Date(Date.now()).toISOString().split('T')[0],
     goals: [],
     activities: [],
-    isActive: true,
+    is_active: true,
     color: "red",
     createdAt: "",
     updatedAt: "",
     owner_id: "",
+    id: "1"
   }
 
-  statistics:Partial<IStatistics> = {
+  statistics: Partial<IStatistics> = {
     activeAdmittedLearners: 7000,
     totalActiveIntructors: 10,
     totalExpenditure: 500000,

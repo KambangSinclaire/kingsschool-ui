@@ -10,7 +10,9 @@ import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 export class SidebarComponent implements OnInit {
 
   constructor(private router: Router) { }
+
   routes = ApiRoutes;
+
   ngOnInit(): void {
   }
 
@@ -56,6 +58,12 @@ export class SidebarComponent implements OnInit {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard['academic-level'].all}`]);
   }
 
+  gotoAcademicYears(){
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard['academic-year'].all}`]);
+  }
 
+  gotoLectures(){
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.lecture.all}`]);
+  }
 
 }

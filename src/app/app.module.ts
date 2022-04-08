@@ -12,16 +12,21 @@ import { LearnersModule } from './modules/learners.module';
 import { ResourceModule } from './modules/resource.module';
 import { ClassroomModule } from './modules/classroom.module';
 import { TeachersModule } from './modules/teachers.module';
-import { FileUploadInterceptor } from './interceptors/file-upload/file-upload.interceptor';
 import { CourseModule } from './modules/course.module';
 import { AcademicLevelModule } from './modules/academic-level.module';
+import { AcademicYearModule } from './modules/academic-year.module';
+import { CommonModule } from '@angular/common';
+import { TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { LectureModule } from './modules/lecture.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     DashboardModule,
     SharedModule,
     ResourceModule,
@@ -31,6 +36,8 @@ import { AcademicLevelModule } from './modules/academic-level.module';
     TeachersModule,
     CourseModule,
     AcademicLevelModule,
+    AcademicYearModule,
+    LectureModule,
     AppRoutingModule,
     HttpClientModule
   ],
@@ -39,7 +46,9 @@ import { AcademicLevelModule } from './modules/academic-level.module';
   },
   {
     provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true
-  }],
+  },
+  { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

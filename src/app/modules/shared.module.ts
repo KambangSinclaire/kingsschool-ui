@@ -9,6 +9,11 @@ import { MessageInboxComponent } from '../components/shared/message-inbox/messag
 import { AppRoutingModule } from '../app-routing.module';
 import { SelectDropdownComponent } from '../components/shared/select-dropdown/select-dropdown.component';
 import { SafeImageUrlPipe } from '../utils/pipes/safe-image-url.pipe';
+import { DirectivesModule } from './directives.module';
+import { CanPerformDirective } from '../directives/can-perform.directive';
+import { StatisticsChartComponent } from '../components/shared/statistics-chart/statistics-chart.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+
 
 const components = [
   AlertComponent,
@@ -18,14 +23,18 @@ const components = [
   CalendarComponent,
   MessageInboxComponent,
   SelectDropdownComponent,
-  SafeImageUrlPipe
+  CanPerformDirective,
+  SafeImageUrlPipe,
 ]
 @NgModule({
   declarations: [
-    components
+    components,
+    StatisticsChartComponent
   ],
   imports: [
     CommonModule,
+    DirectivesModule,
+    HighchartsChartModule,
     AppRoutingModule
   ],
   exports: [components]

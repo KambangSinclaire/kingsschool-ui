@@ -16,6 +16,7 @@ import { AppRoutingModule } from '../app-routing.module';
     SharedModule,
     ClassroomModule,
     AppRoutingModule
-  ]
+  ],
+  exports:[DashboardComponent]
 })
 export class DashboardModule { }

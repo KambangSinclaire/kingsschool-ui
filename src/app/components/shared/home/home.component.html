@@ -1,8 +1,8 @@
 
 <main class="bg-gray-100 dark:bg-gray-800 rounded-2xl h-screen overflow-hidden">
 
-    <!-- TESTING HERE -->
-    <div class="mx-auto container my-2 lg:mt-2 lg:mb-2">
+    <!-- SCHOOL OWNER STATS -->
+    <div *CanPerformAction="routes.statistics.admin" class="mx-auto container my-2 lg:mt-2 lg:mb-2">
         <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             <div class="flex justify-center w-full lg:border-r border-gray-300 py-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="69" viewBox="0 0 64 69" fill="none">
@@ -58,13 +58,14 @@
             </div>
         </div>
     </div>
-    
     <!-- END HERE -->
 
         <div class="flex flex-col w-full pl-0 md:p-4 md:space-y-4">
                 <div class="overflow-auto h-screen pb-24 pt-2 pr-2 pl-4 md:pt-0 md:pr-0 md:pl-0">
                     <div class="flex flex-col flex-wrap sm:flex-row ">
                         <div class="w-full sm:w-1/2 xl:w-1/3">
+
+                            <!-- ACADEMIC YEAR INFO -->
                             <div class="mb-4">
                                 <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 w-full">
                                     <div class="flex items-center justify-between mb-6">
@@ -111,7 +112,7 @@
                                             PROGRESS
                                         </span>
                                         <span class="px-2 py-1 flex items-center font-semibold text-xs rounded-md text-green-400 border border-red-400  bg-white">
-                                            {{activeAcademicYear.isActive ? 'ACTIVE' : 'INACTIVE'}}
+                                            {{activeAcademicYear.is_active ? 'ACTIVE' : 'INACTIVE'}}
                                         </span>
                                     </div>
                                     <div class="block m-auto">
@@ -157,9 +158,8 @@
                                 </div>
                             </div>
 
-                            <!-- BEGINING OF CARD THREE -->
-
-                            <div class="mb-4">
+                            <!-- ONGOING SCHOOL PROJECTS  -->
+                            <div *CanPerformAction="routes.statistics.admin" class="mb-4">
                                 <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 w-full">
                                     <div class="flex items-center justify-between mb-6">
                                         <div class="flex items-center">
@@ -240,10 +240,11 @@
                                     </span>
                                 </div>
                             </div>
+
                         </div>
 
-                        <div class="w-full sm:w-1/2 xl:w-1/3">
-                            <!-- BEGINING OF CARD TWO -->
+                        <div class="w-full sm:w-1/2 xl:w-1/3" *CanPerformAction="routes.statistics.admin">
+                            <!-- LOGGED IN TEACHERS -->
                             <div class="mb-4 mx-0 sm:ml-4 xl:mr-4">
                                 <div class="shadow-lg rounded-2xl bg-white dark:bg-gray-700 w-full">
                                     <p class="font-bold text-md p-4 text-black dark:text-white">
@@ -334,8 +335,8 @@
                                 </div>
                             </div>
 
-                            <!-- BEGINING OF CARD FOUR -->
-                            <div class="mb-4 sm:ml-4 xl:mr-4">
+                            <!-- MONTHLY EXPENSES -->
+                            <div *CanPerformAction="routes.statistics.admin" class="mb-4 sm:ml-4 xl:mr-4">
                                 <div class="shadow-lg rounded-2xl bg-white dark:bg-gray-700 w-full">
                                     <div class="flex items-center p-4 justify-between">
                                         <p class="font-bold text-md text-black dark:text-white">
@@ -464,6 +465,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="w-full sm:w-1/2 xl:w-1/3">
                             <!-- CALENDAR -->
                            <app-calendar></app-calendar>
@@ -473,5 +475,9 @@
                     </div>
                 </div>
             </div>
-</main>
+
+
+            <!-- GRAPH DATA -->
+            <app-statistics-chart></app-statistics-chart>
+        </main>
 

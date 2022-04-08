@@ -15,7 +15,8 @@ export class AllLearnersComponent implements OnInit {
   dropDownList: any;
 
   // class properties
-  routes = {
+  routes = ApiRoutes;
+  routePath = {
     details: '/' + ApiRoutes.dashboard.home + '/' + ApiRoutes.dashboard.learner.all + '/' + ApiRoutes.dashboard.learner.crud.details,
     add: ApiRoutes.dashboard.learner.crud.add
   };

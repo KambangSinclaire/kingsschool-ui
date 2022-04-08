@@ -13,7 +13,8 @@ export class AllRoomsComponent implements OnInit {
   constructor(private classService: ClassroomService) { }
 
   classrooms: IClassroom[] = [];
-  routes = {
+  routes = ApiRoutes;
+  routePath = {
     details: '/' + ApiRoutes.dashboard.home + '/' + ApiRoutes.dashboard.classroom.all + '/' + ApiRoutes.dashboard.classroom.crud.details,
     add: ApiRoutes.dashboard.classroom.crud.add
   };

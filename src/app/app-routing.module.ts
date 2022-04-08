@@ -6,7 +6,10 @@ import { AcademicLevelBaseComponent } from './components/views/academicLevel/aca
 import { AddLevelComponent } from './components/views/academicLevel/add-level/add-level.component';
 import { AllLevelsComponent } from './components/views/academicLevel/all-levels/all-levels.component';
 import { LevelDetailsComponent } from './components/views/academicLevel/level-details/level-details.component';
+import { AcademicYearBaseComponent } from './components/views/academicYear/academic-year-base/academic-year-base.component';
+import { AddAcademicYearComponent } from './components/views/academicYear/add-academic-year/add-academic-year.component';
 import { AllAcademicYearsComponent } from './components/views/academicYear/all-academic-years/all-academic-years.component';
+import { DetailsComponent } from './components/views/academicYear/details/details.component';
 import { AuthComponent } from './components/views/auth/auth.component';
 import { ProfileComponent } from './components/views/auth/profile/profile.component';
 import { AddClassroomComponent } from './components/views/classroom/add-classroom/add-classroom.component';
@@ -21,6 +24,10 @@ import { AddLearnerComponent } from './components/views/learners/add-learner/add
 import { AllLearnersComponent } from './components/views/learners/all-learners/all-learners.component';
 import { LearnerBaseComponent } from './components/views/learners/learner-base/learner-base.component';
 import { LearnerDetailsComponent } from './components/views/learners/learner-details/learner-details.component';
+import { AddLectureComponent } from './components/views/lecture/add-lecture/add-lecture.component';
+import { AllLecturesComponent } from './components/views/lecture/all-lectures/all-lectures.component';
+import { EditorComponent } from './components/views/lecture/editor/editor.component';
+import { LectureBaseComponent } from './components/views/lecture/lecture-base/lecture-base.component';
 import { AllResourcesComponent } from './components/views/resources/all-resources/all-resources.component';
 import { StatisticsComponent } from './components/views/statistics/statistics.component';
 import { AddTeacherComponent } from './components/views/teachers/add-teacher/add-teacher.component';
@@ -136,7 +143,39 @@ const routes: Routes = [
       },
       {
         path: ApiRoutes.dashboard['academic-year'].all,
-        component: AllAcademicYearsComponent
+        component: AcademicYearBaseComponent,
+        children: [
+          {
+            path: "",
+            component: AllAcademicYearsComponent
+          },
+          {
+            path: ApiRoutes.dashboard.classroom.crud.details + "/:id",
+            component: DetailsComponent
+          },
+          {
+            path: ApiRoutes.dashboard.classroom.crud.add,
+            component: AddAcademicYearComponent
+          },
+        ]
+      },
+      {
+        path: ApiRoutes.dashboard.lecture.all,
+        component: LectureBaseComponent,
+        children: [
+          {
+            path: "",
+            component: AllLecturesComponent
+          },
+          {
+            path: ApiRoutes.dashboard.lecture.crud.details + "/:id",
+            component: EditorComponent
+          },
+          {
+            path: ApiRoutes.dashboard.classroom.crud.add,
+            component: AddLectureComponent
+          },
+        ]
       },
       {
         path: ApiRoutes.dashboard.resource.all,
