@@ -16,12 +16,19 @@
       <div class="navbar-backdrop fixed lg:hidden inset-0 bg-gray-800 opacity-10"></div>
       <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-3/4 lg:w-80 sm:max-w-xs pt-6 pb-8 bg-gray-800 overflow-y-auto">
         <div class="flex w-full items-center px-6 pb-6 mb-6 lg:border-b border-gray-700">
+          <!-- <button class="navbar-burger flex items-center rounded focus:outline-none">
+            <svg class="text-white bg-indigo-500 hover:bg-indigo-600 block h-8 w-8 p-2 rounded" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <title>Mobile menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+          </button> -->
           <a class="text-xl text-white font-semibold">
-            <img class="h-8" src="assets/img/mynella.jpeg" alt="" width="auto">
+            <img class="h-8  rounded-full" [src]="(user | async )?.school?.logo" [alt]="(user | async )?.school?.name" width="auto">
           </a>
+          <p class="w-full pl-4 text-white font-bold">{{(user | async )?.school?.name}}</p>
         </div>
         <div class="px-4 pb-6">
-          <h3 class="mb-2 text-xs uppercase text-gray-500 font-medium">Main</h3>
+          <h3 class="mb-2 text-xs uppercase text-gray-500 font-medium">{{(user | async )?.school?.type}} EDUCATION</h3>
           <ul class="mb-8 text-sm font-medium">
             <li class="cursor-pointer" (click)="gotoHome()">
               <!-- Dashboard -->
@@ -248,6 +255,16 @@
               </span>
               <span>Log Out</span>
             </a>
+
+              <!-- School contacts -->
+              <a class="flex items-center pl-3 py-3 pr-2 text-gray-50">
+
+                <span class="inline-block mr-4">
+                  {{(user | async )?.school?.contact_email}}
+                </span>
+                <span>{{(user | async )?.school?.contact_phone}}</span>
+              </a>
+
           </div>
         </div>
       </nav>

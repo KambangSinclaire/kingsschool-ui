@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { IUser } from 'src/app/interfaces/user.interface';
+import { AppStateManager } from 'src/app/state/app.state';
 import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Component({
@@ -9,9 +12,11 @@ import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private state: AppStateManager) { }
 
   routes = ApiRoutes;
+
+  user: Observable<Partial<IUser>> = this.state.getUserState();
 
   ngOnInit(): void {
   }
@@ -50,19 +55,19 @@ export class SidebarComponent implements OnInit {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.learner.all}`]);
   }
 
-  gotoCourses(){
+  gotoCourses() {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.course.all}`]);
   }
 
-  gotoAcademicLevels(){
+  gotoAcademicLevels() {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard['academic-level'].all}`]);
   }
 
-  gotoAcademicYears(){
+  gotoAcademicYears() {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard['academic-year'].all}`]);
   }
 
-  gotoLectures(){
+  gotoLectures() {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.lecture.all}`]);
   }
 

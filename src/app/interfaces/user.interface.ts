@@ -1,3 +1,5 @@
+import { ISchool } from "./school.interface";
+
 export interface IUser {
     username?: string;
     email?: string;
@@ -23,5 +25,5 @@ export interface IUser {
     academic_year:string;
     remember?: boolean,
     profile_photo:string,
-    school_id:string;
+    school:ISchool;
 }
