@@ -13,8 +13,8 @@ export class AllTeachersComponent implements OnInit {
   constructor(private teacherService: TeachersService) { }
 
   teachers: ITeacher[] = [];
-  // class properties
-  routes = {
+  routes = ApiRoutes;
+  routePath = {
     details: '/' + ApiRoutes.dashboard.home + '/' + ApiRoutes.dashboard.teacher.all + '/' + ApiRoutes.dashboard.teacher.crud.details,
     add: ApiRoutes.dashboard.teacher.crud.add
   };

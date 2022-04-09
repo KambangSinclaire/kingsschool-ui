@@ -83,21 +83,30 @@ export class AuthComponent implements OnInit {
     }
     this.auth.createAccount(payload).subscribe(userResponse => {
 
+      // set these keys here to help with the file upload
+      LocalStore.setItem('token', userResponse.data.refresh_token);
+      LocalStore.setItem('x_api_key', userResponse.data.x_api_key);
+
       // file upload
       const formData = new FormData();
       formData.append('profile_photo', this.newUser.get('profile_photo')?.value);
       formData.append('logo', this.newUser.get('logo')?.value);
 
       this.fileUpload.manyFilesUpload(formData).subscribe(file => {
+
         const logo = file?.images.logo;
         const profile_photo = file?.images.profile_photo;
 
-        // update school logo
+        // update the userData with the files uploaded
+        userResponse.data.profile_photo = profile_photo;
+        userResponse.data.school.logo = logo;
+
+        // update school logo in the database
         this.school.editSchool(userResponse.data.school.id, { logo }).subscribe(school => {
           console.log("response", school);
         });
 
-        // update admin profile photo
+        // update admin profile photo in the database
         this.auth.editProfile(userResponse.data.id, { profile_photo }).subscribe(profile => {
           console.log("response", profile);
         })

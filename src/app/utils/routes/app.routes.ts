@@ -3,7 +3,7 @@ const crud = {
     edit: "edit",
     details: "details",
 }
-export const ApiRoutes = {
+export const ApiRoutes = Object.freeze({
     api: {
         baseUrl: "http://localhost:8080/kings/coreapis/school/api/v1/",
         user: {
@@ -239,4 +239,4 @@ export const ApiRoutes = {
         },
         admins: "admins"
     }
-}
+})
