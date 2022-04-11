@@ -14,6 +14,12 @@ export interface IStatistics extends IBase {
     totalExpenditure: number;
     monthlyExpenditure: number;
     totalSalariesForInstructors: number;
+    logged_in_teachers:{
+        id:string,
+        last_login:string,
+        profile_photo:string,
+        username:string
+    };
     learner: {
         payments: {
             totalFeesPaid: number;

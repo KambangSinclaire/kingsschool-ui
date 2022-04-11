@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ChatroomComponent } from './components/shared/chatroom/chatroom.component';
 import { HomeComponent } from './components/shared/home/home.component';
 import { AcademicLevelBaseComponent } from './components/views/academicLevel/academic-level-base/academic-level-base.component';
 import { AddLevelComponent } from './components/views/academicLevel/add-level/add-level.component';
@@ -188,6 +189,10 @@ const routes: Routes = [
       {
         path: ApiRoutes.dashboard.admins,
         component: AllTeachersComponent
+      },
+      {
+        path: ApiRoutes.dashboard.inbox,
+        component: ChatroomComponent
       },
       {
         path: ApiRoutes.dashboard.explore,

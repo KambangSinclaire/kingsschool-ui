@@ -15,6 +15,7 @@ import { StatisticsChartComponent } from '../components/shared/statistics-chart/
 import { HighchartsChartModule } from 'highcharts-angular';
 import { LoaderComponent } from '../components/shared/loader/loader.component';
 import { AutoFocusDirective } from '../directives/auto-focus/auto-focus.directive';
+import { ChatroomComponent } from '../components/shared/chatroom/chatroom.component';
 
 
 const components = [
@@ -33,7 +34,8 @@ const components = [
 ]
 @NgModule({
   declarations: [
-    components
+    components,
+    ChatroomComponent
   ],
   imports: [
     CommonModule,

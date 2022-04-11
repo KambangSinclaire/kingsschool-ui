@@ -37,6 +37,8 @@ export class HomeComponent implements OnInit {
     status: "Partially Paid",
   }];
 
+  loggedInTeachers:any = []
+
   projects = {
     percentage: 10,
     name: "Admin Block",
@@ -78,8 +80,9 @@ export class HomeComponent implements OnInit {
     this.getAllStatistics();
     this.state.getUserState().subscribe(data => {
       this.activeAcademicYear = data?.academic_year as any;
-    })
-    // this.activeAcademicYear.percentage = 10;
+    });
+
+    // this.pullStatistics()
   }
 
   getAllStatistics() {
@@ -87,6 +90,14 @@ export class HomeComponent implements OnInit {
       LocalStore.setItem("stats", response.data);
       this.state.setStatistics(response.data);
       this.statistics = response.data.statistics;
+      this.loggedInTeachers = this.statistics.logged_in_teachers
     })
   }
+
+  // pullStatistics() {
+  //   this.statisticsService.pullStatistics().onmessage = (event) => {
+  //     this.statistics = JSON.parse(event.data);
+  //     console.log("Pulled statistics ",this.statistics); 
+  //   }
+  // }
 }

@@ -45,7 +45,9 @@ export class SidebarComponent implements OnInit {
   gotoSettings() {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.profile}`]);
   }
-  gotoChatRoom() { }
+  gotoChatRoom() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.inbox}`]);
+   }
   gotoAdmins() {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.admins}`]);
   }

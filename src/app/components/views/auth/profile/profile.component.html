@@ -1,222 +1,201 @@
-
-            <form id="login">
-                <div class="bg-white dark:bg-gray-800">
-                    <div class="container mx-auto bg-white dark:bg-gray-800 rounded">
-                        <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5 bg-white dark:bg-gray-800">
-                            <div class="flex w-11/12 mx-auto xl:w-full xl:mx-0 items-center">
-                                <p class="text-lg text-gray-800 dark:text-gray-100 font-bold">Profile</p>
-                                <div class="ml-2 cursor-pointer text-gray-600 dark:text-gray-400">
-                                    <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg4.svg" alt="info">
-                                    <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg4dark.svg" alt="info">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mx-auto">
-                            <div class="xl:w-9/12 w-11/12 mx-auto xl:mx-0">
-                                <div class="rounded relative mt-8 h-48">
-                                    <img src="https://cdn.tuk.dev/assets/webapp/forms/form_layouts/form1.jpg" alt="" class="w-full h-full object-cover rounded absolute shadow" />
-                                    <div class="absolute bg-black opacity-50 top-0 right-0 bottom-0 left-0 rounded"></div>
-                                    <div class="flex items-center px-3 py-2 rounded absolute right-0 mr-4 mt-4 cursor-pointer">
-                                        <p class="text-xs text-gray-100">Change Cover Photo</p>
-                                        <div class="ml-2 text-gray-100">
-                                            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg1.svg" alt="Edit">
-                                        </div>
-                                    </div>
-                                    <div class="w-20 h-20 rounded-full bg-cover bg-center bg-no-repeat absolute bottom-0 -mb-10 ml-12 shadow flex items-center justify-center">
-                                        <img src="https://cdn.tuk.dev/assets/webapp/forms/form_layouts/form2.jpg" alt="" class="absolute z-0 h-full w-full object-cover rounded-full shadow top-0 left-0 bottom-0 right-0" />
-                                        <div class="absolute bg-black opacity-50 top-0 right-0 bottom-0 left-0 rounded-full z-0"></div>
-                                        <div class="cursor-pointer flex flex-col justify-center items-center z-10 text-gray-100">
-                                            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg1.svg" alt="Edit">
-                                            <p class="text-xs text-gray-100">Edit Picture</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-16 flex flex-col xl:w-2/6 lg:w-1/2 md:w-1/2 w-full">
-                                    <label for="username" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Username</label>
-                                    <input tabindex="0" type="text" id="username" name="username" required class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="@example" />
-                                </div>
-                                <div class="mt-8 flex flex-col xl:w-3/5 lg:w-1/2 md:w-1/2 w-full">
-                                    <label for="about" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">About</label>
-                                    <textarea id="about" name="about" required class="bg-transparent border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="Let the world know who you are" rows="5"></textarea>
-                                    <p class="w-full text-right text-xs pt-1 text-gray-600 dark:text-gray-400">Character Limit: 200</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container mx-auto bg-white dark:bg-gray-800 mt-10 rounded px-4">
-                        <div class="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5">
-                            <div class="flex w-11/12 mx-auto xl:w-full xl:mx-0 items-center">
-                                <p class="text-lg text-gray-800 dark:text-gray-100 font-bold">Personal Information</p>
-                                <div class="ml-2 cursor-pointer text-gray-600 dark:text-gray-400">
-                                    <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg4.svg" alt="info">
-                                    <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg4dark.svg" alt="info">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mx-auto pt-4">
-                            <div class="container mx-auto">
-                                <form class="my-6 w-11/12 mx-auto xl:w-full xl:mx-0">
-                                    <div class="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                        <label for="FirstName" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">First Name</label>
-                                        <input tabindex="0" type="text" id="FirstName" name="firstName" required class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="" />
-                                    </div>
-                                    <div class="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                        <label for="LastName" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Last Name</label>
-                                        <input tabindex="0" type="text" id="LastName" name="lastName" required class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="" />
-                                    </div>
-                                    <div class="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                        <label for="Email" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Email</label>
-                                        <div class="border border-green-400 shadow-sm rounded flex">
-                                            <div tabindex="0" class="focus:outline-none px-4 py-3 dark:text-gray-100 flex items-center border-r border-green-400">
-                                                <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg2.svg" alt="mail">
-                                                <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg2dark.svg" alt="mail">
-                                            </div>
-                                            <input tabindex="0" type="text" id="Email" name="email" required class="pl-3 py-3 w-full text-sm focus:outline-none placeholder-gray-500 rounded bg-transparent text-gray-600 dark:text-gray-400" placeholder="example@gmail.com" />
-                                        </div>
-                                        <div class="flex justify-between items-center pt-1 text-green-700">
-                                            <p class="text-xs">Email submission success!</p>
-                                           <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg3.svg" alt="success">
-                                        </div>
-                                    </div>
-                                    <div class="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                        <label for="StreetAddress" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Street Address</label>
-                                        <input tabindex="0" type="text" id="StreetAddress" name="streetAddress" required class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded bg-transparent text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="" />
-                                    </div>
-                                    <div class="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                        <label for="City" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">City</label>
-                                        <div class="border border-gray-300 dark:border-gray-700 shadow-sm rounded flex">
-                                            <input tabindex="0" type="text" id="City" name="city" required class="pl-3 py-3 w-full text-sm focus:outline-none border border-transparent focus:border-indigo-700 bg-transparent rounded placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="Los Angeles" />
-                                            <div class="px-4 flex items-center border-l border-gray-300 dark:border-gray-700 flex-col justify-center text-gray-600 dark:text-gray-400">
-                                               <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg5.svg" alt="up">
-                                               <img class="dark:hidden transform rotate-180" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg5.svg" alt="down">
-                                               <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg5dark.svg" alt="up">
-                                               <img class="dark:block hidden transform rotate-180" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg5dark.svg" alt="down">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                        <label for="State/Province" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">State/Province</label>
-                                        <input tabindex="0" type="text" id="State/Province" name="state" required class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="California" />
-                                    </div>
-                                    <div class="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                        <label for="Country" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Country</label>
-                                        <input tabindex="0" type="text" id="Country" name="country" required class="border bg-transparent border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="United States" />
-                                    </div>
-                                    <div class="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                        <div class="flex items-center pb-2">
-                                            <label for="ZIP" class="text-sm font-bold text-gray-800 dark:text-gray-100">ZIP/Postal Code</label>
-                                            <div class="ml-2 cursor-pointer text-gray-600 dark:text-gray-400">
-                                                <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg4.svg" alt="info">
-                                                <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg4dark.svg" alt="info">
-                                            </div>
-                                        </div>
-                                        <input tabindex="0" type="text" name="zip" required id="ZIP" class="bg-transparent border border-red-400 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="86745" />
-                                        <div class="flex justify-between items-center pt-1 text-red-700">
-                                            <p class="text-xs">Incorrect Zip Code</p>
-                                           <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg6.svg" alt="cancel">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container mx-auto mt-10 rounded bg-gray-100 dark:bg-gray-700 w-11/12 xl:w-full">
-                        <div class="xl:w-full py-5 px-8">
-                            <div class="flex items-center mx-auto">
-                                <div class="container mx-auto">
-                                    <div class="mx-auto xl:w-full">
-                                        <p class="text-lg text-gray-800 dark:text-gray-100 font-bold">Alerts</p>
-                                        <p class="text-sm text-gray-600 dark:text-gray-400 pt-1">Get updates of any new activity or features. Turn on/off your preferences</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container mx-auto pb-6">
-                            <div class="flex items-center pb-4 border-b border-gray-300 dark:border-gray-700 px-8 text-gray-800 dark:text-gray-100">
-                               <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg7.svg" alt="mail">
-                               <img class="dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg7dark.svg" alt="mail">
-                                <p class="text-sm font-bold ml-2 text-gray-800 dark:text-gray-100">Via Email</p>
-                            </div>
-                            <div class="px-8">
-                                <div class="flex justify-between items-center mb-8 mt-4">
-                                    <div class="w-9/12">
-                                        <p class="text-sm text-gray-800 dark:text-gray-100 pb-1">Comments</p>
-                                        <p id="cb1" class="text-sm text-gray-600 dark:text-gray-400">Get notified when a post or comment is made</p>
-                                    </div>
-                                    <div class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                        <input tabindex="0" aria-labelledby="cb1" type="checkbox" name="email_comments" id="toggle1" class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                        <label class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"></label>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center mb-8">
-                                    <div class="w-9/12">
-                                        <p class="text-sm text-gray-800 dark:text-gray-100 pb-1">Job Applications</p>
-                                        <p id="cb2" class="text-sm text-gray-600 dark:text-gray-400">Get notified when a candidate applies to a job posting</p>
-                                    </div>
-                                    <div class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                        <input aria-labelledby="cb2" tabindex="0" type="checkbox" name="email_job_application" id="toggle2" class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                        <label class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"></label>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center mb-8">
-                                    <div class="w-9/12">
-                                        <p class="text-sm text-gray-800 dark:text-gray-100 pb-1">Product Updates</p>
-                                        <p id="cb3" class="text-sm text-gray-600 dark:text-gray-400">Get notifitied when there is a new product feature or upgrades</p>
-                                    </div>
-                                    <div class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                        <input aria-labelledby="cb3" tabindex="0" type="checkbox" name="email_product_update" id="toggle3" class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                        <label class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pb-4 border-b border-gray-300 dark:border-gray-700 px-8">
-                                <div class="flex items-center text-gray-800 dark:text-gray-100">
-                                   <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg8.svg" alt="notification">
-                                   <img class="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/simple_form-svg8dark.svg" alt="notification">
-                                    <p class="text-sm font-bold ml-2 text-gray-800 dark:text-gray-100">Push Notifications</p>
-                                </div>
-                            </div>
-                            <div class="px-8">
-                                <div class="flex justify-between items-center mb-8 mt-4">
-                                    <div class="w-9/12">
-                                        <p class="text-sm text-gray-800 dark:text-gray-100 pb-1">Comments</p>
-                                        <p id="cb4" class="text-sm text-gray-600 dark:text-gray-400">Get notified when a post or comment is made</p>
-                                    </div>
-                                    <div class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                        <input aria-labelledby="cb4" tabindex="0" type="checkbox" name="notification_comment" id="toggle4" class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                        <label class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"></label>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center mb-8">
-                                    <div class="w-9/12">
-                                        <p class="text-sm text-gray-800 dark:text-gray-100 pb-1">Job Applications</p>
-                                        <p id="cb5" class="text-sm text-gray-600 dark:text-gray-400">Get notified when a candidate applies to a job posting</p>
-                                    </div>
-                                    <div class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                        <input aria-labelledby="cb5" tabindex="0" type="checkbox" name="notification_application" id="toggle5" class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                        <label class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"></label>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center mb-8">
-                                    <div class="w-9/12">
-                                        <p class="text-sm text-gray-800 dark:text-gray-100 pb-1">Product Updates</p>
-                                        <p id="cb6" class="text-sm text-gray-600 dark:text-gray-400">Get notifitied when there is a new product feature or upgrades</p>
-                                    </div>
-                                    <div class="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                        <input aria-labelledby="cb6" tabindex="0" type="checkbox" name="notification_updates" id="toggle6" class="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                        <label class="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer"></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container mx-auto w-11/12 xl:w-full">
-                        <div class="w-full py-4 sm:px-0 bg-white dark:bg-gray-800 flex justify-end">
-                            <button role="button" aria-label="cancel form" class="bg-gray-200 focus:outline-none transition duration-150 ease-in-out hover:bg-gray-300 dark:bg-gray-700 rounded text-indigo-600 dark:text-indigo-600 px-6 py-2 text-xs mr-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700">Cancel</button>
-                            <button role="button" aria-label="Save form" class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-indigo-700 focus:outline-none transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm" type="submit">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-          
-        
+<div class="bg-gray-100">   
+       <div class="container mx-auto my-5 p-5">
+           <div class="md:flex no-wrap md:-mx-2 ">
+               <!-- Left Side -->
+               <div class="w-full md:w-3/12 md:mx-2">
+                   <!-- Profile Card -->
+                   <div class="bg-white p-3 border-t-4 border-green-400">
+                       <div class="image overflow-hidden">
+                           <img class="h-auto w-full mx-auto"
+                               src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                               alt="">
+                       </div>
+                       <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Jane Doe</h1>
+                       <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
+                       <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
+                           consectetur adipisicing elit.
+                           Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
+                       <ul
+                           class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                           <li class="flex items-center py-3">
+                               <span>Status</span>
+                               <span class="ml-auto"><span
+                                       class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
+                           </li>
+                           <li class="flex items-center py-3">
+                               <span>Member since</span>
+                               <span class="ml-auto">Nov 07, 2016</span>
+                           </li>
+                       </ul>
+                   </div>
+                   <!-- End of profile card -->
+                   <div class="my-4"></div>
+                   <!-- Friends card -->
+                   <div class="bg-white p-3 hover:shadow">
+                       <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                           <span class="text-green-500">
+                               <svg class="h-5 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                   viewBox="0 0 24 24" stroke="currentColor">
+                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                       d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                               </svg>
+                           </span>
+                           <span>Similar Profiles</span>
+                       </div>
+                       <div class="grid grid-cols-3">
+                           <div class="text-center my-2">
+                               <img class="h-16 w-16 rounded-full mx-auto"
+                                   src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
+                                   alt="">
+                               <a href="#" class="text-main-color">Kojstantin</a>
+                           </div>
+                           <div class="text-center my-2">
+                               <img class="h-16 w-16 rounded-full mx-auto"
+                                   src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
+                                   alt="">
+                               <a href="#" class="text-main-color">James</a>
+                           </div>
+                           <div class="text-center my-2">
+                               <img class="h-16 w-16 rounded-full mx-auto"
+                                   src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                                   alt="">
+                               <a href="#" class="text-main-color">Natie</a>
+                           </div>
+                           <div class="text-center my-2">
+                               <img class="h-16 w-16 rounded-full mx-auto"
+                                   src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
+                                   alt="">
+                               <a href="#" class="text-main-color">Casey</a>
+                           </div>
+                       </div>
+                   </div>
+                   <!-- End of friends card -->
+               </div>
+               <!-- Right Side -->
+               <div class="w-full md:w-9/12 mx-2 h-64">
+                   <!-- Profile tab -->
+                   <!-- About Section -->
+                   <div class="bg-white p-3 shadow-sm rounded-sm">
+                       <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                           <span clas="text-green-500">
+                               <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                   stroke="currentColor">
+                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                               </svg>
+                           </span>
+                           <span class="tracking-wide">About</span>
+                       </div>
+                       <div class="text-gray-700">
+                           <div class="grid md:grid-cols-2 text-sm">
+                               <div class="grid grid-cols-2">
+                                   <div class="px-4 py-2 font-semibold">First Name</div>
+                                   <div class="px-4 py-2">Jane</div>
+                               </div>
+                               <div class="grid grid-cols-2">
+                                   <div class="px-4 py-2 font-semibold">Last Name</div>
+                                   <div class="px-4 py-2">Doe</div>
+                               </div>
+                               <div class="grid grid-cols-2">
+                                   <div class="px-4 py-2 font-semibold">Gender</div>
+                                   <div class="px-4 py-2">Female</div>
+                               </div>
+                               <div class="grid grid-cols-2">
+                                   <div class="px-4 py-2 font-semibold">Contact No.</div>
+                                   <div class="px-4 py-2">+11 998001001</div>
+                               </div>
+                               <div class="grid grid-cols-2">
+                                   <div class="px-4 py-2 font-semibold">Current Address</div>
+                                   <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
+                               </div>
+                               <div class="grid grid-cols-2">
+                                   <div class="px-4 py-2 font-semibold">Permanant Address</div>
+                                   <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
+                               </div>
+                               <div class="grid grid-cols-2">
+                                   <div class="px-4 py-2 font-semibold">Email.</div>
+                                   <div class="px-4 py-2">
+                                       <a class="text-blue-800" href="mailto:jane@example.com">jane@example.com</a>
+                                   </div>
+                               </div>
+                               <div class="grid grid-cols-2">
+                                   <div class="px-4 py-2 font-semibold">Birthday</div>
+                                   <div class="px-4 py-2">Feb 06, 1998</div>
+                               </div>
+                           </div>
+                       </div>
+                       <button
+                           class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
+                           Full Information</button>
+                   </div>
+                   <!-- End of about section -->
+   
+                   <div class="my-4"></div>
+   
+                   <!-- Experience and education -->
+                   <div class="bg-white p-3 shadow-sm rounded-sm">
+   
+                       <div class="grid grid-cols-2">
+                           <div>
+                               <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                                   <span clas="text-green-500">
+                                       <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke="currentColor">
+                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                               d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                       </svg>
+                                   </span>
+                                   <span class="tracking-wide">Experience</span>
+                               </div>
+                               <ul class="list-inside space-y-2">
+                                   <li>
+                                       <div class="text-teal-600">Owner at Her Company Inc.</div>
+                                       <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                   </li>
+                                   <li>
+                                       <div class="text-teal-600">Owner at Her Company Inc.</div>
+                                       <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                   </li>
+                                   <li>
+                                       <div class="text-teal-600">Owner at Her Company Inc.</div>
+                                       <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                   </li>
+                                   <li>
+                                       <div class="text-teal-600">Owner at Her Company Inc.</div>
+                                       <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                   </li>
+                               </ul>
+                           </div>
+                           <div>
+                               <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                                   <span clas="text-green-500">
+                                       <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke="currentColor">
+                                           <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
+                                           <path fill="#fff"
+                                               d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                               d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                                       </svg>
+                                   </span>
+                                   <span class="tracking-wide">Education</span>
+                               </div>
+                               <ul class="list-inside space-y-2">
+                                   <li>
+                                       <div class="text-teal-600">Masters Degree in Oxford</div>
+                                       <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                   </li>
+                                   <li>
+                                       <div class="text-teal-600">Bachelors Degreen in LPU</div>
+                                       <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                   </li>
+                               </ul>
+                           </div>
+                       </div>
+                       <!-- End of Experience and education grid -->
+                   </div>
+                   <!-- End of profile tab -->
+               </div>
+           </div>
+       </div>
+   </div>

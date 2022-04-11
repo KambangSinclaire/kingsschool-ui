@@ -237,6 +237,7 @@ export const ApiRoutes = Object.freeze({
             all: "activities",
             crud
         },
-        admins: "admins"
+        admins: "admins",
+        inbox: "inbox"
     }
 })

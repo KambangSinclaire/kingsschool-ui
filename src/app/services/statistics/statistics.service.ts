@@ -14,4 +14,8 @@ export class StatisticsService {
   getAllStatistics() {
     return this.http.get<any>(`${this.baseUrl}${ApiRoutes.api.statistics.all}`);
   }
+
+  pullStatistics() {
+    return new EventSource(`${this.baseUrl}${ApiRoutes.api.statistics.all}`);
+  }
 }
