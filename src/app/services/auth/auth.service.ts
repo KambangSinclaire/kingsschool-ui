@@ -12,15 +12,19 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(payload:IUser) {
+  login(payload: IUser) {
     return this.http.post<any>(`${this.baseUrl}${this.routes.user.login}`, payload)
   }
 
-  createAccount(payload:IUser) {
+  createAccount(payload: IUser) {
     return this.http.post<any>(`${this.baseUrl}${this.routes.user.add}`, payload)
   }
 
   editProfile(id: string, payload: any) {
     return this.http.put<any>(`${this.baseUrl}${this.routes.user.edit}/${id}`, payload);
+  }
+
+  getProfile(id: string) {
+    return this.http.get<any>(`${this.baseUrl}${this.routes.user.retrieveSingle}/${id}`);
   }
 }
