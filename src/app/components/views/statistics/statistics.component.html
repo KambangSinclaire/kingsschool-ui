@@ -42,10 +42,10 @@
             </header>
             <div class="overflow-auto h-screen pb-24 px-4 md:px-6">
                 <h1 class="text-4xl font-semibold text-gray-800 dark:text-white">
-                    Good afternoom, Charlie
+                     {{greeting}}, {{ (user | async)?.username }}
                 </h1>
                 <h2 class="text-md text-gray-400">
-                    Here&#x27;s what&#x27;s happening with your ambassador account today.
+                    Here&#x27;s what&#x27;s happening with your {{(user | async)?.userType | lowercase}} account today.
                 </h2>
                 <div class="flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row">
                     <div class="w-full md:w-6/12">
@@ -60,7 +60,7 @@
                                             </svg>
                                         </span>
                                         <p class="text-sm text-gray-700 dark:text-white ml-2 font-semibold border-b border-gray-200">
-                                            Level 2 Ambassador
+                                            {{ (user | async)?.academic_year?.name }}
                                         </p>
                                     </div>
                                     <div class="border-b border-gray-200 mt-6 md:mt-0 text-black dark:text-white font-bold text-xl">

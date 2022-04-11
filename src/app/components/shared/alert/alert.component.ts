@@ -1,4 +1,4 @@
-import { Component, DoCheck, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, ElementRef, Input, OnInit } from '@angular/core';
 import { IAlert } from 'src/app/interfaces/alert.interface';
 import { SharedService } from 'src/app/services/shared.service';
 import { AlertStatus } from 'src/app/utils/response-status.utils';
@@ -16,7 +16,8 @@ export class AlertComponent implements OnInit, DoCheck {
     details: undefined
   }
   showAlert: boolean = true;
-  constructor(private sharedService: SharedService) { }
+  display:boolean = false;
+  constructor(private sharedService: SharedService,private eleRef:ElementRef) { }
 
   ngDoCheck(): void {
     this.checkAlert()
@@ -27,26 +28,20 @@ export class AlertComponent implements OnInit, DoCheck {
     Notification!.style.transform = "translateX(150%)";
   }
 
-  alertp: boolean = false
-
-  closeAlert2() {
-    this.alertp = !this.alert
-  }
 
   ngOnInit(): void {
 
   }
 
   closeAlert() {
-    this.sharedService.closeAlert().subscribe(response => {
-      this.showAlert = false;
-    });
+    this.display = false;
   }
 
   checkAlert() {
     this.sharedService.showAlert().subscribe((data) => {
+      this.showAlert = true;
       if (data.status) {
-        this.showAlert = true;
+        this.display = true
         this.alert.message = data?.message;
         this.alert.details = data?.details
         this.alert.status = data?.status,

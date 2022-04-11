@@ -249,7 +249,10 @@
                 <input class="mr-4" type="checkbox">
                 <p class="-mt-2 text-sm text-gray-200">By singning up, you agree to our <a class="text-white" href="#">Terms, Data Policy</a> and <a class="text-white" href="#">Cookies.</a></p>
               </div>
-              <button (click)="createAccount()" class="py-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-full transition duration-200">Get started</button>
+              <button (click)="createAccount()" class="py-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-full transition duration-200">
+                <app-loader></app-loader>
+                Get started
+              </button>
             </form>
           </div>
         </div>

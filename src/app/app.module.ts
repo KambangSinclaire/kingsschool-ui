@@ -18,11 +18,14 @@ import { AcademicYearModule } from './modules/academic-year.module';
 import { CommonModule } from '@angular/common';
 import { TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { LectureModule } from './modules/lecture.module';
+import { StatisticsModule } from './modules/statistics.module';
+import { AutoFocusDirective } from './directives/auto-focus/auto-focus.directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { LectureModule } from './modules/lecture.module';
     AcademicLevelModule,
     AcademicYearModule,
     LectureModule,
+    StatisticsModule,
     AppRoutingModule,
     HttpClientModule
   ],
@@ -47,7 +51,7 @@ import { LectureModule } from './modules/lecture.module';
   {
     provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true
   },
-  { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+  // { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
 ],
   bootstrap: [AppComponent]
 })

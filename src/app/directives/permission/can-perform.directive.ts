@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
-import { IUser } from '../interfaces/user.interface';
-import { LocalStore } from '../utils/localstore.utils';
+import { IUser } from '../../interfaces/user.interface';
+import { LocalStore } from '../../utils/localstore.utils';
 
 @Directive({
   selector: '[CanPerformAction]',

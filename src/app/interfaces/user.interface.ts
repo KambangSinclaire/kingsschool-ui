@@ -1,3 +1,4 @@
+import { IAcademicYear } from "./academic-year.interface";
 import { ISchool } from "./school.interface";
 
 export interface IUser {
@@ -22,7 +23,7 @@ export interface IUser {
     userType: string;
     app_user_Id: any;
     x_api_key: string;
-    academic_year:string;
+    academic_year:IAcademicYear;
     remember?: boolean,
     profile_photo:string,
     school:ISchool;

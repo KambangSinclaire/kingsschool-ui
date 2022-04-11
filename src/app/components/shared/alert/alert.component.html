@@ -1,7 +1,7 @@
 <div
-  *ngIf="showAlert == true"
+[ngStyle]="{'display': display ? 'flex' : 'none'}"
   role="alert"
-  class="sm:mr-6 mt-16 sm:mt-6 mb-6 sm:mb-0 xl:w-5/12 mx-auto absolute left-0 sm:left-auto right-40 sm:top-0 sm:w-6/12 md:w-3/5 justify-between w-11/12 bg-white dark:bg-gray-800 shadow-lg rounded flex sm:flex-row flex-col transition duration-150 ease-in-out"
+  class="sm:mr-6 mt-24 sm:mt-6 mb-6 sm:mb-0 xl:w-5/12 mx-auto fixed left-0 sm:left-auto right-64 sm:top-0 sm:w-6/12 md:w-3/5 justify-between w-11/12 bg-white dark:bg-gray-800 shadow-lg rounded flex sm:flex-row flex-col transition duration-150 ease-in-out"
   id="notification"
 >
   <div

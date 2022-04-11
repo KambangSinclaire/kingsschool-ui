@@ -15,7 +15,8 @@ export class SharedService {
 
   setAlert(data: IAlert) {
     this.alert = data;
-    localStorage.setItem("alert", JSON.stringify(data))
+    localStorage.setItem("alert", JSON.stringify(data));
+    
   }
 
   showAlert() {

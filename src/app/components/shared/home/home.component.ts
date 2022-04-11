@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IAcademicYear } from 'src/app/interfaces/academic-year.interface';
 import { IStatistics } from 'src/app/interfaces/statistics.interface';
 import { StatisticsService } from 'src/app/services/statistics/statistics.service';
+import { AppStateManager } from 'src/app/state/app.state';
+import { LocalStore } from 'src/app/utils/localstore.utils';
 import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Component({
@@ -11,7 +13,7 @@ import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private statisticsService: StatisticsService) { }
+  constructor(private statisticsService: StatisticsService, private state: AppStateManager) { }
 
   routes = ApiRoutes.api;
 
@@ -66,20 +68,25 @@ export class HomeComponent implements OnInit {
   }
 
   statistics: Partial<IStatistics> = {
-    activeAdmittedLearners: 7000,
-    totalActiveIntructors: 10,
+    all_learners: 600,
+    all_teachers: 60,
     totalExpenditure: 500000,
     totalFeesPaid: 200000000,
   }
 
   ngOnInit(): void {
-    this.getAllStatistics()
-    this.activeAcademicYear.percentage = 10;
+    this.getAllStatistics();
+    this.state.getUserState().subscribe(data => {
+      this.activeAcademicYear = data?.academic_year as any;
+    })
+    // this.activeAcademicYear.percentage = 10;
   }
 
   getAllStatistics() {
     this.statisticsService.getAllStatistics().subscribe(response => {
-      console.log("This is response ", response);
+      LocalStore.setItem("stats", response.data);
+      this.state.setStatistics(response.data);
+      this.statistics = response.data.statistics;
     })
   }
 }

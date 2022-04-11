@@ -10,9 +10,11 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SelectDropdownComponent } from '../components/shared/select-dropdown/select-dropdown.component';
 import { SafeImageUrlPipe } from '../utils/pipes/safe-image-url.pipe';
 import { DirectivesModule } from './directives.module';
-import { CanPerformDirective } from '../directives/can-perform.directive';
+import { CanPerformDirective } from '../directives/permission/can-perform.directive';
 import { StatisticsChartComponent } from '../components/shared/statistics-chart/statistics-chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { LoaderComponent } from '../components/shared/loader/loader.component';
+import { AutoFocusDirective } from '../directives/auto-focus/auto-focus.directive';
 
 
 const components = [
@@ -24,12 +26,14 @@ const components = [
   MessageInboxComponent,
   SelectDropdownComponent,
   CanPerformDirective,
+  AutoFocusDirective,
   SafeImageUrlPipe,
+  StatisticsChartComponent,
+  LoaderComponent
 ]
 @NgModule({
   declarations: [
-    components,
-    StatisticsChartComponent
+    components
   ],
   imports: [
     CommonModule,

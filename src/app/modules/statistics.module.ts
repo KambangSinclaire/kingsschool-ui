@@ -10,6 +10,7 @@ import { StatisticsComponent } from '../components/views/statistics/statistics.c
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[StatisticsComponent]
 })
 export class StatisticsModule { }

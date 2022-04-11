@@ -8,9 +8,9 @@ export interface IStatistics extends IBase {
     active_class: string;
     payments: any[];
     activeAdmittedLearners: number;
-    totalLearners: number;
     totalFeesPaid: number;
-    totalActiveIntructors: number;
+    all_learners: number;
+    all_teachers: number;
     totalExpenditure: number;
     monthlyExpenditure: number;
     totalSalariesForInstructors: number;

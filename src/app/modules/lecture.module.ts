@@ -4,7 +4,7 @@ import { EditorComponent } from '../components/views/lecture/editor/editor.compo
 import { AddLectureComponent } from '../components/views/lecture/add-lecture/add-lecture.component';
 import { AllLecturesComponent } from '../components/views/lecture/all-lectures/all-lectures.component';
 import { LectureBaseComponent } from '../components/views/lecture/lecture-base/lecture-base.component';
-import { EditorModule } from '@tinymce/tinymce-angular';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { SharedModule } from './shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 
@@ -25,6 +25,9 @@ const components = [
     EditorModule,
     AppRoutingModule
   ],
-  exports: [components]
+  exports: [components],
+  providers:[
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+  ]
 })
 export class LectureModule { }

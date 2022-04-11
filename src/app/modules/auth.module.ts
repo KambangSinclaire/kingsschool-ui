@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthComponent } from '../components/views/auth/auth.component';
 import { AuthService } from '../services/auth/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared.module';
 
 
 
@@ -13,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    SharedModule
   ],
   providers:[AuthService]
 })
