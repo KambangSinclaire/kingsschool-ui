@@ -16,10 +16,8 @@ import { CourseModule } from './modules/course.module';
 import { AcademicLevelModule } from './modules/academic-level.module';
 import { AcademicYearModule } from './modules/academic-year.module';
 import { CommonModule } from '@angular/common';
-import { TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { LectureModule } from './modules/lecture.module';
 import { StatisticsModule } from './modules/statistics.module';
-import { AutoFocusDirective } from './directives/auto-focus/auto-focus.directive';
 
 
 @NgModule({

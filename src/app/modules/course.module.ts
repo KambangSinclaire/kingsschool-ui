@@ -8,6 +8,7 @@ import { UpdateCourseComponent } from '../components/views/course/update-course/
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared.module';
+import { RegisterCourseComponent } from '../components/views/course/register-course/register-course.component';
 
 
 
@@ -17,7 +18,8 @@ import { SharedModule } from './shared.module';
     AddCourseComponent,
     AllCoursesComponent,
     CourseDetailsComponent,
-    UpdateCourseComponent
+    UpdateCourseComponent,
+    RegisterCourseComponent
   ],
   imports: [
     CommonModule,

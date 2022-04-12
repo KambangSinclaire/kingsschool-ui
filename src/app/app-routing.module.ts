@@ -21,6 +21,7 @@ import { AddCourseComponent } from './components/views/course/add-course/add-cou
 import { AllCoursesComponent } from './components/views/course/all-courses/all-courses.component';
 import { CourseBaseComponent } from './components/views/course/course-base/course-base.component';
 import { CourseDetailsComponent } from './components/views/course/course-details/course-details.component';
+import { RegisterCourseComponent } from './components/views/course/register-course/register-course.component';
 import { AddLearnerComponent } from './components/views/learners/add-learner/add-learner.component';
 import { AllLearnersComponent } from './components/views/learners/all-learners/all-learners.component';
 import { LearnerBaseComponent } from './components/views/learners/learner-base/learner-base.component';
@@ -121,6 +122,10 @@ const routes: Routes = [
           {
             path: ApiRoutes.dashboard.course.crud.add,
             component: AddCourseComponent
+          },
+          {
+            path: ApiRoutes.dashboard.course.register + "/:id",
+            component: RegisterCourseComponent
           }
         ]
       },

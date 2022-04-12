@@ -197,6 +197,7 @@ export const ApiRoutes = Object.freeze({
         },
         course: {
             all: "courses",
+            register:"register",
             crud
         },
         resource: {

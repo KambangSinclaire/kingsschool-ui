@@ -1,7 +1,7 @@
-import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IUser } from 'src/app/interfaces/user.interface';
+import { ITeacher } from 'src/app/interfaces/teacher.interface';
+import { IUser, UserType } from 'src/app/interfaces/user.interface';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LocalStore } from 'src/app/utils/localstore.utils';
 
@@ -14,10 +14,14 @@ export class ProfileComponent implements OnInit {
 
     constructor(private activeRoute: ActivatedRoute, private authService: AuthService) { }
 
+    user: Partial<ITeacher> = {};
+
     params: { role: string, id: string } = {
         role: '',
         id: ''
     };
+
+    userTypes:Partial<UserType> = {}
 
     ngOnInit(): void {
         this.activeRoute.params.subscribe(params => {
@@ -33,7 +37,7 @@ export class ProfileComponent implements OnInit {
         const user: IUser = LocalStore.getItem("user", {});
         const id = user.id ?? "";
         this.authService.getProfile(id).subscribe(res => {
-            console.log(res);
+            this.user = res.data;
         })
     }
 }

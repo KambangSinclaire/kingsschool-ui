@@ -27,4 +27,11 @@ export interface IUser {
     remember?: boolean,
     profile_photo:string,
     school:ISchool;
+    date_of_birth:string;
+}
+
+export type UserType ={
+    admin:"admin",
+    teacher:"teacher",
+    learner:"learner"
 }
