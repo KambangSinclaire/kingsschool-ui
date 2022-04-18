@@ -30,8 +30,9 @@
         <div class="px-4 pb-6">
           <h3 class="mb-2 text-xs uppercase text-gray-500 font-medium">{{(user | async )?.school?.type}} EDUCATION</h3>
           <ul class="mb-8 text-sm font-medium">
+           
+            <!-- Dashboard -->
             <li class="cursor-pointer" (click)="gotoHome()">
-              <!-- Dashboard -->
               <a class="flex items-center pl-3 py-3 pr-4 text-gray-50 bg-indigo-500 rounded">
                 <span class="inline-block mr-3">
                   <svg class="text-indigo-100 w-5 h-5" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,6 +48,7 @@
               </a>
             </li>
 
+            <!-- Discover -->
             <li class="cursor-pointer" *CanPerformAction="routes.api.statistics.all" (click)="gotoStatistics()">
               <a class="flex items-center pl-3 py-3 pr-2 text-gray-50 hover:bg-gray-900 rounded">
                 <span class="inline-block mr-3">
@@ -59,8 +61,8 @@
               </a>
             </li>
 
+            <!-- Courese -->
             <li class="cursor-pointer" *CanPerformAction="routes.api.course.retrieve" (click)="gotoCourses()">
-              <!-- Courese -->
               <a class="flex items-center pl-3 py-3 pr-2 text-gray-50 hover:bg-gray-900 rounded">
                 <span class="inline-block mr-3">
                   <svg class="text-gray-600 w-5 h-5" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,8 +74,8 @@
               </a>
             </li>
 
-            <li class="cursor-pointer" *CanPerformAction="routes.api.teacher.retrieve" (click)="gotoTeachers()">
-              <!-- Users -->
+            <!-- Teachers -->
+            <li class="cursor-pointer" [ngStyle]="{'background-color':'red'}"  *CanPerformAction="routes.api.teacher.retrieve" (click)="gotoTeachers()">
               <a class="flex items-center pl-3 py-3 pr-4 text-gray-50 hover:bg-gray-900 rounded">
                 <span class="inline-block mr-3">
                   <svg class="text-gray-600 w-5 h-5" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,8 +90,9 @@
                 </span>
               </a>
             </li>
+          
+            <!-- Documents -->
             <li class="cursor-pointer" *CanPerformAction="routes.api.resource.retrieve" (click)="gotoAddDocument()">
-              <!-- Documents -->
               <a class="flex items-center pl-3 py-3 pr-4 text-gray-50 hover:bg-gray-900 rounded">
                 <span class="inline-block mr-3">
                   <svg class="text-gray-600 w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -105,8 +108,8 @@
               </a>
             </li>
             
+            <!-- Applications -->
             <li class="cursor-pointer" *CanPerformAction="routes.api.classroom.retrieve" (click)="gotoClassrooms()">
-              <!-- Applications -->
               <a class="flex items-center pl-3 py-3 pr-4 text-gray-50 hover:bg-gray-900 rounded">
                 <span class="inline-block mr-3">
                   <svg class="text-gray-600 w-5 h-5" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,8 +125,8 @@
               </a>
             </li>
 
+            <!-- Applications -->
             <li class="cursor-pointer" *CanPerformAction="routes.api.lecture.retrieve" (click)="gotoLectures()">
-              <!-- Applications -->
               <a class="flex items-center pl-3 py-3 pr-4 text-gray-50 hover:bg-gray-900 rounded">
                 <span class="inline-block mr-3">
                   <svg class="text-gray-600 w-5 h-5" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -139,8 +142,8 @@
               </a>
             </li>
           
+            <!-- Teachers -->
             <li class="cursor-pointer" *CanPerformAction="routes.api.teacher.retrieve" (click)="gotoAdmins()">
-              <!-- Teachers -->
               <a class="flex items-center pl-3 py-3 pr-4 text-gray-50 hover:bg-gray-900 rounded">
                 <span class="inline-block mr-3">
                   <svg class="text-gray-600 w-5 h-5" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -156,8 +159,8 @@
               </a>
             </li>
 
+            <!-- Academic Years-->
             <li *CanPerformAction="routes.api.academicYear.retrieve" class="cursor-pointer" (click)="gotoAcademicYears()">
-              <!-- Academic Years-->
               <a class="flex items-center pl-3 py-3 pr-4 text-gray-50 hover:bg-gray-900 rounded">
                 <span class="inline-block mr-3">
                   <svg class="text-gray-600 w-5 h-5" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -173,6 +176,7 @@
               </a>
             </li>
           </ul>
+
           <h3 class="mb-2 text-xs uppercase text-gray-500 font-medium">Secondary</h3>
           <ul class="text-sm font-medium">
             <!-- Help center -->
@@ -187,8 +191,9 @@
                 <span>Support Center</span>
               </a>
             </li>
+
+            <!-- Academic Levels -->
             <li class="cursor-pointer" *CanPerformAction="routes.api.academicLevel.retrieve" (click)="gotoAcademicLevels()">
-                <!-- Academic Levels -->
               <a class="flex items-center pl-3 py-3 pr-2 text-gray-50 hover:bg-gray-900 rounded">
                 <span class="inline-block mr-3">
                   <svg class="text-gray-600 w-5 h-5" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -224,8 +229,8 @@
               </a>
             </li>
 
+            <!-- Learners -->
             <li class="cursor-pointer" *CanPerformAction="routes.api.learner.retrieve" (click)="gotoLearners()">
-              <!-- Data List -->
               <a class="flex items-center pl-3 py-3 pr-4 text-gray-50 hover:bg-gray-900 rounded">
                 <span class="inline-block mr-3">
                   <svg class="text-gray-600 w-5 h-5" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -236,7 +241,9 @@
               </a>
             </li>
           </ul>
+
           <div class="pt-8">
+
             <!-- Settings -->
             <a class="flex items-center pl-3 py-3 pr-2 text-gray-50 hover:bg-gray-900 rounded cursor-pointer" *CanPerformAction="routes.api.preference.retrieve" (click)="gotoSettings()">
               <span class="inline-block mr-4">
@@ -246,6 +253,7 @@
               </span>
               <span>Settings</span>
             </a>
+
             <!-- Log Out -->
             <a (click)="logout()" class="flex items-center pl-3 py-3 pr-2 text-gray-50 hover:bg-gray-900 rounded">
               <span class="inline-block mr-4">
@@ -264,7 +272,6 @@
                 </span>
                 <span>{{(user | async )?.school?.contact_phone}}</span>
               </a>
-
           </div>
         </div>
       </nav>

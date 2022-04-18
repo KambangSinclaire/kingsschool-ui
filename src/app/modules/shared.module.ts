@@ -16,7 +16,17 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { LoaderComponent } from '../components/shared/loader/loader.component';
 import { AutoFocusDirective } from '../directives/auto-focus/auto-focus.directive';
 import { ChatroomComponent } from '../components/shared/chatroom/chatroom.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
+const config: SocketIoConfig = {
+  url: 'http://localhost:8080/kings/communication', options: {
+    extraHeaders: {
+      authorization: 'Bearer ' + localStorage.getItem('token'),
+      'x-api-key': localStorage.getItem('apiKey') ?? ""
+    }
+  }
+};
 
 const components = [
   AlertComponent,
@@ -29,6 +39,7 @@ const components = [
   CanPerformDirective,
   AutoFocusDirective,
   SafeImageUrlPipe,
+  ChatroomComponent,
   StatisticsChartComponent,
   LoaderComponent
 ]
@@ -39,6 +50,9 @@ const components = [
   ],
   imports: [
     CommonModule,
+    SocketIoModule.forRoot(config),
+    FormsModule,
+    ReactiveFormsModule,
     DirectivesModule,
     HighchartsChartModule,
     AppRoutingModule
