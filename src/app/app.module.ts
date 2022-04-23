@@ -18,6 +18,7 @@ import { AcademicYearModule } from './modules/academic-year.module';
 import { CommonModule } from '@angular/common';
 import { LectureModule } from './modules/lecture.module';
 import { StatisticsModule } from './modules/statistics.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { StatisticsModule } from './modules/statistics.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     DashboardModule,
     SharedModule,
@@ -40,8 +42,9 @@ import { StatisticsModule } from './modules/statistics.module';
     AcademicYearModule,
     LectureModule,
     StatisticsModule,
+    ResourceModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true

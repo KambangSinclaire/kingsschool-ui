@@ -1,4 +1,17 @@
-<div class="sm:px-6 w-full">
+<app-data-table 
+[tableData]="courses" 
+[tableHeadings]="headings"
+[formFields]="formFields" 
+[selectOptions]="selectOptions"
+[options]="options"
+(create)="create($event)"
+(delete)="delete($event)"
+(edit)="edit($event)"
+ >
+
+</app-data-table>
+
+<!-- <div class="sm:px-6 w-full">
     <div class="px-4 md:px-10 py-4 md:py-7">
         <div class="flex items-center justify-between">
             <p class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Subjects</p>
@@ -14,7 +27,6 @@
     </div>
     <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
 
-        <!-- table actions -->
         <div class="sm:flex items-center justify-between">
             <div class="flex items-center">
                 <a href="javascript:void(0)">
@@ -38,7 +50,6 @@
             </button>
         </div>
 
-        <!-- actual table section -->
         <div class="mt-7 overflow-x-auto">
             <table class="w-full whitespace-nowrap">
                 <tbody>
@@ -74,19 +85,7 @@
                                 <p class="text-sm leading-none text-gray-600 ml-2">{{course?.short_form}}</p>
                             </div>
                         </td>
-                        <!-- <td class="pl-5">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M7.5 5H16.6667" stroke="#52525B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M7.5 10H16.6667" stroke="#52525B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M7.5 15H16.6667" stroke="#52525B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M4.16669 5V5.00667" stroke="#52525B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M4.16669 10V10.0067" stroke="#52525B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M4.16669 15V15.0067" stroke="#52525B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
-                                </svg>
-                                <p class="text-sm leading-none text-gray-600 ml-2">04/07</p>
-                            </div>
-                        </td> -->
+                       
                         <td class="pl-5">
                             <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -115,7 +114,7 @@
                         <td class="pl-5">
                             {{course?.createdAt | date}}
 
-                            <!-- <button class="py-3 px-3 text-sm focus:outline-none leading-none text-red-500 bg-red-100 hover:bg-red-200 rounded"></button> -->
+                           
                         </td>
                         <td class="pl-4">
                             <button class="text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">register</button>
@@ -140,10 +139,9 @@
                             </div>
                         </td>
                     </tr>
-                    <!-- <tr class="h-3"></tr>
-                    <tr class="h-3"></tr> -->
+                   
                 </tbody>
             </table>
         </div>
     </div>
-</div>
+</div> -->

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "academic-year-base.component.scss"
+    ],
+    "names": [],
+    "file": "academic-year-base.component.css"
+}

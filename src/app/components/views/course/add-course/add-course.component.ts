@@ -33,7 +33,6 @@ export class AddCourseComponent implements OnInit {
     if (this.courseForm.valid) {
         //upload course data
         this.courseService.addCourse(this.courseForm.value).subscribe(response => {
-          console.log("Response data", response);
         });
     }
   }

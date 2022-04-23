@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "add-lecture.component.scss"
+    ],
+    "names": [],
+    "file": "add-lecture.component.css"
+}

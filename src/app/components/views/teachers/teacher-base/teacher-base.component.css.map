@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "teacher-base.component.scss"
+    ],
+    "names": [],
+    "file": "teacher-base.component.css"
+}

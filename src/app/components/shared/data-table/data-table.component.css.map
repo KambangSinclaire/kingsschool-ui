@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "data-table.component.scss"
+    ],
+    "names": [],
+    "file": "data-table.component.css"
+}

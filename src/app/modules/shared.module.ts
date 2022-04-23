@@ -18,6 +18,8 @@ import { AutoFocusDirective } from '../directives/auto-focus/auto-focus.directiv
 import { ChatroomComponent } from '../components/shared/chatroom/chatroom.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { PrimengModule } from './primeng.module';
+import { DataTableComponent } from '../components/shared/data-table/data-table.component';
 
 const config: SocketIoConfig = {
   url: 'http://localhost:8080/kings/communication', options: {
@@ -41,17 +43,20 @@ const components = [
   SafeImageUrlPipe,
   ChatroomComponent,
   StatisticsChartComponent,
-  LoaderComponent
+  LoaderComponent,
+  ChatroomComponent,
+  DataTableComponent
 ]
 @NgModule({
   declarations: [
-    components,
-    ChatroomComponent
+    components
   ],
   imports: [
     CommonModule,
     SocketIoModule.forRoot(config),
     FormsModule,
+    PrimengModule,
+    ReactiveFormsModule,
     ReactiveFormsModule,
     DirectivesModule,
     HighchartsChartModule,

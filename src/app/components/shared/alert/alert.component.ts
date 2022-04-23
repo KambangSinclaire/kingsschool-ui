@@ -1,4 +1,5 @@
 import { Component, DoCheck, ElementRef, Input, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { IAlert } from 'src/app/interfaces/alert.interface';
 import { SharedService } from 'src/app/services/shared.service';
 import { AlertStatus } from 'src/app/utils/response-status.utils';
@@ -17,28 +18,21 @@ export class AlertComponent implements OnInit, DoCheck {
   }
   showAlert: boolean = true;
   display:boolean = false;
-  constructor(private sharedService: SharedService,private eleRef:ElementRef) { }
+  constructor(private sharedService: SharedService,private messageService: MessageService) { }
 
   ngDoCheck(): void {
     this.checkAlert()
   }
 
-  public closeModal() {
-    let Notification = document.getElementById("notification");
-    Notification!.style.transform = "translateX(150%)";
-  }
-
 
   ngOnInit(): void {
-
+  
   }
 
-  closeAlert() {
-    this.display = false;
-  }
 
   checkAlert() {
     this.sharedService.showAlert().subscribe((data) => {
+      // this.messageService.add({ severity: data?.status?.toLocaleLowerCase(), summary: data?.message, detail: data?.details, life: 3000 });
       this.showAlert = true;
       if (data.status) {
         this.display = true

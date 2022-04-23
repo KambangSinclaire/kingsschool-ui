@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,AAAA,QAAQ,GAAG,WAAW,CAAC;EAC5B,OAAO,EAAE,IAAI;CAChB",
+    "sources": [
+        "all-courses.component.scss"
+    ],
+    "names": [],
+    "file": "all-courses.component.css"
+}

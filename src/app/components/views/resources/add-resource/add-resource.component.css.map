@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "add-resource.component.scss"
+    ],
+    "names": [],
+    "file": "add-resource.component.css"
+}

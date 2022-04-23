@@ -1,0 +1,6 @@
+.checkbox:checked + .check-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=all-resources.component.css.map */

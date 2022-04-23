@@ -5,6 +5,10 @@ import { ResourceDetailsComponent } from '../components/views/resources/resource
 import { AddResourceComponent } from '../components/views/resources/add-resource/add-resource.component';
 import { UpdateResourceComponent } from '../components/views/resources/update-resource/update-resource.component';
 import { AddDocumentComponent } from '../components/views/resources/documents/add-document/add-document.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared.module';
+
+
 
 
 
@@ -17,7 +21,11 @@ import { AddDocumentComponent } from '../components/views/resources/documents/ad
     AddDocumentComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  providers: []
 })
 export class ResourceModule { }

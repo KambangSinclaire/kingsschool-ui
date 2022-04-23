@@ -12,7 +12,6 @@ export const ReponseHandler = (response: any, status: AlertStatus) => {
             color: "green"
         })
     }
-
     if (status === AlertStatus.ERROR) {
         shared.setAlert({
             message: "Ooops",
