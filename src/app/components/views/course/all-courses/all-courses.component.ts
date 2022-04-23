@@ -58,15 +58,15 @@ export class AllCoursesComponent implements OnInit, OnChanges {
   }
 
   edit(event: any) {
-    this.courseService.updateCourse(event.id,event).subscribe(response => {
-      this.allCourses();
-    });
+    // this.courseService.updateCourse(event.id,event).subscribe(response => {
+    //   this.allCourses();
+    // });
   }
 
   delete(event: any) {
-    this.courseService.deleteCourse(event).subscribe(response => {
-      this.allCourses();
-    });
+    // this.courseService.deleteCourse(event).subscribe(response => {
+    //   this.allCourses();
+    // });
   }
 
 }
