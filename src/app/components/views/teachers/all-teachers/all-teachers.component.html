@@ -1,17 +1,27 @@
-<section class="flex justify-around flex-wrap">
-  <!-- Add btn -->
-  <!-- Code block for button with icon starts -->
+<app-data-table 
+[tableData]="teachers" 
+[tableHeadings]="headings"
+[formFields]="formFields" 
+[selectOptions]="selectOptions"
+[options]="options"
+(createOrEdit)="createOrEdit($event)"
+(delete)="delete($event)"
+ >
+
+</app-data-table>
+
+
+
+
+
+
+<!-- <section class="flex justify-around flex-wrap">
   <div *CanPerformAction="routes.api.teacher.add" class="btn-container w-40">
     <a
       [routerLink]="[routePath.add]"
       class="m-2 flex items-center bg-purple-500 transition duration-150 ease-in-out hover:border-gray-700 hover:text-gray-900 rounded border border-gray-600 text-white pl-3 pr-6 py-2 text-sm text-center"
     >
       <span class="h-4 w-4 mr-2">
-        <!-- <svg xmlns="www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <polyline points="3 7 12 13 21 7" />
-          </svg> -->
       </span>
       New Teacher
     </a>
@@ -21,12 +31,6 @@
     *ngFor="let teacher of teachers"
     class="shadow-lg rounded-2xl w-80 m-2 bg-white dark:bg-gray-800"
   >
-    <!-- <img
-      alt="{{teacher?.first_name}}'s' background photo"
-      src="assets/img/teacherbg{{teacher?.id }}.png"
-      class="rounded-t-lg h-40 w-full mb-4"
-    /> -->
-   
     <img
     alt="{{teacher?.first_name}}'s' background photo"
     src="assets/img/teacherbg4.png"
@@ -76,4 +80,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->

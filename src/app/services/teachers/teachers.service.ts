@@ -24,8 +24,8 @@ export class TeachersService {
     return this.http.put<any>(`${this.baseUrl}${this.routes.teacher.edit}/${id}`,payload);
   }
 
-  deleteTeacher(id:string,payload: any) {
-    return this.http.put<any>(`${this.baseUrl}${this.routes.teacher.delete}/${id}`,payload);
+  deleteTeacher(id:string) {
+    return this.http.delete<any>(`${this.baseUrl}${this.routes.teacher.delete}/${id}`);
   }
 
 }

@@ -52,18 +52,27 @@
                 
             <td *ngFor="let col of formatedHeadings; index as i">
                
-            {{ possibleDates.includes(col.field.toLowerCase()) ? (rowData[col.field] | date : "medium") : rowData[col.field] }}
+           <span *ngIf="possibleDates.includes(col.field.toLowerCase())">{{ (rowData[col.field] | date : "medium")}}</span>
 
-            <img *ngIf="possibleImgElements.includes(col.field.toLowerCase())" [src]="rowData[col.field]" [alt]="rowData[col.field]" width="100" class="shadow-4" />
-                
+           <span *ngIf="!possibleDates.includes(col.field.toLowerCase()) && !possibleImgElements.includes(col.field.toLowerCase())">{{rowData[col.field]}}</span>
+
+            <img *ngIf="possibleImgElements.includes(col.field.toLowerCase())" [src]="rowData[col.field]" [alt]="rowData[col.field]" width="100" class="shadow-4" />    
             </td>
 
                 <!--  <p-rating [ngModel]="tableItem?.rating" [readonly]="true" [cancel]="false"></p-rating>
                 </td> -->
 
                 <td class="flex">
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editItem(rowData)"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteItem(rowData)"></button>
+
+                    <button pTooltip="edit" tooltipPosition="top" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editItem(rowData)">
+                    </button>
+
+                    <button pTooltip="delete" tooltipPosition="top" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteItem(rowData)">
+                    </button>
+
+                    <button pButton pTooltip="view" tooltipPosition="top" pRipple icon="pi pi-eye" class="p-button-rounded p-button-info" (click)="deleteItem(rowData)">
+                    </button>
+
                 </td>
             </tr>
         </ng-template>
@@ -78,14 +87,32 @@
 
 
 <!-- NEW/EDIT TABLE DATA SECTION -->
-<p-dialog [(visible)]="dataDialog" [style]="{width: '600px'}" class="my-8" [header]="(options.name | titlecase) + ' Details'" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="dataDialog" [style]="{width: '700px'}" class="my-8" [header]="(options.name | titlecase) + ' Details'" [modal]="true" styleClass="p-fluid">
 
     <ng-template pTemplate="content">
 
         <div *ngFor="let formItem of formFields; index as index" class="field my-4">
 
-            <!-- [src]="'assets/showcase/images/demo/product/' + tableItem.image" [alt]="tableItem.image"  -->
-            <!-- <img *ngIf="formItem?.type == 'img'" class="product-image"> -->
+            <!-- FILE INPUTS -->
+            <div *ngIf="formItem?.type == 'file'" class="field">
+            <label *ngIf="editable" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
+
+                <p-fileUpload id="{{index}}" [customUpload]="true" mode="basic" accept="image/*" 
+                (onSelect)="fileHandler($event, formItem.field)"
+                [maxFileSize]="1000000"
+                [chooseLabel]="formItem.field.replace('_',' ') | titlecase" class="mr-2 inline-block">
+                </p-fileUpload>
+            
+            <img *ngIf="editable" [src]="formControls[formItem.field]" [alt]="formControls[formItem.field]">
+
+            <div *ngIf="!editable && selectedFiles.length > 0" class="img-fields">
+               <span *ngFor="let file of selectedFiles">
+                <img class="mt-4" *ngIf="file.field == formItem.field" [src]="file.file | safeImageUrl" [alt]="formControls[formItem.field]">
+               </span>
+            </div>
+           
+            <small class="p-error" *ngIf="submitted && !formItem.field">{{ formItem.field }} is required.</small>
+            </div>
             
 
             <!-- TEXT INPUTS -->
@@ -158,4 +185,4 @@
 </p-dialog>
 <!-- END OF NEW/EDIT TABLE DATA SECTION -->
 
-<p-confirmDialog [style]="{width: '600px'}"></p-confirmDialog>
+<p-confirmDialog [style]="{width: '700px'}"></p-confirmDialog>

@@ -27,7 +27,8 @@ export class ResponseInterceptor implements HttpInterceptor {
         next: (data) => {
           if (data instanceof HttpResponse) {
             let headings: string[] = [];
-            if(typeof data.body.data && data.body.data.length>1){
+           if(!request.url.includes('file')){
+            if(typeof data?.body?.data && data.body.data.length>0){
               for (let [key, value] of Object.entries(data.body.data[0])) {
                 if(value !== null && value !== undefined && value !== ''){
                   if (key.includes('_')) {
@@ -38,6 +39,7 @@ export class ResponseInterceptor implements HttpInterceptor {
               }
               data.body.headings = headings;
             }
+           }
             ReponseHandler(data, AlertStatus.SUCCESS);
             this.state.setLoader(false);
           }

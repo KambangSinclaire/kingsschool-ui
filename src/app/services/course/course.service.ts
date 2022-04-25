@@ -27,6 +27,6 @@ export class CourseService {
   }
 
   updateCourse(id: string, payload: any) {
-    return this.http.put<any>(`${this.baseUrl}${ApiRoutes.api.course.retrieveSingle}/${id}`, payload);
+    return this.http.put<any>(`${this.baseUrl}${ApiRoutes.api.course.edit}/${id}`, payload);
   }
 }

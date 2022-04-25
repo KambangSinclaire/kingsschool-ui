@@ -25,7 +25,7 @@ export class LearnersService {
     return this.http.put<any>(`${this.baseUrl}${this.routes.learner.edit}/${id}`,payload);
   }
 
-  deleteLearner(id:string,payload: any) {
-    return this.http.put<any>(`${this.baseUrl}${this.routes.learner.delete}/${id}`,payload);
+  deleteLearner(id:string) {
+    return this.http.delete<any>(`${this.baseUrl}${this.routes.learner.delete}/${id}`);
   }
 }

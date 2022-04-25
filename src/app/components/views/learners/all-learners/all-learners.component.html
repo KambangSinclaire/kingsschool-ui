@@ -1,5 +1,20 @@
-<!-- TESTING NEW STUFFS -->
-<section class="flex items-center justify-center py-8 px-2">
+
+
+<app-data-table 
+[tableData]="learners" 
+[tableHeadings]="headings"
+[formFields]="formFields" 
+[selectOptions]="selectOptions"
+[options]="options"
+(createOrEdit)="createOrEdit($event)"
+(delete)="delete($event)"
+ >
+
+</app-data-table>
+
+
+
+<!-- <section class="flex items-center justify-center py-8 px-2">
     <div class="w-full sm:px-6">
         <div class="px-4 md:px-10 py-4 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
             <div class="sm:flex items-center justify-between">
@@ -39,29 +54,23 @@
                         <td class="pl-12">
                             <p class="text-sm font-medium leading-none text-gray-800">{{learner?.email}}</p>
                              <p class="text-xs leading-3 text-gray-600 mt-2">{{learner?.contact_phone}}</p>
-                            <!-- <div class="w-24 h-3 bg-gray-100 rounded-full mt-2">
-                                <div class="w-20 h-3 bg-green-progress rounded-full"></div>
-                            </div> -->
                         </td>
                         <td class="pl-12">
                             <p class="font-medium">{{learner?.address ?? "Not set"}}</p>
-                            <!-- <p class="text-xs leading-3 text-gray-600 mt-2">5 tasks pending</p> -->
+                           
                         </td>
                         <td class="pl-20">
                             <p class="font-medium">{{learner?.gender}}</p>
-                            <!-- <p class="text-xs leading-3 text-gray-600 mt-2">$4,200 left</p> -->
+                           
                         </td>
                         <td class="pl-20">
                             <p class="font-medium">{{learner?.createdAt | date}}</p>
-                            <!-- <p class="text-xs leading-3 text-gray-600 mt-2">{{learner.createdAt.}} days</p> -->
+                           
                         </td>
                         <td class="pl-16">
                             <div class="flex items-center">
                                 <p>{{learner?.courses?.length ?? "None"}}</p>
-                                <!-- <img class="shadow-md w-8 h-8 rounded-full" src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png" />
-                                <img class="shadow-md w-8 h-8 rounded-full -ml-2" src="https://cdn.tuk.dev/assets/templates/olympus/projects(9).png" />
-                                <img class="shadow-md w-8 h-8 rounded-full -ml-2" src="https://cdn.tuk.dev/assets/templates/olympus/projects(10).png" />
-                                <img class="shadow-md w-8 h-8 rounded-full -ml-2" src="https://cdn.tuk.dev/assets/templates/olympus/projects(11).png" /> -->
+                               
                             </div>
                         </td>
                         <td class="px-7 2xl:px-0">
@@ -87,4 +96,4 @@
             </table>
         </div>
     </div>
-  </section>
+  </section> -->

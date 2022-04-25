@@ -13,14 +13,11 @@ export class AllCoursesComponent implements OnInit, OnChanges {
 
   constructor(private router: Router, private courseService: CourseService) { }
 
-
   ngOnChanges(changes: SimpleChanges): void {
     this.allCourses();
   }
 
-
   courses: ICourse[] = [];
-
   headings: string[] = [];
 
   formFields: any[] = [
@@ -35,8 +32,6 @@ export class AllCoursesComponent implements OnInit, OnChanges {
 
   options: any = { name: "course", plural: 'courses' }
 
-  routes = ApiRoutes;
-
   ngOnInit(): void {
     this.allCourses();
   }
@@ -47,26 +42,24 @@ export class AllCoursesComponent implements OnInit, OnChanges {
       this.headings = response.headings;
     });
   }
-  gotoAddCourses() {
-    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.course.all}/${ApiRoutes.dashboard.course.crud.add}`]);
-  }
 
-  create(event: any) {
-    this.courseService.addCourse(event).subscribe(response => {
-      this.allCourses();
-    });
-  }
-
-  edit(event: any) {
-    // this.courseService.updateCourse(event.id,event).subscribe(response => {
-    //   this.allCourses();
-    // });
+  createOrEdit(event: any) {
+    console.log(event);
+    if(event.edit){
+      delete event.edit;
+      this.courseService.updateCourse(event.id,event).subscribe(response => {
+        this.allCourses();
+      });
+    }else{
+      this.courseService.addCourse(event).subscribe(response => {
+        this.allCourses();
+      });
+    }
   }
 
   delete(event: any) {
-    // this.courseService.deleteCourse(event).subscribe(response => {
-    //   this.allCourses();
-    // });
+    this.courseService.deleteCourse(event?.id).subscribe(response => {
+      this.allCourses();
+    });
   }
-
 }

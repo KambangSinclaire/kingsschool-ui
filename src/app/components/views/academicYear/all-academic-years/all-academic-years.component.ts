@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { IAcademicYear } from 'src/app/interfaces/academic-year.interface';
 import { AcademicYearsService } from 'src/app/services/AcademicYears/academic-years.service';
-import { ApiRoutes } from 'src/app/utils/routes/app.routes';
+
 
 @Component({
   selector: 'app-all-academic-years',
@@ -9,24 +9,64 @@ import { ApiRoutes } from 'src/app/utils/routes/app.routes';
   styleUrls: ['./all-academic-years.component.scss']
 })
 export class AllAcademicYearsComponent implements OnInit {
+  classrooms: any;
 
   constructor(private academicYearService: AcademicYearsService) { }
 
-  dropDownList: any;
+  ngOnChanges(changes: SimpleChanges): void {
+    this.getAcademicYears();
+  }
+
   academicYears: IAcademicYear[] = [];
-routes= ApiRoutes;
-  routePaths = {
-    details: '/' + ApiRoutes.dashboard.home + '/' + ApiRoutes.dashboard.classroom.all + '/' + ApiRoutes.dashboard.classroom.crud.details,
-    add: ApiRoutes.dashboard.classroom.crud.add
-  };
+
+  headings: string[] = [];
+
+  formFields: any[] = [
+    { field: 'name', type: 'text' },
+    { field: 'description', type: 'textarea' },
+    { field: 'startDate', type: 'date' },
+    { field: 'endDate', type: 'date' },
+    { field: 'color', type: 'color' },
+    { field: 'is_active', type: 'radio' },
+    { field: 'objectives', type: 'select' },
+  ];
+
+
+  selectOptions: any[] = [{ label: 'Increase Registrations', value: '1' },
+  { label: 'Increase Salaries', value: '2' },
+  { label: 'Build staff quaters', value: '3' }]
+
+  options: any = { name: "school year", plural: 'school years' }
 
   ngOnInit(): void {
     this.getAcademicYears();
   }
 
+  createOrEdit(event: any) {
+    if (event.edit) {
+      delete event.edit;
+      this.academicYearService.editAcademicYear(event.id, event).subscribe(response => {
+        this.getAcademicYears();
+      });
+    } else {
+      this.academicYearService.addAcademicYear(event).subscribe(response => {
+        this.getAcademicYears();
+      });
+    }
+  }
+
+  delete(event: any) {
+    this.academicYearService.deleteAcademicYear(event?.id).subscribe(response => {
+      this.getAcademicYears();
+    });
+  }
+
+
   getAcademicYears() {
     this.academicYearService.allAcademicYears("").subscribe(response => {
-      this.academicYears = response.data;
+      this.classrooms = response.data;
+      this.headings = response.headings;
     })
   }
+
 }

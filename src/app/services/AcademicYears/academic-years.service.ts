@@ -7,7 +7,6 @@ import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 })
 export class AcademicYearsService {
 
-
   private baseUrl = ApiRoutes.api.baseUrl;
   private routes = ApiRoutes.api;
   constructor(private http: HttpClient) { }

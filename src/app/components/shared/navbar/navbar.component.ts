@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAcademicYear } from 'src/app/interfaces/academic-year.interface';
 import { IUser } from 'src/app/interfaces/user.interface';
@@ -7,6 +7,7 @@ import { AcademicYearsService } from 'src/app/services/AcademicYears/academic-ye
 import { AppStateManager } from 'src/app/state/app.state';
 import { LocalStore } from 'src/app/utils/localstore.utils';
 import { MenuItem } from 'primeng/api';
+import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +19,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private academicYearService: AcademicYearsService,
+    private router: Router,
     private state: AppStateManager
   ) { }
 
@@ -36,132 +38,96 @@ export class NavbarComponent implements OnInit {
 
     this.items = [
       {
-          label:'File',
-          icon:'pi pi-fw pi-file',
-          items:[
-              {
-                  label:'New',
-                  icon:'pi pi-fw pi-plus',
-                  items:[
-                  {
-                      label:'Bookmark',
-                      icon:'pi pi-fw pi-bookmark'
-                  },
-                  {
-                      label:'Video',
-                      icon:'pi pi-fw pi-video'
-                  },
-
-                  ]
-              },
-              {
-                  label:'Delete',
-                  icon:'pi pi-fw pi-trash'
-              },
-              {
-                  separator:true
-              },
-              {
-                  label:'Export',
-                  icon:'pi pi-fw pi-external-link'
-              }
-          ]
-      },
-      {
-          label:'Edit',
-          icon:'pi pi-fw pi-pencil',
-          items:[
-              {
-                  label:'Left',
-                  icon:'pi pi-fw pi-align-left'
-              },
-              {
-                  label:'Right',
-                  icon:'pi pi-fw pi-align-right'
-              },
-              {
-                  label:'Center',
-                  icon:'pi pi-fw pi-align-center'
-              },
-              {
-                  label:'Justify',
-                  icon:'pi pi-fw pi-align-justify'
-              },
-
-          ]
-      },
-      {
-          label:'Users',
-          icon:'pi pi-fw pi-user',
-          items:[
-              {
-                  label:'New',
-                  icon:'pi pi-fw pi-user-plus',
-
-              },
-              {
-                  label:'Delete',
-                  icon:'pi pi-fw pi-user-minus',
-
-              },
-              {
-                  label:'Search',
-                  icon:'pi pi-fw pi-users',
-                  items:[
-                  {
-                      label:'Filter',
-                      icon:'pi pi-fw pi-filter',
-                      items:[
-                          {
-                              label:'Print',
-                              icon:'pi pi-fw pi-print'
-                          }
-                      ]
-                  },
-                  {
-                      icon:'pi pi-fw pi-bars',
-                      label:'List'
-                  }
-                  ]
-              }
-          ]
-      },
-      {
-          label:'Events',
-          icon:'pi pi-fw pi-calendar',
-          items:[
-              {
-                  label:'Edit',
-                  icon:'pi pi-fw pi-pencil',
-                  items:[
-                  {
-                      label:'Save',
-                      icon:'pi pi-fw pi-calendar-plus'
-                  },
-                  {
-                      label:'Delete',
-                      icon:'pi pi-fw pi-calendar-minus'
-                  },
-
-                  ]
-              },
-              {
-                  label:'Archieve',
-                  icon:'pi pi-fw pi-calendar-times',
-                  items:[
-                  {
-                      label:'Remove',
-                      icon:'pi pi-fw pi-calendar-minus'
-                  }
-                  ]
-              }
-          ]
-      },
-      {
-          label:'Quit',
-          icon:'pi pi-fw pi-power-off'
+        label: 'Menu',
+        icon: 'pi pi-fw pi-list',
+        items: [
+          {
+            label: 'Dashboard',
+            icon: 'pi pi-fw pi-th-large',
+            command: () => { 
+              this.gotoHome();
+            },
+          },
+          {
+            label: 'Learners',
+            icon: 'pi pi-fw pi-user',
+            command: () => { 
+              this.gotoLearners();
+            },
+          },
+          {
+            label: 'Courses',
+            icon: 'pi pi-fw pi-book ',
+            command: () => { 
+              this.gotoCourses();
+            },
+          },
+          {
+            label: 'Classrooms',
+            icon: 'pi pi-fw pi-table',
+            command: () => {
+              this.gotoClassrooms();
+             },
+          },
+          {
+            label: 'Teachers',
+            icon: 'pi pi-fw pi-user',
+            command: () => {
+              this.gotoTeachers()
+             },
+          },
+          {
+            label: 'Lectures',
+            icon: 'pi pi-fw pi-file',
+            command: () => {
+              this.gotoLectures();
+             },
+          },
+          {
+            label: 'Fees',
+            icon: 'pi pi-fw pi-credit-card',
+            command: () => {
+              // this.gotoStatistics();
+             },
+          },
+          {
+            label: 'Academic Levels',
+            icon: 'pi pi-fw pi-sliders-v',
+            command: () => {
+              this.gotoAcademicLevels();
+            }
+          },
+          {
+            label: 'Academic Years',
+            icon: 'pi pi-fw pi-calendar',
+            command: () => {
+              this.gotoAcademicYears();
+            }
+          },
+          {
+            label: 'Chatroom',
+            icon: 'pi pi-fw pi-comments',
+            command: () => { 
+              this.gotoChatRoom();
+            },
+          },
+          {
+            label: 'Help',
+            icon: 'pi pi-fw pi-question-circle',
+            command: () => { 
+              this.gotoHelpCenter();
+            },
+          },
+          {
+            label: 'Settings',
+            icon: 'pi pi-fw pi-cog',
+            command: () => {
+              this.gotoSettings();
+             },
+          }
+        ]
       }
-  ];
+    ];
 
   }
 
@@ -178,6 +144,58 @@ export class NavbarComponent implements OnInit {
       LocalStore.setItem('token', responseData.refresh_token);
       window.location.reload();
     })
+  }
+
+  gotoTeachers() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.teacher.all}`])
+  }
+  gotoClassrooms() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.classroom.all}`])
+  }
+  logout() {
+    localStorage.clear();
+    this.router.navigate([ApiRoutes.dashboard.login]);
+  }
+  gotoAddDocument() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.resource.all}`])
+  }
+  gotoHome() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}`])
+  }
+
+  gotoStatistics() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.explore}`]);
+  }
+
+  gotoSettings() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.profile}`]);
+  }
+  gotoChatRoom() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.inbox}`]);
+  }
+  gotoAdmins() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.admins}`]);
+  }
+  gotoHelpCenter() { }
+
+  gotoLearners() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.learner.all}`]);
+  }
+
+  gotoCourses() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.course.all}`]);
+  }
+
+  gotoAcademicLevels() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard['academic-level'].all}`]);
+  }
+
+  gotoAcademicYears() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard['academic-year'].all}`]);
+  }
+
+  gotoLectures() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.lecture.all}`]);
   }
 
 }

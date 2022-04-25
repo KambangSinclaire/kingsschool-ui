@@ -1,5 +1,20 @@
-<section class="py-8">
-    <!-- Code block for button with icon ends -->
+<!-- DATA TABLE -->
+<app-data-table 
+[tableData]="academicYears" 
+[tableHeadings]="headings"
+[formFields]="formFields" 
+[selectOptions]="selectOptions"
+[options]="options"
+(createOrEdit)="createOrEdit($event)"
+(delete)="delete($event)"
+ >
+
+</app-data-table>
+
+
+
+
+<!-- <section class="py-8">
         <div class="container px-4 mx-auto">
           <div class="flex flex-wrap -m-4">
             <div class="w-full md:w-1/2 lg:w-1/4 p-4" *ngFor="let year of academicYears">
@@ -32,10 +47,6 @@
                     <span class="text-xs text-gray-500">{{year?.endDate | date :"MMM,yyy"}}</span>
                   </div>
                   <div class="flex items-center justify-between mb-10">
-                    <!-- <div *ngFor="let learners of year?.learners" class="flex items-center">
-                      <img class="w-8 h-8 rounded-full object-cover object-right" src={{learners?.profile_picture}} alt="">
-                      <div class="inline-flex -ml-2 items-center justify-center w-8 h-8 rounded-full bg-indigo-50 text-xs font-medium text-indigo-500">+{{year?.learners?.length}}</div>
-                    </div> -->
                     <a [routerLink]="[routePaths.details ,year?.id]">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.00001 6.66666C7.26363 6.66666 6.66668 7.26362 6.66668 8C6.66668 8.73637 7.26363 9.33333 8.00001 9.33333C8.73639 9.33333 9.33334 8.73637 9.33334 7.99999C9.33334 7.26362 8.73639 6.66666 8.00001 6.66666Z" fill="#E1E4E8"></path>
@@ -56,9 +67,9 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
     
-    <section class="flex items-center justify-center py-8 px-2">
+    <!-- <section class="flex items-center justify-center py-8 px-2">
       <div class="w-full sm:px-6">
           <div class="px-4 md:px-10 py-4 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
               <div class="sm:flex items-center justify-between">
@@ -87,8 +98,6 @@
                           <td class="pl-4 cursor-pointer">
                               <div class="flex items-center">
                                   <div class="w-10 h-10" [ngStyle]="{'background-color': year?.color}">
-                                      <!-- <img class="w-full h-full" src="https://cdn.tuk.dev/assets/templates/olympus/projects.png" /> -->
-    
                                   </div>
                                   <div class="pl-4">
                                       <p class="font-medium">{{year?.name}}</p>
@@ -145,4 +154,4 @@
               </table>
           </div>
       </div>
-    </section>
+    </section> -->

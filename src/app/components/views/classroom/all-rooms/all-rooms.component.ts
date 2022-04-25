@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { IClassroom } from 'src/app/interfaces/classroom.interface';
 import { ClassroomService } from 'src/app/services/classroom/classroom.service';
-import { ApiRoutes } from 'src/app/utils/routes/app.routes';
+
 
 @Component({
   selector: 'app-all-rooms',
@@ -13,22 +13,52 @@ export class AllRoomsComponent implements OnInit {
   constructor(private classService: ClassroomService) { }
 
   classrooms: IClassroom[] = [];
-  routes = ApiRoutes;
-  routePath = {
-    details: '/' + ApiRoutes.dashboard.home + '/' + ApiRoutes.dashboard.classroom.all + '/' + ApiRoutes.dashboard.classroom.crud.details,
-    add: ApiRoutes.dashboard.classroom.crud.add
-  };
+  ngOnChanges(changes: SimpleChanges): void {
+    this.allClassrooms();
+  }
 
-  dropDownList: any;
+  headings: string[] = [];
+
+  formFields: any[] = [
+    { field: 'name', type: 'text' },
+    { field: 'description', type: 'textarea' },
+    { field: 'capacity', type: 'number' },
+    { field: 'color', type: 'color' },
+  ];
+
+  selectOptions: any[] = [{ label: 'INSTOCK', value: 'instock' }]
+
+  options: any = { name: "class", plural: 'classes' }
 
   ngOnInit(): void {
-    this.allClassrooms()
+    this.allClassrooms();
   }
+
+  createOrEdit(event: any) {
+    if(event.edit){
+      delete event.edit;
+      this.classService.updateClassroom(event.id,event).subscribe(response => {
+        this.allClassrooms();
+      });
+    }else{
+      this.classService.addClassroom(event).subscribe(response => {
+        this.allClassrooms();
+      });
+    }
+  }
+
+  delete(event: any) {
+    this.classService.deleteClassroom(event?.id).subscribe(response => {
+      this.allClassrooms();
+    });
+  }
+
+
 
   allClassrooms() {
     this.classService.allClassrooms().subscribe(response => {
-      console.log('response data', response.data);
       this.classrooms = response.data;
+      this.headings = response.headings;
     })
   }
 }
