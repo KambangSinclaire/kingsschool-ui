@@ -42,6 +42,8 @@ export class DataTableComponent implements OnInit, OnChanges {
     submitted!: boolean;
     editable!: boolean;
     hasfileInput!: boolean;
+    itemSize = 10
+
 
 
     constructor(

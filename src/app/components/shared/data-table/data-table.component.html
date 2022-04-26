@@ -143,11 +143,22 @@
             <!-- SELECT INPUTS -->
             <div *ngIf="formItem?.type == 'select'" class="field">
                 <label *ngIf="editable" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
-                <p-dropdown [(ngModel)]="formControls[formItem.field]" inputId="{{index}}" [options]="selectOptions" [placeholder]="formItem.field.replace('_',' ') | titlecase">
+
+                <!-- <p-dropdown [(ngModel)]="formControls[formItem.field]" inputId="{{index}}" [options]="selectOptions" [placeholder]="formItem.field.replace('_',' ') | titlecase">
                     <ng-template let-option pTemplate="item">
                         <span [class]="'product-badge status-' + option.value">{{ option.label }}</span>
                     </ng-template>
-                </p-dropdown>
+                </p-dropdown> -->
+
+            <p-multiSelect 
+                [options]="selectOptions" 
+                display="chip" [virtualScroll]="true"
+                [placeholder]="formItem.field.replace('_',' ') | titlecase"
+                 [itemSize]="itemSize"
+                [(ngModel)]="formControls[formItem.field]" 
+                optionLabel="label" optionValue="id">
+            </p-multiSelect>
+
                 <small class="p-error" *ngIf="submitted && !formItem.field">{{ formItem.field }} is required.</small>
             </div>
             

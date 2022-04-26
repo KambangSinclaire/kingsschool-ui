@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ILearner } from 'src/app/interfaces/learner.interface';
+import { AcademicLevelsService } from 'src/app/services/AcademicLevels/academic-levels.service';
 import { LearnersService } from 'src/app/services/learners/learners.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class AllLearnersComponent implements OnInit, OnChanges {
 
   learners: ILearner[] = [];;
   headings: string[] = [];
+  academicLevels:any[] = [];
 
   formFields: any[] = [
     { field: 'first_name', type: 'text' },
@@ -41,11 +43,12 @@ export class AllLearnersComponent implements OnInit, OnChanges {
 
   options: any = { name: "learner", plural: 'learners' }
 
-  constructor(private learnersService: LearnersService) { }
+  constructor(private learnersService: LearnersService,private academicLevelService: AcademicLevelsService,) { }
 
 
   ngOnInit(): void {
     this.allLearners();
+    this.getAcademicLevels()
   }
 
   allLearners() {
@@ -72,6 +75,13 @@ export class AllLearnersComponent implements OnInit, OnChanges {
   delete(event: any) {
     this.learnersService.deleteLearner(event?.id).subscribe(response => {
       this.allLearners();
+    });
+  }
+
+  getAcademicLevels() {
+    this.academicLevelService.allAcademicLevels("").subscribe(response => {
+      this.academicLevels = response.data.map((level:any)=>{return {id:level.id,label:level?.name}});
+      this.selectOptions = this.academicLevels;
     });
   }
 }

@@ -22,6 +22,7 @@ import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MenubarModule } from 'primeng/menubar';
 
+
 const modules = [
   TableModule,
   CalendarModule,
@@ -36,6 +37,7 @@ const modules = [
   InputTextModule,
   ProgressBarModule,
   FileUploadModule,
+  
   ToolbarModule,
   RatingModule,
   RadioButtonModule,
