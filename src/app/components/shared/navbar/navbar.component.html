@@ -86,7 +86,7 @@
 <p-menubar [model]="items">
   <ng-template pTemplate="start">
     <img
-      class="h-8 rounded-full cursor-pointer"
+      class="rounded-full cursor-pointer h-8 w-8"
       [src]="(user | async)?.school?.logo"
       [alt]="(user | async)?.school?.name"
       width="auto"

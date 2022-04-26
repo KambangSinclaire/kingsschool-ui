@@ -8,6 +8,4 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 7000:7000
-    volumes:
-      - ./:/usr/src/app
     command: npm run start

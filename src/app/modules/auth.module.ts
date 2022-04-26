@@ -5,15 +5,19 @@ import { AuthService } from '../services/auth/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared.module';
 import { ProfileComponent } from '../components/views/auth/profile/profile.component';
+import { LoginComponent } from '../components/views/auth/login/login.component';
+import { SignupComponent } from '../components/views/auth/signup/signup.component';
 
 
 const components = [
   ProfileComponent,
-  AuthComponent
+  AuthComponent,
+  LoginComponent,
+   SignupComponent
 ]
 @NgModule({
   declarations: [
-   components
+   components,
   ],
   imports: [
     CommonModule,

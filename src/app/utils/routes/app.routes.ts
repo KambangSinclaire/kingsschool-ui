@@ -5,6 +5,7 @@ const crud = {
 }
 export const ApiRoutes = Object.freeze({
     api: {
+        // http://ec2-3-145-15-29.us-east-2.compute.amazonaws.com/kings/coreapis/school/api/v1/
         baseUrl: "http://localhost:8080/kings/coreapis/school/api/v1/",
         user: {
             login: "appLogin",

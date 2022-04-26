@@ -12,7 +12,9 @@ import { AddAcademicYearComponent } from './components/views/academicYear/add-ac
 import { AllAcademicYearsComponent } from './components/views/academicYear/all-academic-years/all-academic-years.component';
 import { DetailsComponent } from './components/views/academicYear/details/details.component';
 import { AuthComponent } from './components/views/auth/auth.component';
+import { LoginComponent } from './components/views/auth/login/login.component';
 import { ProfileComponent } from './components/views/auth/profile/profile.component';
+import { SignupComponent } from './components/views/auth/signup/signup.component';
 import { AddClassroomComponent } from './components/views/classroom/add-classroom/add-classroom.component';
 import { AllRoomsComponent } from './components/views/classroom/all-rooms/all-rooms.component';
 import { BaseComponent } from './components/views/classroom/base/base.component';
@@ -42,7 +44,11 @@ import { ApiRoutes } from './utils/routes/app.routes';
 const routes: Routes = [
   {
     path: "",
-    component: AuthComponent
+    component: LoginComponent
+  },
+  {
+    path: "app/register",
+    component: SignupComponent
   },
   {
     path: ApiRoutes.dashboard.home,
