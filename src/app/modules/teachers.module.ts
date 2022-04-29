@@ -8,6 +8,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TeacherBaseComponent } from '../components/views/teachers/teacher-base/teacher-base.component';
 import { SharedModule } from './shared.module';
+import { MyOfficeComponent } from '../components/views/teachers/my-office/my-office.component';
+import { PrimengModule } from './primeng.module';
 
 
 
@@ -18,13 +20,15 @@ import { SharedModule } from './shared.module';
     TeacherDetailsComponent,
     UpdateTeacherComponent,
     AddTeacherComponent,
-    TeacherBaseComponent
+    TeacherBaseComponent,
+    MyOfficeComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    PrimengModule
   ]
 })
 export class TeachersModule { }

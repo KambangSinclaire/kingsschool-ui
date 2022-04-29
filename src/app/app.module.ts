@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 import { LectureModule } from './modules/lecture.module';
 import { StatisticsModule } from './modules/statistics.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PaymentsModule } from './modules/payments.module';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LectureModule,
     StatisticsModule,
     ResourceModule,
+    PaymentsModule,
     AppRoutingModule,
     HttpClientModule,
   ],

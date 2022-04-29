@@ -5,8 +5,8 @@ const crud = {
 }
 export const ApiRoutes = Object.freeze({
     api: {
-        // http://ec2-3-145-15-29.us-east-2.compute.amazonaws.com/kings/coreapis/school/api/v1/
-        baseUrl: "http://localhost:8080/kings/coreapis/school/api/v1/",
+        // baseUrl: "http://localhost:8080/kings/coreapis/school/api/v1/",
+        baseUrl: " http://ec2-3-145-15-29.us-east-2.compute.amazonaws.com/kings/coreapis/school/api/v1/",
         user: {
             login: "appLogin",
             logout: "appLogout",
@@ -145,6 +145,13 @@ export const ApiRoutes = Object.freeze({
             retrieveSingle: "getSingleDepartment",
             delete: "deleteDepartment",
         },
+        fee: {
+            add: "addFee",
+            edit: "editFee",
+            retrieve: "getFees",
+            retrieveSingle: "getSingleFee",
+            delete: "deleteFee",
+        },
         notification: {
             sendSMS: "sendSMS",
             sendEmail: "sendEmail",
@@ -235,11 +242,17 @@ export const ApiRoutes = Object.freeze({
             all: "tasks",
             crud
         },
+        fee: {
+            all: "fees",
+            crud
+        },
         activity: {
             all: "activities",
             crud
         },
         admins: "admins",
+        myClass: "my-classroom",
+        myOffice: "my-office",
         inbox: "inbox"
     }
-})
+});

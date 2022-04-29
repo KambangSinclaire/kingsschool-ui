@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
 import { IAcademicYear } from 'src/app/interfaces/academic-year.interface';
 import { IStatistics } from 'src/app/interfaces/statistics.interface';
 import { StatisticsService } from 'src/app/services/statistics/statistics.service';
@@ -83,6 +84,7 @@ export class HomeComponent implements OnInit {
     });
 
     // this.pullStatistics()
+
   }
 
   getAllStatistics() {
@@ -100,4 +102,5 @@ export class HomeComponent implements OnInit {
   //     console.log("Pulled statistics ",this.statistics); 
   //   }
   // }
+
 }

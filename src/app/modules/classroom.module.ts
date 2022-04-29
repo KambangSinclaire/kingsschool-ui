@@ -8,6 +8,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { BaseComponent } from '../components/views/classroom/base/base.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared.module';
+import { MyClassroomComponent } from '../components/views/classroom/my-classroom/my-classroom.component';
+import { PrimengModule } from './primeng.module';
 
 
 
@@ -17,10 +19,12 @@ import { SharedModule } from './shared.module';
     ClassDetailsComponent,
     AddClassroomComponent,
     UpdateClassroomComponent,
-    BaseComponent
+    BaseComponent,
+    MyClassroomComponent
   ],
   imports: [
     CommonModule,
+    PrimengModule,
     SharedModule,
     AppRoutingModule,
     ReactiveFormsModule

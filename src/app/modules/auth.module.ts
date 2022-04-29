@@ -7,6 +7,7 @@ import { SharedModule } from './shared.module';
 import { ProfileComponent } from '../components/views/auth/profile/profile.component';
 import { LoginComponent } from '../components/views/auth/login/login.component';
 import { SignupComponent } from '../components/views/auth/signup/signup.component';
+import { PrimengModule } from './primeng.module';
 
 
 const components = [
@@ -22,6 +23,7 @@ const components = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    PrimengModule,
     SharedModule
   ],
 exports:[ components],

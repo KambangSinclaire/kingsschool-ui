@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAcademicYear } from 'src/app/interfaces/academic-year.interface';
 import { IUser } from 'src/app/interfaces/user.interface';
@@ -87,7 +87,7 @@ export class NavbarComponent implements OnInit {
             label: 'Fees',
             icon: 'pi pi-fw pi-credit-card',
             command: () => {
-              // this.gotoStatistics();
+             this.gotoFees()
              },
           },
           {
@@ -126,6 +126,20 @@ export class NavbarComponent implements OnInit {
              },
           }
         ]
+      },
+      {
+        label: 'My Class',
+        icon: 'pi pi-fw pi-table',
+        command: () => {
+          this.gotoMyClass();
+        }
+      },
+      {
+        label: 'My Office',
+        icon: 'pi pi-fw pi-table',
+        command: () => {
+          this.gotoMyOffice();
+        }
       }
     ];
 
@@ -149,9 +163,11 @@ export class NavbarComponent implements OnInit {
   gotoTeachers() {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.teacher.all}`])
   }
+
   gotoClassrooms() {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.classroom.all}`])
   }
+
   logout() {
     localStorage.clear();
     this.router.navigate([ApiRoutes.dashboard.login]);
@@ -159,6 +175,7 @@ export class NavbarComponent implements OnInit {
   gotoAddDocument() {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.resource.all}`])
   }
+
   gotoHome() {
     this.router.navigate([`${ApiRoutes.dashboard.home}`])
   }
@@ -198,4 +215,15 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.lecture.all}`]);
   }
 
+  gotoFees() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.fee.all}`]);
+  }
+
+  gotoMyClass() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.myClass}`]);
+  }
+
+  gotoMyOffice() {
+    this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.myOffice}`]);
+  }
 }

@@ -86,14 +86,28 @@
 <p-menubar [model]="items">
   <ng-template pTemplate="start">
     <img
-      class="rounded-full cursor-pointer h-8 w-8"
+      class="rounded-full cursor-pointer h-8 w-8 school-logo"
       [src]="(user | async)?.school?.logo"
       [alt]="(user | async)?.school?.name"
       width="auto"
       (click)="gotoSettings()"
     />
   </ng-template>
+
   <ng-template pTemplate="end">
-    <input type="text" pInputText placeholder="Search" />
+    <div class="menu-container flex items-center">
+      <input type="text" pInputText placeholder="Search" />
+      <img
+        class="rounded-full cursor-pointer h-8 w-8 mx-4"
+        [src]="(user | async)?.profile_photo"
+        [alt]="(user | async)?.username"
+        width="auto"
+        (click)="gotoSettings()"
+      />
+      <button (click)="logout()">
+        <span icon="pi pi-power-off"></span>
+        <span>Logout</span>
+      </button>
+    </div>
   </ng-template>
 </p-menubar>

@@ -21,11 +21,14 @@ import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MenubarModule } from 'primeng/menubar';
+import {ChartModule} from 'primeng/chart';
+import {TabViewModule} from 'primeng/tabview';
 
 
 const modules = [
   TableModule,
   CalendarModule,
+  TabViewModule,
   MenubarModule,
   SliderModule,
   DialogModule,
@@ -37,7 +40,7 @@ const modules = [
   InputTextModule,
   ProgressBarModule,
   FileUploadModule,
-  
+  ChartModule,
   ToolbarModule,
   RatingModule,
   RadioButtonModule,

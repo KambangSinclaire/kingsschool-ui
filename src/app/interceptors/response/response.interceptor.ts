@@ -27,27 +27,29 @@ export class ResponseInterceptor implements HttpInterceptor {
         next: (data) => {
           if (data instanceof HttpResponse) {
             let headings: string[] = [];
-           if(!request.url.includes('file')){
-            if(typeof data?.body?.data && data.body.data.length>0){
-              for (let [key, value] of Object.entries(data.body.data[0])) {
-                if(value !== null && value !== undefined && value !== ''){
-                  if (key.includes('_')) {
-                    key = key.replace('_', ' ')
+            if (!request.url.includes('file')) {
+              if (typeof data?.body?.data && data.body.data.length > 0) {
+                for (let [key, value] of Object.entries(data.body.data[0])) {
+                  if (value !== null && value !== undefined && value !== '') {
+                    if (key.includes('_')) {
+                      key = key.replace('_', ' ')
+                    }
+                    headings.push(key);
                   }
-                  headings.push(key);
                 }
+                data.body.headings = headings;
               }
-              data.body.headings = headings;
             }
-           }
-            ReponseHandler(data, AlertStatus.SUCCESS);
+            // ReponseHandler(data, AlertStatus.SUCCESS);
             this.state.setLoader(false);
+            this.state.setAlertState({ message: 'Success', status: AlertStatus.SUCCESS, details: data.body.message });
           }
         },
         error: (error) => {
           this.state.setLoader(false);
           if (error?.status == 401 && error?.error?.message.includes('is not authorized')) this.router.navigate([ApiRoutes.dashboard.login]);
-          ReponseHandler(error, AlertStatus.ERROR)
+          // ReponseHandler(error, AlertStatus.ERROR)
+          this.state.setAlertState({ message: 'Error', status: AlertStatus.ERROR, details: error?.error?.message ?? error?.message ?? "An error occured" });
         }
       }),
       finalize(() => {
