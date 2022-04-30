@@ -20,7 +20,7 @@ export class DataTableComponent implements OnInit, OnChanges {
 
     @Input('formFields') formFields: any = [];
 
-    @Input('options') options: { name: string, plural: string } = { name: 'course', plural: 'courses' };
+    @Input('options') options: { name: string, plural: string, permissions: { add: string, edit: string, delete: string, view: string, viewAll: string } } = { name: 'course', plural: 'courses', permissions: { add: '', edit: '', delete: '', view: '', viewAll: '' } };
     formControls: any = {};
 
     @Input('selectOptions') selectOptions: any[] = [];
@@ -129,7 +129,7 @@ export class DataTableComponent implements OnInit, OnChanges {
             accept: () => {
                 this.delete.emit(formControls);
                 this.tableData = this.tableData.filter(val => val.id !== formControls.id);
-                this.formControls = {};
+                // this.formControls = {};
                 this.messageService.add({ severity: 'success', summary: 'Successful', detail: `${this.options.name} deleted`, life: 3000 });
             }
         });
@@ -150,39 +150,50 @@ export class DataTableComponent implements OnInit, OnChanges {
                 formData.append('file', this.selectedFiles[0].fileData);
                 this.fileUpload.fileUpload(formData).subscribe(file => {
                     this.formControls[this.selectedFiles[0].field] = file.image;
-                    this.createOrEdit.emit(this.formControls);
+                    this.createOrEdit.emit(this.reformatUndefinedFields(this.formControls));
+                    this.dataDialog = false;
                 });
             }
         } else {
             // No files to upload, sooo emit createOrEdit event
-            this.createOrEdit.emit(this.formControls);
+            this.createOrEdit.emit(this.reformatUndefinedFields(this.formControls));
+            this.dataDialog = false;
         }
     }
 
     fileHandler(event: any, field: any) {
         const files = Array.from(event.currentFiles);
         this.hasfileInput = true;
-        this.selectedFiles.push({ file: this.fileUpload.single(files), field,fileData:files[0] });
+        this.selectedFiles.push({ file: this.fileUpload.single(files), field, fileData: files[0] });
     }
 
-    findIndexById(id: string): number {
-        let index = -1;
-        for (let i = 0; i < this.tableData.length; i++) {
-            if (this.tableData[i].id === id) {
-                index = i;
-                break;
+    reformatUndefinedFields(formControls: any) {
+        for (const key in formControls) {
+            if (formControls[key] === undefined || formControls[key] === null) {
+                delete formControls[key];
             }
         }
-
-        return index;
+        return formControls;
     }
 
-    createId(): string {
-        let id = '';
-        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for (var i = 0; i < 5; i++) {
-            id += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return id;
-    }
+    // findIndexById(id: string): number {
+    //     let index = -1;
+    //     for (let i = 0; i < this.tableData.length; i++) {
+    //         if (this.tableData[i].id === id) {
+    //             index = i;
+    //             break;
+    //         }
+    //     }
+
+    //     return index;
+    // }
+
+    // createId(): string {
+    //     let id = '';
+    //     var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    //     for (var i = 0; i < 5; i++) {
+    //         id += chars.charAt(Math.floor(Math.random() * chars.length));
+    //     }
+    //     return id;
+    // }
 }

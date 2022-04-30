@@ -1,6 +1,7 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { IAcademicYear } from 'src/app/interfaces/academic-year.interface';
 import { AcademicYearsService } from 'src/app/services/AcademicYears/academic-years.service';
+import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 
 @Component({
@@ -36,7 +37,17 @@ export class AllAcademicYearsComponent implements OnInit {
   { label: 'Increase Salaries', value: '2' },
   { label: 'Build staff quaters', value: '3' }]
 
-  options: any = { name: "school year", plural: 'school years' }
+  options: any = { 
+    name: "school year",
+     plural: 'school years',
+     permissions: {
+      add: ApiRoutes.api.academicYear.add,
+      edit: ApiRoutes.api.academicYear.edit,
+      delete: ApiRoutes.api.academicYear.delete,
+      view: ApiRoutes.api.academicYear.retrieveSingle,
+      viewAll: ApiRoutes.api.academicYear.retrieveSingle
+    }
+     }
 
   ngOnInit(): void {
     this.getAcademicYears();

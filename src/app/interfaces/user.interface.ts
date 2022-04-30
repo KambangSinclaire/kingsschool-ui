@@ -12,8 +12,8 @@ export interface IUser {
     last_login_location: string;
     first_name: string;
     last_name: string;
-    phone_number:string,
-    address:string,
+    phone_number: string,
+    address: string,
     about: string;
     gender: string;
     status: string;
@@ -23,15 +23,23 @@ export interface IUser {
     userType: string;
     app_user_Id: any;
     x_api_key: string;
-    academic_year:IAcademicYear;
+    academic_year: IAcademicYear;
     remember?: boolean,
-    profile_photo:string,
-    school:ISchool;
-    date_of_birth:string;
+    profile_photo: string,
+    school: ISchool;
+    date_of_birth: string;
 }
 
-export type UserType ={
-    admin:"admin",
-    teacher:"teacher",
-    learner:"learner"
+export type UserType = {
+    admin: "ADMIN",
+    teacher: "STAFF",
+    learner: "LEARNER"
 }
+
+export enum UserRole {
+    admin = "ADMIN",
+    learner = "LEARNER",
+    staff = "STAFF",
+    admin_staff = "ADMINSTAFF",
+    super_admin = "SUPERADMIN"
+};

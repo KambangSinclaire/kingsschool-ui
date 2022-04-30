@@ -1,5 +1,6 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { PaymentsService } from 'src/app/services/payments/payments.service';
+import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Component({
   selector: 'app-fees',
@@ -33,7 +34,17 @@ export class FeesComponent implements OnInit {
   ];
 
   selectOptions: any[] = [{ label: 'INSTOCK', value: 'instock' }]
-  options: any = { name: "payments", plural: 'paymentss' }
+  options: any = {
+    name: "payment",
+    plural: 'payments',
+    permissions: {
+      add: ApiRoutes.api.fee.add,
+      edit: ApiRoutes.api.fee.edit,
+      delete: ApiRoutes.api.fee.delete,
+      view: ApiRoutes.api.fee.retrieveSingle,
+      viewAll: ApiRoutes.api.fee.retrieveSingle
+    }
+  }
 
   ngOnInit(): void {
     this.allpaymentss()
@@ -47,12 +58,12 @@ export class FeesComponent implements OnInit {
   }
 
   createOrEdit(event: any) {
-    if(event.edit){
+    if (event.edit) {
       delete event.edit;
-      this.paymentsService.editFee(event.id,event).subscribe(response => {
+      this.paymentsService.editFee(event.id, event).subscribe(response => {
         this.allpaymentss();
       });
-    }else{
+    } else {
       this.paymentsService.addFee(event).subscribe(response => {
         this.allpaymentss();
       });

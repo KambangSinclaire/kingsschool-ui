@@ -6,21 +6,21 @@
     <!-- TABLE TOOLBAR SECTION -->
     <p-toolbar styleClass="mb-0">
         <ng-template pTemplate="left">
-            <button pButton pRipple [label]="'New '+options.name|titlecase" icon="pi pi-plus" class="p-button-success addBtn" (click)="openNew()">
+            <button pButton pRipple *CanPerformAction="options.permissions.add" [label]="'New '+options.name|titlecase" icon="pi pi-plus" class="p-button-success addBtn" (click)="openNew()">
             </button>
-            <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger ml-4" (click)="deleteSelectedItems()" [disabled]="!selectedItems || !selectedItems.length">
+            <button pButton pRipple *CanPerformAction="options.permissions.delete" [label]="Delete" icon="pi pi-trash" class="p-button-danger ml-4" (click)="deleteSelectedItems()" [disabled]="!selectedItems || !selectedItems.length">
             </button>
         </ng-template>
 
         <ng-template pTemplate="right">
-            <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload>
+            <p-fileUpload mode="basic" *CanPerformAction="options.permissions.add" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload>
             <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
         </ng-template>
     </p-toolbar>
     <!-- END OF TABLE TOOLBAR SECTION -->
 
     <!-- DATA TABLE SECTION -->
-    <p-table #dt [value]="tableData" [rows]="5" [paginator]="true" [globalFilterFields]="headings" responsiveLayout="scroll"
+    <p-table #dt [value]="tableData" *CanPerformAction="options.permissions.viewAll" [rows]="5" [paginator]="true" [globalFilterFields]="headings" responsiveLayout="scroll"
         [(selection)]="selectedItems" [rowHover]="true" dataKey="id"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} {{options.plural | titlecase}}" [showCurrentPageReport]="true" [columns]="formatedHeadings">
         <ng-template pTemplate="caption">
@@ -64,13 +64,13 @@
 
                 <td class="flex">
 
-                    <button pTooltip="edit" tooltipPosition="top" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editItem(rowData)">
+                    <button *CanPerformAction="options.permissions.edit" pTooltip="edit" tooltipPosition="top" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editItem(rowData)">
                     </button>
 
-                    <button pTooltip="delete" tooltipPosition="top" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteItem(rowData)">
+                    <button *CanPerformAction="options.permissions.delete" pTooltip="delete" tooltipPosition="top" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteItem(rowData)">
                     </button>
 
-                    <button pButton pTooltip="view" tooltipPosition="top" pRipple icon="pi pi-eye" class="p-button-rounded p-button-info" (click)="viewData(rowData)">
+                    <button *CanPerformAction="options.permissions.view" pButton pTooltip="view" tooltipPosition="top" pRipple icon="pi pi-eye" class="p-button-rounded p-button-info" (click)="viewData(rowData)">
                     </button>
 
                 </td>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Cipher, LocalStore } from 'src/app/utils/localstore.utils';
 import { Router } from '@angular/router';
-import { IUser } from 'src/app/interfaces/user.interface';
+import { IUser, UserRole } from 'src/app/interfaces/user.interface';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { AppStateManager } from 'src/app/state/app.state';
 import { MessageService } from 'primeng/api';
@@ -37,12 +37,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.auth.login(this.user.value).subscribe((response) => {
       this.authActions(response)
-      // this.messageService.add({ severity: 'success', summary: 'Success', detail: response?.message });
-    }, (error) => {
-      // this.messageService.add({ severity: 'error', summary: 'Error', detail: error?.error?.message ?? error?.message  ?? "An error occured"});
-      // this.messageService.add({ severity: 'success', summary: 'Successful', detail: `${this.options.plural} deleted`, life: 3000 });
-    }
-    )
+    })
   }
 
   authActions(response: any) {
@@ -51,10 +46,31 @@ export class LoginComponent implements OnInit {
     LocalStore.setItem('x_api_key', responseData.x_api_key);
     LocalStore.setItem('user', responseData);
     this.state.setUserState(responseData);
+
+    if (responseData.userType.toUpperCase() === UserRole.staff.toUpperCase()) {
+      this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.myOffice}`], {
+        queryParams: {
+          [responseData?.userType ?? UserRole.staff.toLowerCase()]: Cipher.encrypt(responseData?.id)
+        }
+      });
+      return;
+    }
+
+    if (responseData.userType.toUpperCase() === UserRole.learner.toUpperCase()) {
+      this.router.navigate([`${ApiRoutes.dashboard.home}/${ApiRoutes.dashboard.myClass}`], {
+        queryParams: {
+          [responseData?.userType ?? UserRole.learner.toLowerCase()]: Cipher.encrypt(responseData?.id)
+        }
+      });
+      return;
+    }
+
     this.router.navigate([ApiRoutes.dashboard.home], {
       queryParams: {
-        [responseData?.userType ?? "admin"]: Cipher.encrypt(responseData?.id)
+        [responseData?.userType ?? UserRole.admin.toLowerCase()]: Cipher.encrypt(responseData?.id)
       }
     });
+
+    return;
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { IClassroom } from 'src/app/interfaces/classroom.interface';
 import { ClassroomService } from 'src/app/services/classroom/classroom.service';
+import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 
 @Component({
@@ -28,7 +29,17 @@ export class AllRoomsComponent implements OnInit {
 
   selectOptions: any[] = [{ label: 'INSTOCK', value: 'instock' }]
 
-  options: any = { name: "class", plural: 'classes' }
+  options: any = { 
+    name: "class",
+     plural: 'classes',
+     permissions: {
+      add: ApiRoutes.api.classroom.add,
+      edit: ApiRoutes.api.classroom.edit,
+      delete: ApiRoutes.api.classroom.delete,
+      view: ApiRoutes.api.classroom.retrieveSingle,
+      viewAll: ApiRoutes.api.classroom.retrieveSingle
+    }
+     }
 
   ngOnInit(): void {
     this.allClassrooms();

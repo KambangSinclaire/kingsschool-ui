@@ -30,7 +30,17 @@ export class AllCoursesComponent implements OnInit, OnChanges {
 
   selectOptions: any[] = [{ label: 'INSTOCK', value: 'instock' }]
 
-  options: any = { name: "course", plural: 'courses' }
+  options: any = {
+    name: "course",
+    plural: 'courses',
+    permissions: {
+      add: ApiRoutes.api.course.add,
+      edit: ApiRoutes.api.course.edit,
+      delete: ApiRoutes.api.course.delete,
+      view: ApiRoutes.api.course.retrieveSingle,
+      viewAll: ApiRoutes.api.course.retrieveSingle
+    }
+  };
 
   ngOnInit(): void {
     this.allCourses();
@@ -45,12 +55,12 @@ export class AllCoursesComponent implements OnInit, OnChanges {
 
   createOrEdit(event: any) {
     console.log(event);
-    if(event.edit){
+    if (event.edit) {
       delete event.edit;
-      this.courseService.updateCourse(event.id,event).subscribe(response => {
+      this.courseService.updateCourse(event.id, event).subscribe(response => {
         this.allCourses();
       });
-    }else{
+    } else {
       this.courseService.addCourse(event).subscribe(response => {
         this.allCourses();
       });

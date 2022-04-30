@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAcademicYear } from 'src/app/interfaces/academic-year.interface';
-import { IUser } from 'src/app/interfaces/user.interface';
+import { IUser, UserRole } from 'src/app/interfaces/user.interface';
 import { AcademicYearsService } from 'src/app/services/AcademicYears/academic-years.service';
 import { AppStateManager } from 'src/app/state/app.state';
 import { LocalStore } from 'src/app/utils/localstore.utils';
@@ -129,6 +129,7 @@ export class NavbarComponent implements OnInit {
       },
       {
         label: 'My Class',
+        visible: LocalStore.getItem('user',{}).userType.toUpperCase() === UserRole.learner.toUpperCase(),
         icon: 'pi pi-fw pi-table',
         command: () => {
           this.gotoMyClass();
@@ -136,6 +137,7 @@ export class NavbarComponent implements OnInit {
       },
       {
         label: 'My Office',
+        visible: LocalStore.getItem('user',{}).userType.toUpperCase() === UserRole.staff.toUpperCase(),
         icon: 'pi pi-fw pi-table',
         command: () => {
           this.gotoMyOffice();

@@ -21,9 +21,10 @@ import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { PrimengModule } from './primeng.module';
 import { DataTableComponent } from '../components/shared/data-table/data-table.component';
 import { ChartsDisplayComponent } from '../components/shared/charts-display/charts-display.component';
+import { ApiRoutes } from '../utils/routes/app.routes';
 
 const config: SocketIoConfig = {
-  url: 'http://localhost:8080/kings/communication', options: {
+  url: ApiRoutes.api.host + 'kings/communication', options: {
     extraHeaders: {
       authorization: 'Bearer ' + localStorage.getItem('token'),
       'x-api-key': localStorage.getItem('apiKey') ?? ""

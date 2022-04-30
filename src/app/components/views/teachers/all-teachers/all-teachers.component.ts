@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ITeacher } from 'src/app/interfaces/teacher.interface';
 import { TeachersService } from 'src/app/services/teachers/teachers.service';
+import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Component({
   selector: 'app-all-teachers',
@@ -37,7 +38,17 @@ export class AllTeachersComponent implements OnInit, OnChanges {
   ];
 
   selectOptions: any[] = [{ label: 'INSTOCK', value: 'instock' }]
-  options: any = { name: "teacher", plural: 'teachers' }
+  options: any = {
+     name: "teacher",
+      plural: 'teachers',
+      permissions: {
+        add: ApiRoutes.api.teacher.add,
+        edit: ApiRoutes.api.teacher.edit,
+        delete: ApiRoutes.api.teacher.delete,
+        view: ApiRoutes.api.teacher.retrieveSingle,
+        viewAll: ApiRoutes.api.teacher.retrieveSingle
+      }
+     }
 
   ngOnInit(): void {
     this.allTeachers()
@@ -47,9 +58,6 @@ export class AllTeachersComponent implements OnInit, OnChanges {
     this.teacherService.allTeachers("").subscribe(response => {
       this.teachers = response.data;
       this.headings = response.headings;
-
-      console.log("headings", this.headings);
-      
     });
   }
 

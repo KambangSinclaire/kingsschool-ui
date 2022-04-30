@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ITeacher } from 'src/app/interfaces/teacher.interface';
-import { IUser, UserType } from 'src/app/interfaces/user.interface';
+import { IUser, UserRole, UserType } from 'src/app/interfaces/user.interface';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LocalStore } from 'src/app/utils/localstore.utils';
 
@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
         id: ''
     };
 
-    userTypes:Partial<UserType> = {}
+    userTypes:Partial<UserType> = UserRole;
 
     ngOnInit(): void {
         this.activeRoute.params.subscribe(params => {

@@ -5,8 +5,9 @@ const crud = {
 }
 export const ApiRoutes = Object.freeze({
     api: {
-        // baseUrl: "http://localhost:8080/kings/coreapis/school/api/v1/",
-        baseUrl: " http://ec2-3-145-15-29.us-east-2.compute.amazonaws.com/kings/coreapis/school/api/v1/",
+        // host: "http://localhost:8080/",
+        host: "http://ec2-3-145-15-29.us-east-2.compute.amazonaws.com/",
+        get baseUrl() { return this.host + "kings/coreapis/school/api/v1/" },
         user: {
             login: "appLogin",
             logout: "appLogout",
@@ -18,12 +19,12 @@ export const ApiRoutes = Object.freeze({
         },
         statistics: {
             all: "all-statistics",
-            admin:"admin-statistics",
-            staff:"staff-statistics",
-            subAdmin:"subAdmin-statistics",
-            owner:"owner-statistics",
-            teacher:"teacher-statistics",
-            learner:"learner-statistics"
+            admin: "admin-statistics",
+            staff: "staff-statistics",
+            subAdmin: "subAdmin-statistics",
+            owner: "owner-statistics",
+            teacher: "teacher-statistics",
+            learner: "learner-statistics"
         },
         learner: {
             add: "addLearner",
@@ -52,7 +53,7 @@ export const ApiRoutes = Object.freeze({
             retrieve: "getAcademicYears",
             retrieveSingle: "getSingleAcademicYear",
             delete: "deleteAcademicYear",
-            setActiveYear:"setActiveYear"
+            setActiveYear: "setActiveYear"
         },
         academicLevel: {
             add: "addAcademicLevel",
@@ -205,7 +206,7 @@ export const ApiRoutes = Object.freeze({
         },
         course: {
             all: "courses",
-            register:"register",
+            register: "register",
             crud
         },
         resource: {

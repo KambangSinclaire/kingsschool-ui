@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ILearner } from 'src/app/interfaces/learner.interface';
 import { AcademicLevelsService } from 'src/app/services/AcademicLevels/academic-levels.service';
 import { LearnersService } from 'src/app/services/learners/learners.service';
+import { ApiRoutes } from 'src/app/utils/routes/app.routes';
 
 @Component({
   selector: 'app-all-learners',
@@ -16,7 +17,7 @@ export class AllLearnersComponent implements OnInit, OnChanges {
 
   learners: ILearner[] = [];;
   headings: string[] = [];
-  academicLevels:any[] = [];
+  academicLevels: any[] = [];
 
   formFields: any[] = [
     { field: 'first_name', type: 'text' },
@@ -41,9 +42,19 @@ export class AllLearnersComponent implements OnInit, OnChanges {
 
   selectOptions: any[] = [{ label: 'INSTOCK', value: 'instock' }]
 
-  options: any = { name: "learner", plural: 'learners' }
+  options: any = {
+    name: "learner",
+    plural: 'learners',
+    permissions: {
+      add: ApiRoutes.api.learner.add,
+      edit: ApiRoutes.api.learner.edit,
+      delete: ApiRoutes.api.learner.delete,
+      view: ApiRoutes.api.learner.retrieveSingle,
+      viewAll: ApiRoutes.api.learner.retrieveSingle
+    }
+  }
 
-  constructor(private learnersService: LearnersService,private academicLevelService: AcademicLevelsService,) { }
+  constructor(private learnersService: LearnersService, private academicLevelService: AcademicLevelsService,) { }
 
 
   ngOnInit(): void {
@@ -80,7 +91,7 @@ export class AllLearnersComponent implements OnInit, OnChanges {
 
   getAcademicLevels() {
     this.academicLevelService.allAcademicLevels("").subscribe(response => {
-      this.academicLevels = response.data.map((level:any)=>{return {id:level.id,label:level?.name}});
+      this.academicLevels = response.data.map((level: any) => { return { id: level.id, label: level?.name } });
       this.selectOptions = this.academicLevels;
     });
   }
