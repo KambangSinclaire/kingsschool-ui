@@ -41,6 +41,7 @@ export class DataTableComponent implements OnInit, OnChanges {
     selectedFiles: any[] = [];
     submitted!: boolean;
     editable!: boolean;
+    inViewMode!: boolean;
     hasfileInput!: boolean;
     itemSize = 10
 
@@ -109,6 +110,14 @@ export class DataTableComponent implements OnInit, OnChanges {
         this.editable = true;
         formControls.edit = true;
         this.formControls = { ...formControls };
+        this.dataDialog = true;
+    }
+
+    viewData(formControls: any) {
+        this.inViewMode = true;
+        this.editable = false;
+        this.formControls = { ...formControls };
+        this.view.emit(this.formControls);
         this.dataDialog = true;
     }
 

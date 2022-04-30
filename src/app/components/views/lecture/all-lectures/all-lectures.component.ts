@@ -12,9 +12,10 @@ export class AllLecturesComponent implements OnInit {
   constructor() { }
 
   lectures: ILecture[] = [];
-  routes = {
-    details: '/' + ApiRoutes.dashboard.home + '/' + ApiRoutes.dashboard.classroom.all + '/' + ApiRoutes.dashboard.classroom.crud.details,
-    add: ApiRoutes.dashboard.classroom.crud.add
+  routes = ApiRoutes;
+  routePath = {
+    details: '/' + ApiRoutes.dashboard.home + '/' + ApiRoutes.dashboard.lecture.all + '/' + ApiRoutes.dashboard.lecture.crud.details,
+    add: ApiRoutes.dashboard.lecture.crud.add
   };
 
   dropDownList: any;

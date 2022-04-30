@@ -23,12 +23,14 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MenubarModule } from 'primeng/menubar';
 import {ChartModule} from 'primeng/chart';
 import {TabViewModule} from 'primeng/tabview';
+import {MenuModule} from 'primeng/menu';
 
 
 const modules = [
   TableModule,
   CalendarModule,
   TabViewModule,
+  MenuModule,
   MenubarModule,
   SliderModule,
   DialogModule,

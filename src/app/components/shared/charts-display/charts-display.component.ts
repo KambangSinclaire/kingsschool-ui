@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-charts-display',
@@ -7,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChartsDisplayComponent implements OnInit {
 
-
-
-  data: any;
-  options!: any;
+@Input('chartData') data: any;
+@Input('chartOptions') options: any;
+@Input('chartType') type: string = 'line';
 
 
   constructor() {
@@ -18,14 +17,14 @@ export class ChartsDisplayComponent implements OnInit {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
         {
-          label: 'First Dataset',
+          label: 'Weekly attendance',
           data: [65, 59, 80, 81, 56, 55, 40],
           fill: false,
           borderColor: '#42A5F5',
           tension: .4
         },
         {
-          label: 'Second Dataset',
+          label: 'Monthly attendance',
           data: [28, 48, 40, 19, 86, 27, 90],
           fill: false,
           borderColor: '#FFA726',

@@ -4,7 +4,7 @@
 <div class="card">
 
     <!-- TABLE TOOLBAR SECTION -->
-    <p-toolbar styleClass="mb-4">
+    <p-toolbar styleClass="mb-0">
         <ng-template pTemplate="left">
             <button pButton pRipple [label]="'New '+options.name|titlecase" icon="pi pi-plus" class="p-button-success addBtn" (click)="openNew()">
             </button>
@@ -70,7 +70,7 @@
                     <button pTooltip="delete" tooltipPosition="top" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteItem(rowData)">
                     </button>
 
-                    <button pButton pTooltip="view" tooltipPosition="top" pRipple icon="pi pi-eye" class="p-button-rounded p-button-info" (click)="deleteItem(rowData)">
+                    <button pButton pTooltip="view" tooltipPosition="top" pRipple icon="pi pi-eye" class="p-button-rounded p-button-info" (click)="viewData(rowData)">
                     </button>
 
                 </td>
@@ -87,7 +87,7 @@
 
 
 <!-- NEW/EDIT TABLE DATA SECTION -->
-<p-dialog [(visible)]="dataDialog" [style]="{width: '700px'}" class="my-8" [header]="(options.name | titlecase) + ' Details'" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="dataDialog" [style]="{width: '700px'}" class="my-8" [header]="(editable ? 'Edit ' : '')+ (options.name | titlecase) + ' Details'" [modal]="true" styleClass="p-fluid">
 
     <ng-template pTemplate="content">
 
@@ -117,15 +117,15 @@
 
             <!-- TEXT INPUTS -->
             <div *ngIf="formItem?.type == 'text'" class="field">
-                <label *ngIf="editable" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
-                <input type="text" pInputText id="{{index}}" [(ngModel)]="formControls[formItem.field]" required autofocus [placeholder]="formItem.field.replace('_',' ') | titlecase"/>
+                <label *ngIf="editable || inViewMode" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
+                <input type="text" [readonly]="inViewMode" pInputText id="{{index}}" [(ngModel)]="formControls[formItem.field]" required autofocus [placeholder]="formItem.field.replace('_',' ') | titlecase"/>
                 <small class="p-error" *ngIf="submitted && !formItem.field">{{ formItem.field }} is required.</small>
             </div>
 
 
             <!-- CALENDAR INPUTS -->
             <div *ngIf="formItem?.type == 'date'" class="field">
-                <label *ngIf="editable" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
+                <label *ngIf="editable || inViewMode" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
                 <p-calendar [(ngModel)]="formControls[formItem.field]" [placeholder]="formItem.field.replace('_',' ') | titlecase"></p-calendar>
                 <small class="p-error" *ngIf="submitted && !formItem.field">{{ formItem.field }} is required.</small>
             </div>
@@ -133,8 +133,8 @@
 
             <!-- TEXTAREA INPUTS -->
             <div *ngIf="formItem?.type == 'textarea'" class="field">
-                <label *ngIf="editable" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
-                <textarea id="{{index}}" pInputTextarea [(ngModel)]="formControls[formItem.field]" required rows="3" cols="20" [placeholder]="formItem.field.replace('_',' ') | titlecase">
+                <label *ngIf="editable || inViewMode" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
+                <textarea id="{{index}}" [readonly]="inViewMode" pInputTextarea [(ngModel)]="formControls[formItem.field]" required rows="3" cols="20" [placeholder]="formItem.field.replace('_',' ') | titlecase">
                 </textarea>
                 <small class="p-error" *ngIf="submitted && !formItem.field">{{ formItem.field }} is required.</small>
             </div>
@@ -142,7 +142,7 @@
 
             <!-- SELECT INPUTS -->
             <div *ngIf="formItem?.type == 'select'" class="field">
-                <label *ngIf="editable" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
+                <label *ngIf="editable || inViewMode" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
 
                 <!-- <p-dropdown [(ngModel)]="formControls[formItem.field]" inputId="{{index}}" [options]="selectOptions" [placeholder]="formItem.field.replace('_',' ') | titlecase">
                     <ng-template let-option pTemplate="item">
@@ -155,6 +155,7 @@
                 display="chip" [virtualScroll]="true"
                 [placeholder]="formItem.field.replace('_',' ') | titlecase"
                 [itemSize]="itemSize"
+                [readonly]="inViewMode"
                 [(ngModel)]="formControls[formItem.field]" 
                 optionLabel="label" optionValue="id">
             </p-multiSelect>
@@ -174,8 +175,8 @@
 
             <!-- NUMBER INPUTS -->
             <div *ngIf="formItem?.type == 'number'" class="field col">
-                <label *ngIf="editable" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
-                <p-inputNumber id="{{index}}" [(ngModel)]="formControls[formItem.field]" [placeholder]="formItem.field.replace('_',' ') | titlecase"></p-inputNumber>
+                <label *ngIf="editable || inViewMode" for="{{formItem.field}}" class="pr-2">{{ formItem.field.replace('_',' ') | titlecase }}</label>
+                <p-inputNumber id="{{index}}" [readonly]="inViewMode" [(ngModel)]="formControls[formItem.field]" [placeholder]="formItem.field.replace('_',' ') | titlecase"></p-inputNumber>
                 <small class="p-error" *ngIf="submitted && !formItem.field">{{ formItem.field }} is required.</small>
             </div>
             

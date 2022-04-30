@@ -46,12 +46,12 @@ const components = [
   StatisticsChartComponent,
   LoaderComponent,
   ChatroomComponent,
-  DataTableComponent
+  DataTableComponent,
+  ChartsDisplayComponent
 ]
 @NgModule({
   declarations: [
-    components,
-    ChartsDisplayComponent
+    components
   ],
   imports: [
     CommonModule,

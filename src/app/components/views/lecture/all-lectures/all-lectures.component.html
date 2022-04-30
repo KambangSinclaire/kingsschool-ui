@@ -35,7 +35,7 @@
                       <img class="w-8 h-8 rounded-full object-cover object-right" src={{learners?.profile_picture}} alt="">
                       <div class="inline-flex -ml-2 items-center justify-center w-8 h-8 rounded-full bg-indigo-50 text-xs font-medium text-indigo-500">+{{lecture?.learners?.length}}</div>
                     </div> -->
-                    <a [routerLink]="[routes.details ,lecture?.id]">
+                    <a [routerLink]="[routePath.details ,lecture?.id]">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.00001 6.66666C7.26363 6.66666 6.66668 7.26362 6.66668 8C6.66668 8.73637 7.26363 9.33333 8.00001 9.33333C8.73639 9.33333 9.33334 8.73637 9.33334 7.99999C9.33334 7.26362 8.73639 6.66666 8.00001 6.66666Z" fill="#E1E4E8"></path>
                         <path d="M12.6667 6.66666C11.9303 6.66666 11.3333 7.26362 11.3333 8C11.3333 8.73637 11.9303 9.33333 12.6667 9.33333C13.403 9.33333 14 8.73637 14 7.99999C14 7.26362 13.403 6.66666 12.6667 6.66666Z" fill="#E1E4E8"></path>
@@ -62,8 +62,8 @@
           <div class="px-4 md:px-10 py-4 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
               <div class="sm:flex items-center justify-between">
                   <p class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-600">All lectures</p>
-                  <div *CanPerformAction="routes.add">
-                      <a [routerLink]="[routes.add]" class="inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
+                  <div *CanPerformAction="routes.api.lecture.add">
+                      <a [routerLink]="[routePath.add]" class="inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
                           <p class="text-sm font-medium leading-none text-white">New lecture</p>
                       </a>
                   </div>

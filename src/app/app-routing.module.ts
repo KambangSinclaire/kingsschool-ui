@@ -121,7 +121,13 @@ const routes: Routes = [
       },
       {
         path: ApiRoutes.dashboard.myOffice,
-        component: MyOfficeComponent
+        component: MyOfficeComponent,
+        children:[
+          {
+            path: "",
+            component: TeacherDetailsComponent
+          }
+        ]
       },
       {
         path: ApiRoutes.dashboard.teacher.all,

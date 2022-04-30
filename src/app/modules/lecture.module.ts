@@ -7,6 +7,7 @@ import { LectureBaseComponent } from '../components/views/lecture/lecture-base/l
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { SharedModule } from './shared.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const components = [
   EditorComponent,
@@ -22,6 +23,8 @@ const components = [
   imports: [
     CommonModule,
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
     EditorModule,
     AppRoutingModule
   ],
