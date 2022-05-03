@@ -1,4 +1,4 @@
-name: Create and publish kingsschool web Docker image to docker hub
+name: Create and publish kingsschool web ui Docker image to docker hub
 
 on:
   push:
