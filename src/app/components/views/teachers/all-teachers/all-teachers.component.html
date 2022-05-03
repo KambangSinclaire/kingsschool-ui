@@ -1,0 +1,83 @@
+<app-data-table 
+[tableData]="teachers" 
+[tableHeadings]="headings"
+[formFields]="formFields" 
+[selectOptions]="selectOptions"
+[options]="options"
+(createOrEdit)="createOrEdit($event)"
+(delete)="delete($event)"
+ >
+
+</app-data-table>
+
+
+
+
+
+
+<!-- <section class="flex justify-around flex-wrap">
+  <div *CanPerformAction="routes.api.teacher.add" class="btn-container w-40">
+    <a
+      [routerLink]="[routePath.add]"
+      class="m-2 flex items-center bg-purple-500 transition duration-150 ease-in-out hover:border-gray-700 hover:text-gray-900 rounded border border-gray-600 text-white pl-3 pr-6 py-2 text-sm text-center"
+    >
+      <span class="h-4 w-4 mr-2">
+      </span>
+      New Teacher
+    </a>
+  </div>
+
+  <div
+    *ngFor="let teacher of teachers"
+    class="shadow-lg rounded-2xl w-80 m-2 bg-white dark:bg-gray-800"
+  >
+    <img
+    alt="{{teacher?.first_name}}'s' background photo"
+    src="assets/img/teacherbg4.png"
+    class="rounded-t-lg h-40 w-full mb-4"
+  />
+
+    <div class="flex flex-col items-center justify-center p-4 -mt-16">
+      <a class="block relative">
+        <img
+          alt="profil"
+          src="{{ teacher?.profile_photo }}"
+          class="mx-auto object-cover rounded-full h-16 w-16 border-2 border-white dark:border-gray-800"
+        />
+      </a>
+      <p class="text-gray-800 dark:text-white text-xl font-medium mt-2">
+        {{ teacher?.first_name }}
+      </p>
+      <p class="text-gray-400 text-xs mb-4">
+        {{ teacher?.last_name }}
+      </p>
+      <p class="text-xs p-2 bg-pink-500 text-white px-4 rounded-full">
+        {{ teacher?.email }}
+      </p>
+      <div class="rounded-lg p-2 w-full mt-4">
+        <div
+          class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-200"
+        >
+          <p class="flex flex-col">
+            Courses
+            <span class="text-black dark:text-white font-bold">
+              {{ teacher?.courses }}
+            </span>
+          </p>
+          <p class="flex flex-col">
+            Tutorials
+            <span class="text-black dark:text-white font-bold">
+              {{ teacher?.tutorials?.length }}
+            </span>
+          </p>
+          <p class="flex flex-col">
+            Rating
+            <span class="text-black dark:text-white font-bold">
+              {{ teacher?.ratings?.length }}
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

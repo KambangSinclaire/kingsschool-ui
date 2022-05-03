@@ -1,0 +1,62 @@
+<div aria-label="form" tabindex="0" class="focus:outline-none xl:w-12/12 w-full px-8 bg-gray-200 pt-8">
+           
+    <div class="xl:px-24">
+
+        <!-- Learner Form -->
+        <form [formGroup]="academicYearForm">
+              <!-- STEP 1 Learner Personal info -->
+        <div class="mt-16 lg:flex justify-between border-b border-gray-200 p-16 bg-white">
+            <div class="w-80">
+                <div class="flex items-center">
+                    <h1 tabindex="0" class="focus:outline-none text-xl font-medium pr-2 leading-5 text-gray-800">School year info</h1>
+                </div>
+                <p tabindex="0" class="focus:outline-none mt-4 text-sm leading-5 text-gray-600">Please ensure to fill all the fields below.</p>
+            </div>
+            <div>
+                <div class="md:flex items-center lg:ml-24 lg:mt-0 mt-4">
+                    <div class="md:w-64">
+                        <label class="text-sm leading-none text-gray-800" id="name" >Name</label>
+                        <input type="text" formControlName="name" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="name" placeholder="2023 School Year" />
+                    </div>
+                    <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
+                        <label class="text-sm leading-none text-gray-800" id="color">Theme</label>
+                        <!-- <input type="color" formControlName="color" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="color" placeholder="#8876" /> -->
+                        <input type="color" formControlName="color" name="color" id="color" class="h-10 border mt-1 rounded px-4 w-full bg-gray-200" value="" placeholder="" />
+                    </div>
+                </div>
+                <div class="md:flex items-center lg:ml-24 mt-8">
+                    <div class="md:w-64">
+                        <label class="text-sm leading-none text-gray-800" id="startDate">Start Date</label>
+                        <input type="datetime-local" formControlName="startDate" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="creditValue" placeholder="1 March, 2023"/>
+                    </div>
+                    <div class="md:w-64 md:ml-12 md:mt-0 mt-4">
+                        <label class="text-sm leading-none text-gray-800" id="endDate" >End Date</label>
+                        <input type="datetime-local" formControlName="endDate" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="endDate" placeholder="1 March, 2024"/>
+                    </div>
+                </div>
+
+                <div class="md:flex items-center lg:ml-24 mt-8">
+                    <div class="md:w-full">
+                        <label class="text-sm leading-none text-gray-800" id="place-of-birth">Description</label>
+                        <textarea name="description" formControlName="description" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="place-of-birth" id="" cols="50" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="md:flex items-center lg:ml-24 mt-8">
+                    <div class="md:w-full">
+                        <label class="text-sm leading-none text-gray-800" id="place-of-birth">Objectives</label>
+                        <textarea name="objectives" formControlName="objectives" tabindex="0" class="w-full p-3 mt-3 bg-gray-200 border rounded border-gray-200 focus:outline-none focus:border-gray-600 text-sm font-medium leading-none text-gray-800" aria-labelledby="place-of-birth" id="" cols="50" rows="10"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:col-span-5 text-right py-8" *ngIf="academicYearForm.valid">
+            <div class="inline-flex items-end">
+              <button (click)="createAcademicYear()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+            </div>
+          </div>
+        </form>
+
+    </div>
+</div>

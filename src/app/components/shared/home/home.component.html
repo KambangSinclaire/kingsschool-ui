@@ -1,0 +1,514 @@
+<main class="dark:bg-gray-800 rounded-2xl h-screen">
+
+    <!-- SCHOOL OWNER STATS -->
+    <!-- <div *CanPerformAction="routes.statistics.admin" class="mx-auto container my-2 lg:mt-2 lg:mb-2">
+        <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="flex justify-center w-full lg:border-r border-gray-300 py-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="69" viewBox="0 0 64 69" fill="none">
+                    <path d="M31.5 37C41.165 37 49 29.165 49 19.5C49 9.83502 41.165 2 31.5 2C21.835 2 14 9.83502 14 19.5C14 29.165 21.835 37 31.5 37Z" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M2 67V61C2 57.8174 4.10714 54.7652 7.85786 52.5147C11.6086 50.2643 16.6957 49 22 49H42C47.3043 49 52.3914 50.2643 56.1421 52.5147C59.8929 54.7652 62 57.8174 62 61V67" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <div class="text-gray-800 pl-4 w-fit">
+                    <h1 class="font-bold text-1xl lg:text-2xl tracking-1px">
+                        {{statistics?.all_learners}} {{ statistics.all_learners && statistics.all_learners > 10000 ? "+" : "" }}</h1>
+                    <h2 class="text-base lg:text-lg mt-1 leading-8 tracking-wide">Admitted Pupils</h2>
+                </div>
+            </div>
+            <div class="flex justify-center w-full lg:border-r border-gray-300 py-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="57" viewBox="0 0 72 57" fill="none">
+                    <path d="M54.9999 54.9998C59.1815 54.9998 62.5713 51.6099 62.5713 47.4283C62.5713 43.2468 59.1815 39.8569 54.9999 39.8569C50.8183 39.8569 47.4285 43.2468 47.4285 47.4283C47.4285 51.6099 50.8183 54.9998 54.9999 54.9998Z" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M39.8571 47.4285H9.57142H2V5.78571C2 4.78168 2.39885 3.81877 3.10881 3.10881C3.81877 2.39885 4.78168 2 5.78571 2H39.8571V24.7142M39.8571 47.4285V24.7142M39.8571 47.4285H62.5713H70.1427V24.7142M24.7142 47.4285H47.4285M70.1427 24.7142H39.8571M70.1427 24.7142L58.7856 5.78571H39.8571" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M20.9285 13.3569V28.4998M13.3571 20.9283H28.5H13.3571Z" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M17.1427 54.9998C21.3243 54.9998 24.7142 51.6099 24.7142 47.4283C24.7142 43.2468 21.3243 39.8569 17.1427 39.8569C12.9612 39.8569 9.57133 43.2468 9.57133 47.4283C9.57133 51.6099 12.9612 54.9998 17.1427 54.9998Z" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <div class="text-gray-800 w-fit pl-4">
+                    <h1 class="font-bold text-1xl lg:text-2xl tracking-1px">{{statistics?.all_teachers}}</h1>
+                    <h2 class="text-base lg:text-lg mt-1 leading-8 tracking-wide">Active Teachers</h2>
+                </div>
+            </div>
+            <div class="flex justify-center w-full lg:border-r border-gray-300 py-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
+                    <path d="M36 70C54.7777 70 70 54.7777 70 36C70 17.2223 54.7777 2 36 2C17.2223 2 2 17.2223 2 36C2 54.7777 17.2223 70 36 70Z" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M36 17.1108V35.9997L47.3333 47.3331" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <div class="text-gray-800 w-fit pl-4">
+                    <h1 class="font-bold text-1xl lg:text-2xl tracking-1px">{{statistics?.totalFeesPaid | currency : "XAF" }}</h1>
+                    <h2 class="text-base lg:text-lg mt-1 leading-8 tracking-wide">Fees Paid</h2>
+                </div>
+            </div>
+            <div class="flex justify-center w-full py-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="79" viewBox="0 0 72 79" fill="none">
+                    <path d="M10.5 63.1375L2 58.5312V48.0625" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M2 31.3123V20.8435L10.5 16.2373" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M27.5 6.60624L36 2L44.5 6.60624" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M61.5 16.2373L70 20.8435V31.3123" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M70 48.0625V58.5312L61.5 63.2212" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M44.5 72.7686L36 77.3748L27.5 72.7686" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M36.0001 39.6873L44.5001 35.0811" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M61.5 25.45L70 20.8438" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M36.0001 39.6875V50.1562" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M36.0001 66.9062V77.375" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M36 39.6875L27.5 34.9976" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.5 25.45L2 20.8438" stroke="#805AD5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <div class="text-gray-800 w-fit pl-4">
+                    <h1 class="font-bold text-1xl lg:text-2xl tracking-1px">{{statistics?.totalExpenditure | currency : "XAF"}}</h1>
+                    <h2 class="text-base lg:text-lg mt-1 leading-8 tracking-wide">Expenses</h2>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
+    <div class="min-w-screen max-h-screen flex items-center justify-center">
+        <div class="max-w-full w-full mx-auto py-6 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row w-full lg:space-x-2 space-y-2 lg:space-y-0 mb-2 lg:mb-4">
+    
+                <div class="w-full lg:w-1/5">
+                    <div class="widget w-full p-4 rounded-lg bg-white border-l-4 border-purple-400">
+                        <div class="flex items-center">
+                            <div class="icon w-14 p-3.5 bg-purple-400 text-white rounded-full mr-3">
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <div class="text-lg">{{ statistics.all_learners && statistics.all_learners > 10000 ? "+" : "" }}</div>
+                                <div class="text-sm text-gray-400">Admitted Learners</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="w-full lg:w-1/5">
+                    <div class="widget w-full p-4 rounded-lg bg-white border-l-4 border-blue-400">
+                        <div class="flex items-center">
+                            <div class="icon w-14 p-3.5 bg-blue-400 text-white rounded-full mr-3">
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <div class="text-lg">{{statistics?.all_teachers}}</div>
+                                <div class="text-sm text-gray-400">Active Teachers</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="w-full lg:w-1/5">
+                    <div class="widget w-full p-4 rounded-lg bg-white border-l-4 border-yellow-400">
+                        <div class="flex items-center">
+                            <div class="icon w-14 p-3.5 bg-yellow-400 text-white rounded-full mr-3">
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                                </svg>
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <div class="text-lg">{{statistics?.totalFeesPaid | currency : "XAF" }}</div>
+                                <div class="text-sm text-gray-400">Fees Paid</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="w-full lg:w-1/5">
+                    <div class="widget w-full p-4 rounded-lg bg-white border-l-4 border-red-400">
+                        <div class="flex items-center">
+                            <div class="icon w-14 p-3.5 bg-red-400 text-white rounded-full mr-3">
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <div class="text-lg">{{statistics?.totalExpenditure | currency : "XAF"}}</div>
+                                <div class="text-sm text-gray-400">Expenses</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="w-full lg:w-1/5">
+                    <div class="widget w-full p-4 rounded-lg bg-white border-l-4 border-green-400">
+                        <div class="flex items-center">
+                            <div class="icon w-14 p-3.5 bg-green-400 text-white rounded-full mr-3">
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <div class="text-lg">{{statistics?.totalFeesPaid | currency : "XAF" }}</div>
+                                <div class="text-sm text-gray-400">Fees Paid</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+    <!-- END HERE -->
+
+        <div class="flex flex-col w-full pl-0 md:p-4 md:space-y-4">
+                <div class="overflow-auto h-screen pb-24 pt-2 pr-2 pl-4 md:pt-0 md:pr-0 md:pl-0">
+                    <div class="flex flex-col flex-wrap sm:flex-row ">
+                        <div class="w-full sm:w-1/2 xl:w-1/3">
+
+                            <!-- ACADEMIC YEAR INFO -->
+                            <div class="mb-4">
+                                <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 w-full">
+                                    <div class="flex items-center justify-between mb-6">
+                                        <div class="flex items-center">
+                                            <span class="rounded-xl relative p-6 bg-blue-100" [ngStyle]="{'background': activeAcademicYear?.color}">
+                                                <!-- <svg width="25" height="25" viewBox="0 0 256 262" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+                                                    <path d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027" fill="#4285F4">
+                                                    </path>
+                                                    <path d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1" fill="#34A853">
+                                                    </path>
+                                                    <path d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782" fill="#FBBC05">
+                                                    </path>
+                                                    <path d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251" fill="#EB4335">
+                                                    </path>
+                                                </svg> -->
+                                            
+                                            </span>
+                                            <div class="flex flex-col">
+                                                <span class="font-bold text-md text-black dark:text-white ml-2">
+                                                    {{activeAcademicYear?.startDate | date: 'MMM yyyy'}} / {{activeAcademicYear?.endDate | date: 'MMM yyyy'}} Academic Year
+                                                </span>
+                                                <span class="text-sm text-gray-500 dark:text-white ml-2">
+                                                   Started on {{activeAcademicYear?.startDate | date }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <button class="border p-1 border-gray-200 rounded-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 1792 1792">
+                                                    <path d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                            <button class="text-gray-200">
+                                                <svg width="25" height="25" fill="currentColor" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1088 1248v192q0 40-28 68t-68 28h-192q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h192q40 0 68 28t28 68zm0-512v192q0 40-28 68t-68 28h-192q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h192q40 0 68 28t28 68zm0-512v192q0 40-28 68t-68 28h-192q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h192q40 0 68 28t28 68z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between mb-4 space-x-12">
+                                        <span class="px-2 py-1 flex items-center font-semibold text-xs rounded-md text-gray-500 bg-gray-200">
+                                            PROGRESS
+                                        </span>
+                                        <span class="px-2 py-1 flex items-center font-semibold text-xs rounded-md text-green-400 border border-red-400  bg-white">
+                                            {{activeAcademicYear?.is_active ? 'ACTIVE' : 'INACTIVE'}}
+                                        </span>
+                                    </div>
+                                    <div class="block m-auto">
+                                        <div>
+                                            <span class="text-sm inline-block text-gray-500 dark:text-gray-100">
+                                                Percentage gone :
+                                                <span class="text-gray-700 dark:text-white font-bold">
+                                                  {{activeAcademicYear?.percentage}}
+                                                </span>
+                                                /100
+                                            </span>
+                                        </div>
+                                        <div class="w-full h-2 bg-gray-200 rounded-full mt-2">
+                                            <div [ngStyle]="{'width.%':activeAcademicYear?.percentage}"   class="h-full text-center text-xs text-white bg-purple-500 rounded-full">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="flex items-center justify-start my-4 space-x-4">
+                                        <span class="px-2 py-1 flex items-center text-xs rounded-md font-semibold text-green-500 bg-green-50">
+                                            IOS APP
+                                        </span>
+                                        <span class="px-2 py-1 flex items-center text-xs rounded-md text-blue-500 font-semibold bg-blue-100">
+                                            UI/UX
+                                        </span>
+                                    </div>
+                                    <div class="flex -space-x-2">
+                                        <a href="#" class="">
+                                            <img class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white" src="/images/person/1.jpg" alt="Guy"/>
+                                        </a>
+                                        <a href="#" class="">
+                                            <img class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white" src="/images/person/2.jpeg" alt="Max"/>
+                                        </a>
+                                        <a href="#" class="">
+                                            <img class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white" src="/images/person/3.jpg" alt="Charles"/>
+                                        </a>
+                                        <a href="#" class="">
+                                            <img class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white" src="/images/person/4.jpg" alt="Jade"/>
+                                        </a>
+                                    </div> -->
+                                    <span class="px-2 py-1 flex w-fit mt-4 items-center text-xs rounded-md font-semibold text-yellow-500 bg-yellow-100">
+                                        DUE DATE : {{activeAcademicYear?.endDate | date}}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- ONGOING SCHOOL PROJECTS  -->
+                            <div *CanPerformAction="routes.statistics.admin" class="mb-4">
+                                <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-700 w-full">
+                                    <div class="flex items-center justify-between mb-6">
+                                        <div class="flex items-center">
+                                            <span class="rounded-xl relative p-2 bg-blue-100">
+                                                
+                                            </span>
+                                            <div class="flex flex-col">
+                                                <span class="font-bold text-md text-black dark:text-white ml-2">
+                                                  {{projects?.name}}
+                                                </span>
+                                                <span class="text-sm text-gray-500 dark:text-white ml-2">
+                                                    {{projects?.description}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <button class="border p-1 border-gray-200 rounded-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 1792 1792">
+                                                    <path d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                            <button class="text-gray-200">
+                                                <svg width="25" height="25" fill="currentColor" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1088 1248v192q0 40-28 68t-68 28h-192q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h192q40 0 68 28t28 68zm0-512v192q0 40-28 68t-68 28h-192q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h192q40 0 68 28t28 68zm0-512v192q0 40-28 68t-68 28h-192q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h192q40 0 68 28t28 68z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between mb-4 space-x-12">
+                                        <span class="px-2 py-1 flex items-center font-semibold text-xs rounded-md text-green-700 bg-green-50">
+                                         {{projects?.status}}
+                                        </span>
+                                        <span class="px-2 py-1 flex items-center font-semibold text-xs rounded-md text-green-600 border border-green-600 bg-white">
+                                           {{projects.priority}}
+                                        </span>
+                                    </div>
+                                    <div class="block m-auto">
+                                        <div>
+                                            <span class="text-sm inline-block text-gray-500 dark:text-gray-100">
+                                                Progress :
+                                                <span class="text-gray-700 dark:text-white font-bold">
+                                                    {{projects.percentage}}
+                                                </span>
+                                                /100
+                                            </span>
+                                        </div>
+                                        <div class="w-full h-2 bg-gray-200 rounded-full mt-2">
+                                            <div class="h-full text-center text-xs text-white bg-pink-400 rounded-full" [ngStyle]="{'width.%':projects.percentage}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="flex items-center justify-start my-4 space-x-4">
+                                        <span class="px-2 py-1 flex items-center text-xs rounded-md font-semibold text-green-500 bg-green-50">
+                                            IOS APP
+                                        </span>
+                                        <span class="px-2 py-1 flex items-center text-xs rounded-md text-yellow-600 font-semibold bg-yellow-200">
+                                            ANDROID
+                                        </span>
+                                    </div>
+                                    <div class="flex -space-x-2">
+                                        <a href="#" class="">
+                                            <img class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white" src="/images/person/1.jpg" alt="Guy"/>
+                                        </a>
+                                        <a href="#" class="">
+                                            <img class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white" src="/images/person/2.jpeg" alt="Max"/>
+                                        </a>
+                                        <a href="#" class="">
+                                            <img class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white" src="/images/person/3.jpg" alt="Charles"/>
+                                        </a>
+                                        <a href="#" class="">
+                                            <img class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white" src="/images/person/4.jpg" alt="Jade"/>
+                                        </a>
+                                    </div> -->
+                                    <span class="px-2 py-1 flex w-fit mt-4 items-center text-xs rounded-md font-semibold text-yellow-500 bg-yellow-100">
+                                        DUE DATE : {{projects.endDate | date}}
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="w-full sm:w-1/2 xl:w-1/3" *CanPerformAction="routes.statistics.admin">
+                            <!-- LOGGED IN TEACHERS -->
+                            <div class="mb-4 mx-0 sm:ml-4 xl:mr-4 h-60">
+                                <div class="shadow-lg rounded-2xl bg-white dark:bg-gray-700 w-full h-full">
+                                    <p class="font-bold text-md p-4 text-black dark:text-white">
+                                        Logged in teachers
+                                        <span class="text-sm text-gray-500 dark:text-white ml-2">
+                                            ({{loggedInTeachers.length}})
+                                        </span>
+                                    </p>
+                                    <ul>
+                                        <li *ngFor="let teacher of loggedInTeachers " class="flex items-center text-gray-400 justify-between py-3 border-b-2 border-gray-100 dark:border-gray-800">
+                                            <div class="flex items-center justify-start text-sm">
+                                                <span class="mx-4">
+                                                  <img src="{{teacher?.profile_photo}}" alt="photo" class="rounded-full" width="35px" height="35px">
+                                                </span>
+                                                <span class="pr-2">
+                                                    {{teacher?.username}},
+                                                </span>
+                                                <span class="">
+                                                    {{teacher?.last_login | date:'medium'}}
+                                                </span>
+                                            </div>
+                                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 1024 1024" class="text-green-500 mx-4">
+                                                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8l157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z" fill="currentColor">
+                                                </path>
+                                            </svg>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- MONTHLY EXPENSES -->
+                            <div *CanPerformAction="routes.statistics.admin" class="mb-4 sm:ml-4 xl:mr-4 h-60">
+                                <div class="shadow-lg rounded-2xl bg-white dark:bg-gray-700 w-full h-full">
+                                    <div class="flex items-center p-4 justify-between">
+                                        <p class="font-bold text-md text-black dark:text-white">
+                                           Expenses for {{ month | date: 'MMMM' }}
+                                        </p>
+                                        <button class="text-sm p-1 text-gray-400 border rounded border-gray-400 mr-4">
+                                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 20 20">
+                                                <g fill="none">
+                                                    <path d="M17.222 8.685a1.5 1.5 0 0 1 0 2.628l-10 5.498A1.5 1.5 0 0 1 5 15.496V4.502a1.5 1.5 0 0 1 2.223-1.314l10 5.497z" fill="currentColor">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                   <div class="parent" *ngFor="let expense of expenses">
+                                    <div class="py-2 px-4 bg-{{ (expense.status | lowercase) == 'paid' ? 'blue' :((expense.status | lowercase) == 'unpaid' ? 'gray' : 'red') }}-300 dark:bg-gray-800 text-gray-600 border-l-4 border-blue-500 flex items-center justify-between">
+                                        <p class="text-xs flex items-center dark:text-white">
+                                            <svg width="20" height="20" fill="currentColor" class="text-blue-500 mr-2" viewBox="0 0 24 24">
+                                                <g fill="none">
+                                                    <path d="M12 5a8.5 8.5 0 1 1 0 17a8.5 8.5 0 0 1 0-17zm0 3a.75.75 0 0 0-.743.648l-.007.102v4.5l.007.102a.75.75 0 0 0 1.486 0l.007-.102v-4.5l-.007-.102A.75.75 0 0 0 12 8zm7.17-2.877l.082.061l1.149 1a.75.75 0 0 1-.904 1.193l-.081-.061l-1.149-1a.75.75 0 0 1 .903-1.193zM14.25 2.5a.75.75 0 0 1 .102 1.493L14.25 4h-4.5a.75.75 0 0 1-.102-1.493L9.75 2.5h4.5z" fill="currentColor">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                           {{expense?.name}}
+                                        </p>
+                                        <div class="flex items-center">
+                                            <span class="font-bold text-xs dark:text-gray-200 mr-2 ml-2 md:ml-4">
+                                               {{expense?.cost | currency:'XAF'}}
+                                            </span>
+                                            <!-- <button class="text-sm p-1 text-gray-400 border rounded bg-blue-500 mr-4">
+                                                <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24" class="text-white">
+                                                    <g fill="none">
+                                                        <path d="M9 6a1 1 0 0 1 1 1v10a1 1 0 1 1-2 0V7a1 1 0 0 1 1-1zm6 0a1 1 0 0 1 1 1v10a1 1 0 1 1-2 0V7a1 1 0 0 1 1-1z" fill="currentColor">
+                                                        </path>
+                                                    </g>
+                                                </svg>
+                                            </button> -->
+                                        </div>
+                                    </div>
+                                    <!-- <div class="flex items-center p-4 justify-between border-b-2 border-gray-100">
+                                        <p class="font-bold text-md text-black dark:text-white">
+                                            Slack
+                                        </p>
+                                        <button class="text-sm p-1 text-gray-400 border rounded border-gray-400 mr-4">
+                                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 20 20">
+                                                <g fill="none">
+                                                    <path d="M17.222 8.685a1.5 1.5 0 0 1 0 2.628l-10 5.498A1.5 1.5 0 0 1 5 15.496V4.502a1.5 1.5 0 0 1 2.223-1.314l10 5.497z" fill="currentColor">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="py-2 px-4 text-gray-600 flex items-center justify-between border-b-2 border-gray-100">
+                                        <p class="text-xs flex items-center dark:text-white">
+                                            <svg width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 24 24">
+                                                <g fill="none">
+                                                    <path d="M12 5a8.5 8.5 0 1 1 0 17a8.5 8.5 0 0 1 0-17zm0 3a.75.75 0 0 0-.743.648l-.007.102v4.5l.007.102a.75.75 0 0 0 1.486 0l.007-.102v-4.5l-.007-.102A.75.75 0 0 0 12 8zm7.17-2.877l.082.061l1.149 1a.75.75 0 0 1-.904 1.193l-.081-.061l-1.149-1a.75.75 0 0 1 .903-1.193zM14.25 2.5a.75.75 0 0 1 .102 1.493L14.25 4h-4.5a.75.75 0 0 1-.102-1.493L9.75 2.5h4.5z" fill="currentColor">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                            International
+                                        </p>
+                                        <div class="flex items-center">
+                                            <span class="text-xs text-gray-400 mr-2 ml-2 md:ml-4">
+                                                30 min
+                                            </span>
+                                            <button class="text-sm p-1 text-gray-400 border rounded border-gray-400 mr-4">
+                                                <svg width="15" height="15" fill="currentColor" viewBox="0 0 20 20">
+                                                    <g fill="none">
+                                                        <path d="M17.222 8.685a1.5 1.5 0 0 1 0 2.628l-10 5.498A1.5 1.5 0 0 1 5 15.496V4.502a1.5 1.5 0 0 1 2.223-1.314l10 5.497z" fill="currentColor">
+                                                        </path>
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="py-2 px-4 text-gray-600 flex items-center justify-between border-b-2 border-gray-100">
+                                        <p class="text-xs flex items-center dark:text-white">
+                                            <svg width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 24 24">
+                                                <g fill="none">
+                                                    <path d="M12 5a8.5 8.5 0 1 1 0 17a8.5 8.5 0 0 1 0-17zm0 3a.75.75 0 0 0-.743.648l-.007.102v4.5l.007.102a.75.75 0 0 0 1.486 0l.007-.102v-4.5l-.007-.102A.75.75 0 0 0 12 8zm7.17-2.877l.082.061l1.149 1a.75.75 0 0 1-.904 1.193l-.081-.061l-1.149-1a.75.75 0 0 1 .903-1.193zM14.25 2.5a.75.75 0 0 1 .102 1.493L14.25 4h-4.5a.75.75 0 0 1-.102-1.493L9.75 2.5h4.5z" fill="currentColor">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                            Slack logo design
+                                        </p>
+                                        <div class="flex items-center">
+                                            <span class="text-xs text-gray-400 mr-2 ml-2 md:ml-4">
+                                                30 min
+                                            </span>
+                                            <button class="text-sm p-1 text-gray-400 border rounded border-gray-400 mr-4">
+                                                <svg width="15" height="15" fill="currentColor" viewBox="0 0 20 20">
+                                                    <g fill="none">
+                                                        <path d="M17.222 8.685a1.5 1.5 0 0 1 0 2.628l-10 5.498A1.5 1.5 0 0 1 5 15.496V4.502a1.5 1.5 0 0 1 2.223-1.314l10 5.497z" fill="currentColor">
+                                                        </path>
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="py-2 px-4 text-gray-600 flex items-center justify-between">
+                                        <p class="text-xs flex items-center dark:text-white">
+                                            <svg width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 24 24">
+                                                <g fill="none">
+                                                    <path d="M12 5a8.5 8.5 0 1 1 0 17a8.5 8.5 0 0 1 0-17zm0 3a.75.75 0 0 0-.743.648l-.007.102v4.5l.007.102a.75.75 0 0 0 1.486 0l.007-.102v-4.5l-.007-.102A.75.75 0 0 0 12 8zm7.17-2.877l.082.061l1.149 1a.75.75 0 0 1-.904 1.193l-.081-.061l-1.149-1a.75.75 0 0 1 .903-1.193zM14.25 2.5a.75.75 0 0 1 .102 1.493L14.25 4h-4.5a.75.75 0 0 1-.102-1.493L9.75 2.5h4.5z" fill="currentColor">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                            Dahboard template
+                                        </p>
+                                        <div class="flex items-center">
+                                            <span class="text-xs text-gray-400 mr-2 ml-2 md:ml-4">
+                                                30 min
+                                            </span>
+                                            <button class="text-sm p-1 text-gray-400 border rounded border-gray-400 mr-4">
+                                                <svg width="15" height="15" fill="currentColor" viewBox="0 0 20 20">
+                                                    <g fill="none">
+                                                        <path d="M17.222 8.685a1.5 1.5 0 0 1 0 2.628l-10 5.498A1.5 1.5 0 0 1 5 15.496V4.502a1.5 1.5 0 0 1 2.223-1.314l10 5.497z" fill="currentColor">
+                                                        </path>
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div> -->
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full sm:w-1/2 xl:w-1/3">
+                            <!-- CALENDAR -->
+                           <app-calendar></app-calendar>
+                            <!-- MESSAGES -->
+                           <app-message-inbox></app-message-inbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- GRAPH DATA -->
+        </main>
+        <!-- <div class="container w-1/2 m-auto">
+            <app-statistics-chart></app-statistics-chart>
+        </div> -->
+

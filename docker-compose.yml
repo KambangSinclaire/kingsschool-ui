@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  kingsschool-ui:
+    image: kambang/kingsschool:web
+    container_name: kingsschool-web
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - 7000:7000
+    command: npm run start
